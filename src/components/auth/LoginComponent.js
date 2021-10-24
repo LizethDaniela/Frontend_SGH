@@ -18,8 +18,8 @@ export const LoginComponent = () => {
     const { user, msnerror } = authRename;
     console.log(user);
     const [form, handlerChangeForm, handlerResetForm] = useForm({
-        username: "",
-        password: ""
+        username: "Pepito",
+        password: "1234"
     });
     const {username, password} = form;
     const handlerSubmit = (e) => {
@@ -81,9 +81,6 @@ export const LoginComponent = () => {
                         </form>
                     </div>
                     <div className="card-footer">
-                        <div className="d-flex justify-content-center links">
-                            Don't have an account?<Link to="/register">Sign Up</Link>
-                        </div>
                         <div className="d-flex justify-content-center">
                             <a href="#">Forgot your password?</a>
                         </div>

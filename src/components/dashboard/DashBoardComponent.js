@@ -29,8 +29,8 @@ export const DashBoardComponent = ({ children, ...rest }) => {
             <div className="sidebar">
                 <header>My App</header>
                 <ul>
-                    <li><Link to="/register">Registrar Docentes</Link></li>
-                    <li><Link to="/registere">Register Es</Link></li>
+                    <li><Link to="/registerdocentes">Registrar Docentes</Link></li>
+                    <li><Link to="/registerestudents">Registrar Estudiantes</Link></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Overview</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Events</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>About</a></li>

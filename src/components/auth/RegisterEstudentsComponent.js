@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-//import { UsergroupAddOutlined  } from '@ant-design/icons';
-import "./stylesEs.css";
+import { MdAccountCircle } from "react-icons/md";
+import { useForm } from "../../hooks/useForm";
+import "./stylesR.css";
 
 export const RegisterEstudentsComponent=()=>{
-    const [values, setValues] = useState({
+    const [form, setForm, handlerChangeForm] = useForm({
         ci: '',
         name: '',
         lastname: '',
@@ -11,19 +12,19 @@ export const RegisterEstudentsComponent=()=>{
         date: '',
         phone: ''
 
-      })
-      const [validations, setValidations] = useState({
+    });
+    const [validations, setValidations] = useState({
         ci: '',
         name: '',
         lastname: '',
         lastname2: '',
         date: '',
         phone: ''
-      })
+    })
       const validateAll = () => {
-        const { ci,name, lastname, lastname2, date, phone } = values
-        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' }
-        let isValid = true
+        const { ci, name, lastname, lastname2, date, phone } = form;
+        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' };
+        let isValid = true;
         if (!name) {
             validations.name = 'Name is required'
             isValid = false
@@ -50,9 +51,9 @@ export const RegisterEstudentsComponent=()=>{
           return isValid
         }
         const validateOne = (e) => {
-            const { name } = e.target
-            const value = values[name]
-            let message = ''
+            const { name } = e.target;
+            const value = form[name];
+            let message = '';
             
             if (!value) {
               message = `${name} es required`
@@ -64,10 +65,6 @@ export const RegisterEstudentsComponent=()=>{
         
             setValidations({...validations, [name]: message })
           }
-          const handleChange = (e) => {
-            const { name, value } = e.target
-            setValues({...values, [name]: value })
-          }
           const handleSubmit = (e) => {
             e.preventDefault()
             const isValid = validateAll()
@@ -75,11 +72,11 @@ export const RegisterEstudentsComponent=()=>{
             if (!isValid) {
               return false
             }
-            console.log(values);
-            setValues({ci:'',name: '', lastname: '', lastname2: '',date:'', phone:''});
+            console.log(form);
+            setForm({ci:'',name: '', lastname: '', lastname2: '',date:'', phone:''});
           }
           
-          const { ci,name, lastname, lastname2,date,phone } = values
+          const { ci,name, lastname, lastname2, date, phone } = form;
         
           const { 
             ci: ciVal, 
@@ -91,32 +88,32 @@ export const RegisterEstudentsComponent=()=>{
           } = validations        
 
     return (
-      <div className="wrapper">
+      <div className="container">
         <div className="form-wrapper">
-          <h1>REGISTRO DE ESTUDIANTE</h1>
+          <h1>REGISTRO DE ESTUDIANTES <MdAccountCircle /> </h1>
           
           <form onSubmit={handleSubmit} noValidate>
           <div className="simple">
-              <label htmlFor="CI">CI</label>
+              <label htmlFor="CI">C.I.:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
                 name="ci"
                 value={ci} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
                 
               />
              <div>{ciVal}</div>
             </div>
             <div className="firstName">
-              <label htmlFor="firstName">Nombre</label>
+              <label htmlFor="firstName">Nombre:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
                 name="name"
                 value={name} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
                
               />
@@ -124,49 +121,49 @@ export const RegisterEstudentsComponent=()=>{
             </div>
             
             <div className="lastName">
-              <label htmlFor="lastName">Apellido Paterno</label>
+              <label htmlFor="lastName">Apellido Paterno:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
                 name="lastname"
                 value={lastname} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
               />
              <div>{lastnameVal}</div>
             </div>
             <div className="lastName2">
-              <label htmlFor="lastName2">Apellido Materno</label>
+              <label htmlFor="lastName2">Apellido Materno:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
                 name="lastname2"
                 value={lastname2} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
               />
             <div>{lastname2Val}</div>
             </div>
             <div className="date">
-              <label htmlFor="date">Fecha de Nacimiento</label>
+              <label htmlFor="date">Fecha de Nacimiento:</label>
               <input
-                placeholder="dd/mm/yyyy"
+                placeholder="mm/dd/yyyy"
                 type="date"
                 name="date"
                 value={date} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
               />
               <div>{dateVal}</div>
             </div>
             <div className="simple">
-              <label htmlFor="phone">Teléfono</label>
+              <label htmlFor="phone">Teléfono:</label>
               <input
                 placeholder="Escriba aqui"
-                type="number"
+                type="tel"
                 name="phone"
                 value={phone} 
-                onChange={handleChange}
+                onChange={handlerChangeForm}
                 onBlur={validateOne}
               />
               <div>{phoneVal}</div>
@@ -179,4 +176,4 @@ export const RegisterEstudentsComponent=()=>{
         </div>
       </div>
     );
-}
+};
