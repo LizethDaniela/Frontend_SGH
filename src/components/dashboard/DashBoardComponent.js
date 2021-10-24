@@ -20,12 +20,12 @@ export const DashBoardComponent = ({ children, ...rest }) => {
     };
     return (
         user == null? (<Redirect to="/Login"/>): (<>
-            <input type="checkbox" id="check"/>
+            {/* <input type="checkbox" id="check"/>
             <label htmlFor="check">
                 <div className="fas fa-bars">
                     <MdCancel className="iconcolor"/>
                 </div>
-            </label>
+            </label> */}
             <div className="sidebar">
                 <header>My App</header>
                 <ul>
@@ -38,7 +38,11 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>
-            <section></section>
+            <section>
+                <div className="d-flex justify-content-center h-100">
+                    <img src={'/imgauth/ciudadela.jpg'} className="img"/>
+                </div>
+            </section>
         </>)
     );
 };
