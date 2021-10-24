@@ -21,8 +21,8 @@ export const RouterApp = () => {
                 <Route exact path="/registerdocentes" component= {RegisterDocentsComponent}/>
                 <Route exact path="/registerestudents" component={RegisterEstudentsComponent}/>
                 <Route exact path="/asignarmaterias" component= {AsignarMateriasComponent}/>
+                <Route exact path="/Dashboard" component={DashBoardComponent}/>
                 <Route path="/main" component={MainDashBoard}/>
-                <Route path="/" component={DashBoardComponent}/>
             </Switch>
         </Router>
     );
