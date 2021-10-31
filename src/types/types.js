@@ -6,5 +6,7 @@ export const types = {
 
     authLogin: "auth/login",
     authLogout: "auth/logout",
-    authError: "auth/error"
+    authError: "auth/error",
+    authRegisterEstudents: "auth/registerestudents",
+    authRegisterDocentes: "auth/registerdocentes"
 }

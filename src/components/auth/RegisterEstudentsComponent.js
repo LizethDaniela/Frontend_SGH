@@ -1,98 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { MdAccountCircle } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { registerestudents } from '../../actions/authActionsRegisters';
 import { useForm } from "../../hooks/useForm";
 import "./stylesR.css";
 
 export const RegisterEstudentsComponent=()=>{
-    const [form, setForm, handlerChangeForm] = useForm({
-        ci: '',
-        name: '',
-        lastname: '',
-        lastname2: '',
-        date: '',
-        phone: ''
+  const [form, setForm, handlerChangeForm, resetForm] = useForm({
+    ci: "",
+    name: "",
+    lastname: "",
+    lastname2: "",
+    date: "",
+    phone: ""
+  });
+  const { ci, name, lastname, lastname2, date, phone } = form;
+  const dispatch = useDispatch();
+  useEffect(() => {
+  const RegisterEstudents = localStorage.getItem("RegisterEstudents");
+  if (RegisterEstudents != null) {
+      dispatch(registerestudents(JSON.parse(RegisterEstudents)));
+  }
+  }, []);
+  const { authRegEstudents } = useSelector(state => state);
+  const { userEstudent } = authRegEstudents;
+  console.log(userEstudent);
 
-    });
-    const [validations, setValidations] = useState({
-        ci: '',
-        name: '',
-        lastname: '',
-        lastname2: '',
-        date: '',
-        phone: ''
-    })
-      const validateAll = () => {
-        const { ci, name, lastname, lastname2, date, phone } = form;
-        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' };
-        let isValid = true;
-        if (!name) {
-            validations.name = 'Name is required'
-            isValid = false
-          }
-          
-          if (name && name.length < 3 || name.length > 50) {
-            validations.name = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-          
-          if (lastname && lastname.length < 3 || lastname.length > 50) {
-            validations.lastname = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-          if (lastname2 && lastname2.length < 3 || lastname2.length > 50) {
-            validations.lastname2 = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-         
-          if (!isValid) {
-            setValidations(validations)
-          }
-          
-          return isValid
-        }
-        const validateOne = (e) => {
-            const { name } = e.target;
-            const value = form[name];
-            let message = '';
-            
-            if (!value) {
-              message = `${name} es required`
-            }
-            
-            if (value && name === 'name' && (value.length < 3 || value.length > 50)) {
-              message = 'Name must contain between 3 and 50 characters'
-            }
-        
-            setValidations({...validations, [name]: message })
-          }
-          const handleSubmit = (e) => {
-            e.preventDefault()
-            const isValid = validateAll()
-            
-            if (!isValid) {
-              return false
-            }
-            console.log(form);
-            setForm({ci:'',name: '', lastname: '', lastname2: '',date:'', phone:''});
-          }
-          
-          const { ci,name, lastname, lastname2, date, phone } = form;
-        
-          const { 
-            ci: ciVal, 
-            name: nameVal, 
-            lastname: lastnameVal,
-            lastname2: lastname2Val, 
-            date: dateVal, 
-            phone: phoneVal 
-          } = validations        
-
-    return (
-      <div className="container">
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(registerestudents(ci, name, lastname, lastname2, date, phone));
+    resetForm();
+  }
+  return (
+    <div className="container">
         <div className="form-wrapper">
           <h1>REGISTRO DE ESTUDIANTES <MdAccountCircle /> </h1>
           
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit}>
           <div className="simple">
               <label htmlFor="CI">C.I.:</label>
               <input
@@ -101,10 +45,9 @@ export const RegisterEstudentsComponent=()=>{
                 name="ci"
                 value={ci} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
+                
                 
               />
-             <div>{ciVal}</div>
             </div>
             <div className="firstName">
               <label htmlFor="firstName">Nombre:</label>
@@ -114,10 +57,9 @@ export const RegisterEstudentsComponent=()=>{
                 name="name"
                 value={name} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
+                
                
               />
-             <div>{nameVal}</div>
             </div>
             
             <div className="lastName">
@@ -128,9 +70,7 @@ export const RegisterEstudentsComponent=()=>{
                 name="lastname"
                 value={lastname} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-             <div>{lastnameVal}</div>
             </div>
             <div className="lastName2">
               <label htmlFor="lastName2">Apellido Materno:</label>
@@ -140,9 +80,7 @@ export const RegisterEstudentsComponent=()=>{
                 name="lastname2"
                 value={lastname2} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-            <div>{lastname2Val}</div>
             </div>
             <div className="date">
               <label htmlFor="date">Fecha de Nacimiento:</label>
@@ -152,9 +90,7 @@ export const RegisterEstudentsComponent=()=>{
                 name="date"
                 value={date} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-              <div>{dateVal}</div>
             </div>
             <div className="simple">
               <label htmlFor="phone">Teléfono:</label>
@@ -164,9 +100,7 @@ export const RegisterEstudentsComponent=()=>{
                 name="phone"
                 value={phone} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-              <div>{phoneVal}</div>
             </div>
             <div className="createAccount">
               <button type="submit">Registrar</button>
@@ -174,6 +108,6 @@ export const RegisterEstudentsComponent=()=>{
             </div>
           </form>
         </div>
-      </div>
-    );
+    </div>
+  );
 };

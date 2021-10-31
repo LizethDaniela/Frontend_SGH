@@ -17,11 +17,10 @@ h3 {
 
 select {
     margin-bottom: 10px;
-    color: rgb(39, 4, 95);
 }
 
 select option {
-    color: rgb(39, 4, 95);
+    color: darkblue;
 }
 
 .form-control {
@@ -35,6 +34,10 @@ select option {
     background-color: blueviolet;
     border: none;
     border-radius: 5px;
+}
+
+.btn-a:hover {
+    color:cornsilk;
 }
 
 .mostrar {

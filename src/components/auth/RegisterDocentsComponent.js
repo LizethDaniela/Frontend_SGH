@@ -11,7 +11,6 @@ export const RegisterDocentsComponent = () => {
         lastname2: '',
         date: '',
         phone: ''
-
     });
     const [validations, setValidations] = useState({
         ci: '',
@@ -66,8 +65,8 @@ export const RegisterDocentsComponent = () => {
             setValidations({...validations, [name]: message })
           }
           const handleSubmit = (e) => {
-            e.preventDefault()
-            const isValid = validateAll()
+            e.preventDefault();
+            const isValid = validateAll();
             
             if (!isValid) {
               return false

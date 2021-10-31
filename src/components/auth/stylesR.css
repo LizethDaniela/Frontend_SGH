@@ -101,6 +101,7 @@ input:valid {
 .createAccount small {
     color: #999;
     font-weight: lighter;
+    text-align: center;
 }
 .textField{
     height: 32px;
