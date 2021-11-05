@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.table_container{
+    margin: 50px 150px;
+}
+
+h4{
+    background-color: blueviolet;
+    text-align: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: auto;
+}
