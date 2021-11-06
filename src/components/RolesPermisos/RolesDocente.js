@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 //import Head from '../head/Head';
-import 'bootstrap/dist/css/bootstrap.css'; 
+//import 'bootstrap/dist/css/bootstrap.css'; 
 //import CargaHorariaDocentes from '../CargaHoraiaDocentes/CargaHorariaDocentes';
+import './stylos.css';
 
 
 const RolesDocente = () => {
@@ -72,11 +73,11 @@ const RolesDocente = () => {
 
     return (
         <>
-         
-        <div className="">
+        <h1>DOCENTES</h1>
+        <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>
-            <table className="table table-hover table-bordered thead-dark">
+            <table className=" table-hover table-bordered thead-dark">
                <thead>
                    <tr>
                        <th>ID</th>

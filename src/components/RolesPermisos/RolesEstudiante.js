@@ -1,17 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 //import Head from '../head/Head';
-import 'bootstrap/dist/css/bootstrap.css'; 
+//import 'bootstrap/dist/css/bootstrap.css'; 
 //import CargaHorariaDocentes from '../CargaHoraiaDocentes/CargaHorariaDocentes';
+import './stylos.css';
 
 
 const RolesEstudiante = () => {
     const data = [
-        {id:1, name:'Luis Alejandro', surname:'Perez Cruz', phone:'78965412', role:'user', status:'activo'},
-        {id:2, name:'Juan', surname:'Choque', phone:'78923612', role:'user', status:'activo'},
-        {id:3, name:'Paola', surname:'Castillo Cruz', phone:'78565412', role:'user', status:'activo'},
-        {id:4, name:' Alejandro', surname:'Perez Cruz', phone:'7205312', role:'user', status:'activo'},
-        {id:5, name:'Luis ', surname:'Escalante Palma', phone:'78653412', role:'user', status:'activo'},
+        {id:1, name:'Noemi', surname:'Calizaya Uño', phone:'78965412', role:'user', status:'activo'},
+        {id:2, name:'Celia', surname:'Oyola Ramos', phone:'78923612', role:'user', status:'activo'},
+        {id:3, name:'Ramiro', surname:'Vargas Mamani', phone:'78565412', role:'user', status:'activo'},
+        {id:4, name:' Liz', surname:'Quispe Lopez', phone:'7205312', role:'user', status:'activo'},
+        {id:5, name:'Dalay ', surname:'Fuertes Contreras', phone:'78653412', role:'user', status:'activo'},
     ]
     const [dates, setDates]=useState(data);
     const [update, setUpdate]=useState(false);
@@ -74,10 +75,10 @@ const RolesEstudiante = () => {
         <>
         
          <h1>ESTUDIANTES</h1>
-        <div className="">
+        <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>
-            <table className="table table-hover table-bordered thead-dark">
+            <table className=" table-hover table-bordered thead-dark">
                <thead>
                    <tr>
                        <th>ID</th>
