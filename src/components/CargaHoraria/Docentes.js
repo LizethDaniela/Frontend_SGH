@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import Head from '../head/Head';
 //import Head from '../head/Head';
-import 'bootstrap/dist/css/bootstrap.css'; 
+//import 'bootstrap/dist/css/bootstrap.css'; 
 //import CargaHorariaDocentes from '../CargaHoraiaDocentes/CargaHorariaDocentes';
+import './Docente.css';
 
 
 const Docentes = () => {
     const data = [
-        {id:1, name:'Luis Alejandro', surname:'Perez Cruz', carga:'2:45'},
-        {id:2, name:'Juan', surname:'Choque', carga:'2:45'},
-        {id:3, name:'Paola', surname:'Castillo Cruz',carga:'2:45'},
-        {id:4, name:' Alejandro', surname:'Perez Cruz', carga:'2:45'},
-        {id:5, name:'Luis ', surname:'Escalante Palma', carga:'2:45'},
+        {id:1, name:'Limber', surname:'Calizaya Cruz', carga:'2:45'},
+        {id:2, name:'Alex', surname:'Choque Zeballos', carga:'2:45'},
+        {id:3, name:'Cristhian', surname:'Castillo Cruz',carga:'2:45'},
+        {id:4, name:' Dilan', surname:'Perez Copa', carga:'2:45'},
+        {id:5, name:'Luis ', surname:' Palma Ricaldi', carga:'2:45'},
     ]
     const [dates, setDates]=useState(data);
     const [update, setUpdate]=useState(false);
@@ -68,11 +70,12 @@ const Docentes = () => {
    }
 
     return (
-        
-        <div>
+        <>
+        <Head/>
+        <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>
-            <table className="table table-hover table-bordered thead-dark">
+            <table className=" table-bordered thead-dark">
                <thead>
                    <tr>
                        <th>ID</th>
@@ -187,7 +190,7 @@ const Docentes = () => {
         </Modal>
 
         </div>
-    
+    </>
     )
 }
 
