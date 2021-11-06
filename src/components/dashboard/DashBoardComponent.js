@@ -32,6 +32,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                     <li><Link to="/registerdocentes">Registrar Docentes</Link></li>
                     <li><Link to="/registerestudents">Registrar Estudiantes</Link></li>
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
+                    <li><Link to="/horarios">Horarios</Link></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Events</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>About</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Services</a></li>
