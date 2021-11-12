@@ -12,7 +12,6 @@ class UserController {
   public async create(request: Request, response: Response) {
     //body
     let { name, email, password } = request.body;
-    
     const result = await this.userRepository.create({ name, email, password });
     response.status(201).json({ serverResponse: result });
   }
