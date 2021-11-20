@@ -8,10 +8,10 @@ import {
     Link
   } from "react-router-dom";
 import { authLogoutAsync } from '../../actions/auth';
-import "./styles.css"
 
 
-export const DashBoardComponent = ({ children, ...rest }) => {
+
+export const DashboardDocente= ({ children, ...rest }) => {
     const {auth} = useSelector(state => state);
     const {user} = auth;
     const dispatch = useDispatch();
@@ -27,19 +27,14 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                 </div>
             </label> */}
             <div className="sidebar">
-                <header>My Administrador</header>
+                <header>Docente</header>
                 <ul>
-                    <li><Link to="/registerdocentes">Registrar Docentes</Link></li>
-                    <li><Link to="/registerestudents">Registrar Estudiantes</Link></li>
-                    <li><Link to="/principal">Roles y Permisos</Link></li>
-                    <li><Link to="/cargahorariadocente"> Carga Horaria Docentes</Link></li>
-                    <li><Link to="/materiacarga">Materias y carga horaria</Link></li>
-                    <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
-                    <li><Link to="/horarios">Horarios</Link></li>
+                    +
                     <li><a href="#"><i className="fas fa-qrcode"></i>Events</a></li>
                     {/*<li><a href="#"><i className="fas fa-qrcode"></i>About</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Services</a></li>*/}
-                    <li><Link to="/verhorarios"> Ver Horario Docentes</Link></li>
+                    <li><Link to="/verhorariosasignados"> Ver Horarios Asignados</Link></li>
+                    <li><Link to="/horarios"> Ver Horarios</Link></li>
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>

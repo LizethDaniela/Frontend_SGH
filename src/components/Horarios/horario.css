@@ -1,0 +1,56 @@
+
+h3 {
+    text-align: center;
+    font-size: 2em;
+    color: aliceblue;
+}
+select {
+    margin-bottom: 5px;
+    color: rgb(39, 4, 95);
+}
+
+select option {
+    color: rgb(39, 4, 95);
+}
+.btn-a{
+    margin: -1px;
+    padding: 1px;
+    background-color: rgb(230, 211, 227);
+    border: none;
+    border-radius: 1px;
+    width: 100px;
+    height: 45px;
+    font-size: small;
+}
+.horario{
+    height: 150px;
+    margin-top: -560px;
+    width: 60%;
+    
+}
+.formatohorario{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+select:hover{
+    color:rgb(38, 0, 255);
+}
+.btn-a:hover{
+    color: rgb(71, 47, 85);
+}
+.btn-op{
+    width: 150px;
+    height: 50px;
+}
+.mostrar {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.form-select{
+    width: 200px;
+}
+.cab{
+    background: rgb(109, 76, 145);
+}

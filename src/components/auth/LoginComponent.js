@@ -14,7 +14,7 @@ export const LoginComponent = () => {
             dispatch(auth(JSON.parse(userData)));
         }
     }, []);
-    const { auth: authRename } = useSelector(state => state);
+    const { auth: authRename} = useSelector(state => state);
     const { user, msnerror } = authRename;
     console.log(user);
     const [form, handlerChangeForm, handlerResetForm] = useForm({
@@ -87,7 +87,10 @@ export const LoginComponent = () => {
                     </div>
                 </div>
             </div>
-        </div>) : (<Redirect to="/Dashboard"/>)}
+        </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
+        {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
+}
+        </>)}*/ <Redirect to="/Dashboard"/>)}
     </>
     );
 };

@@ -79,7 +79,7 @@ export const AsignarMateriasComponent = () => {
                                 <div class="mb-3">
                                     <h4>4° Semestre</h4>
                                 </div>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
                                     <option selected>Grupo</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>

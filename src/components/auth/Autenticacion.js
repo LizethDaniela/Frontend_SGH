@@ -1,5 +1,5 @@
 import React from 'react'
-import "./estilos.css";
+import "./auten.css";
 import {
     Link
   } from "react-router-dom";
