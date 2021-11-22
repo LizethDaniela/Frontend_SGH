@@ -1,0 +1,74 @@
+.materia{
+    background-color: rgb(35, 199, 185);
+    font-size: 20px;
+    font-weight: 1000;
+    width: 95vw;
+    height: 10vh;
+    font-family: cursive;
+    text-align: center;
+    border-radius: 70px;
+    border: 10px solid black;
+    color: white;
+}
+
+.dia{
+    background-color: rgb(238, 122, 13);
+    width: 40vw;
+    height: 9vh;
+    font-family: cursive;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    border: 5px solid black;
+    margin-left: 50px;
+}
+
+.tiempo{
+    background-color: rgb(238, 122, 13);
+    width: 15vw;
+    height: 7vh;
+    font-family: cursive;
+    margin-left: 200px;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    border: 5px solid black;
+}
+
+.motivo{
+    background-color: rgb(14, 188, 241);
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 90vw;
+    height: 150px;
+    font-family: cursive;
+    border: 5px solid black;
+    text-align: 100px;
+}
+.cancelar{
+    background-color: red;
+    width: 200px;
+    height: 70px;
+    margin-left: 300px;
+    margin-top: 20px;
+    font-family: cursive;
+    color: white;
+    border-radius: 40px;
+    border: 3px solid black;
+}
+
+.enviar{
+    background-color: yellowgreen;
+    width: 200px;
+    height: 70px;
+    margin-left: 300px;
+    font-family: cursive;
+    color: white;
+    border-radius: 40px;
+    border: 3px solid black;
+}
+
+.color {
+    background: rgb(221, 224, 17);
+}

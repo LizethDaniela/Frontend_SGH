@@ -1,0 +1,17 @@
+.tituloAjuste{
+    background-color: rgb(27, 8, 133);
+    text-align: center;
+    color: white;
+    font-size: 100px;
+    font-family: cursive;
+    line-height: 1;
+    font-weight: 1000;
+    width: 95vw;
+    height: 20vh;
+    border-radius: 70px;
+    border: 10px solid black;
+    margin:10px;
+}
+ * {
+     background: rgb(240, 12, 183);
+ }
