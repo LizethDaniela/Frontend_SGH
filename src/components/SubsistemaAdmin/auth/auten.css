@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+.banner{
+    background-image:linear-gradient(rgba(0,0,0,0.5),#009688), url("https://getwallpapers.com/wallpaper/full/0/b/b/15101.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 753px;   
+    
+}
+.present{
+    font-family:fantasy;
+    color:blanchedalmond;
+    margin-left: 0px;
+    font-style: oblique;
+    padding: 70px;
+    font-family: 'Tangerine', sans-serif;
+}
+.log{
+   /* background: linear-gradient(to top left, #995033, #704a6a);*/
+   background: ivory;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   border-radius: 5px;
+   margin-left: 900px;
+}
