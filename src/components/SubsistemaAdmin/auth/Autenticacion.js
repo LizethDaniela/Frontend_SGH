@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdComputer,MdOutlineEditCalendar } from "react-icons/md";
+import {  FaGraduationCap,FaUserTie,FaBriefcase} from "react-icons/fa";
 import "./auten.css";
 import {
     Link
@@ -11,7 +12,10 @@ export const Autenticacion = () => {
       <div className="present ">
       <h1><MdOutlineEditCalendar/>    Sistema de Gestión de Horarios</h1><br></br>
        <h1>Ingeniería de Sistemas </h1><hr/>
-       <Link to="/login" ><button type="button" className="log">Acceder</button></Link> 
+       <Link to="/login" ><button type="button" className="log"><FaUserTie/>Admin</button></Link>
+       <Link to="/logdocent" ><button type="button" className="log"><FaBriefcase/>Docente</button></Link> 
+       <Link to="/princestud" ><button type="button" className="log"><FaGraduationCap/>Estudiantes</button></Link> 
+
        <div class="row">
         <div class="col-sm-4">
           <div class="card">

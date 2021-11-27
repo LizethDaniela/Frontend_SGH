@@ -32,12 +32,12 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                     <li><Link to="/registerdocentes">Docentes</Link></li>
                     <li><Link to="/registerestudents">Estudiantes</Link></li>
                     <li><Link to="/principal">Roles y Permisos</Link></li>
-                    <li><Link to="/cargahorariadocente"> Carga Horaria Docentes</Link></li>
+                    <li><Link to="/cargahorariadocente"> Carga Horaria</Link></li>
                     <li><Link to="/materiacarga">Materias</Link></li>
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
                     <li><Link to="/ambientes">Ambientes</Link></li>
                     <li><Link to="/horarios">Horarios</Link></li>
-                    <li><Link to="/verhorarios"> Ver Horario Docentes</Link></li>
+                  
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>

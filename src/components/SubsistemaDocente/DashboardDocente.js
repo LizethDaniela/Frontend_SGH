@@ -8,7 +8,7 @@ import {
     Link
   } from "react-router-dom";
 import { authLogoutAsync } from '../../actions/auth';
-
+import "./dashstyles.css";
 
 
 export const DashboardDocente= ({ children, ...rest }) => {
@@ -33,6 +33,8 @@ export const DashboardDocente= ({ children, ...rest }) => {
                     <li><a href="#"><i className="fas fa-qrcode"></i>Events</a></li>
                     {/*<li><a href="#"><i className="fas fa-qrcode"></i>About</a></li>
                     <li><a href="#"><i className="fas fa-qrcode"></i>Services</a></li>*/}
+
+
                     <li><Link to="/verhorariosasignados"> Ver Horarios Asignados</Link></li>
                     <li><Link to="/horarios"> Ver Horarios</Link></li>
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>

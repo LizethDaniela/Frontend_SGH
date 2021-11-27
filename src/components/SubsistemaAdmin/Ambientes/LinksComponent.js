@@ -1,14 +1,14 @@
-import React, {useState}from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import React,{useState} from 'react'
 import Head from '../../head/Head'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
-import {Link} from "react-router-dom";
 
-export const AmbientesComponent = () => {
+export const LinksComponent = () => {
     const data = [
-        {id:1, number:'7', capacidad:'60',planta:'1'},
-        {id:2, number:'2', capacidad:'50',planta:'3'},
-        {id:3, number:'', capacidad:'80',planta:'2'},   
+        {id:1, semestre:'2',materia:'Estructura de datos', sigla:'SIS-310',link:'https://gbidcsjnxs&nkcdn'},
+        {id:2, semestre:'3',materia:'Estructura de datos', sigla:'SIS-310',link:'https://gbidcsjnxs&nkcdn'},
+        {id:2, semestre:'5',materia:'Estructura de datos', sigla:'SIS-310',link:'https://gbidcsjnxs&nkcdn'},
+          
     ]
     const [dates, setDates]=useState(data);
     const [update, setUpdate]=useState(false);
@@ -16,10 +16,10 @@ export const AmbientesComponent = () => {
     const [insert, setInsert]=useState(false);
     const [datoselect, setDatoselect]=useState({
         id:'',
-        number:'',
-        capacidad:'',
-        planta:'',
-        
+        semestre:'',
+        materia:'',
+        sigla:'',
+        link:'',
     });
     const select=(item, caso)=>{
         setDatoselect(item);
@@ -38,10 +38,10 @@ export const AmbientesComponent = () => {
        var newdata=dates;
        newdata.map(datos=>{
          if(datos.id===datoselect.id){
-             datos.number=datoselect.number;
-             datos.capacidad=datoselect.capacidad;
-             datos.planta=datoselect.planta;
-           
+             datos.semestre=datoselect.semestre;
+             datos.materia=datoselect.materia;
+             datos.sigla=datoselect.sigla;
+             datos.link=datoselect.link;
          }
        });
        setDates(newdata);
@@ -64,32 +64,31 @@ export const AmbientesComponent = () => {
        setDates(newDate);
        setInsert(false);
    }
-    return (<>
-        <Head/>
-        <DashBoardComponent/>
-        <div className="container">
-        <Link to="/links" ><button type="button" className="log">LINKS </button></Link>
-            
-        <div className="tabla">
+    return (
+        <>
+            <Head/>
+            <DashBoardComponent/>
+            <div className="container">
+            <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>
             <table className=" table-bordered thead-dark">
                <thead>
                    <tr>
-                       <th>ID</th>
-                       <th>PLANTA</th>
-                       <th>N°AMBIENTE</th>
-                       <th>CAPACIDAD</th>
+                       <th>SEMESTRE</th>
+                       <th>MATERIA </th>
+                       <th>  SIGLA</th>
+                       <th>ENLACES ZOOM</th>
                        <th>ACCIONES</th>
                    </tr>
                </thead>
                <tbody>
                    {dates.map((item)=>(
                        <tr> 
-                           <td>{item.id}</td>
-                           <td>{item.planta}</td>
-                           <td>{item.number}</td>
-                           <td>{item.capacidad}</td>
+                           <td>{item.semestre}</td>
+                           <td>{item.materia}</td>
+                           <td>{item.sigla}</td>
+                           <td>{item.link}</td>
                            
                             <td>
                                <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
@@ -100,33 +99,40 @@ export const AmbientesComponent = () => {
                    ))}
                </tbody>
             </table>
+            
             <Modal isOpen={update}>
             <ModalHeader>
                     <h2>EDITAR</h2>
             </ModalHeader>
             <ModalBody>
                 <FormGroup>
-                    <Label for="ambiente">ID</Label>
+                    <Label for="link">ID</Label>
                     <Input className="form-control" readOnly type="text" 
                     value={datoselect && datoselect.id}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>N° Ambiente</Label>
-                    <Input className="form-control" type="number" name="number" 
-                    value={datoselect && datoselect.number} 
+                    <Label>SEMESTRE</Label>
+                    <Input className="form-control" type="number" name="semestre" 
+                    value={datoselect && datoselect.semestre} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Capacidad de Estudiantes</Label>
-                    <Input className="form-control" type="number" name="capacidad"  
-                    value={datoselect && datoselect.capacidad}
+                    <Label>MATERIA</Label>
+                    <Input className="form-control" type="text" name="materia"  
+                    value={datoselect && datoselect.materia}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>PLANTA</Label>
-                    <Input className="form-control" type="number" name="planta"  
-                    value={datoselect && datoselect.planta}
+                    <Label>SIGLA</Label>
+                    <Input className="form-control" type="text" name="sigla"  
+                    value={datoselect && datoselect.sigla}
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>LINK</Label>
+                    <Input className="form-control" type="text" name="link"  
+                    value={datoselect && datoselect.link}
                     onChange={handleChange}/>
                 </FormGroup>
                 
@@ -141,9 +147,9 @@ export const AmbientesComponent = () => {
 
         <Modal isOpen={delet}>
             <ModalBody>
-                  ¿Estas segur@ que quieres Eliminar Amb 
-                  {' '}{datoselect && datoselect.number} piso
-                  {datoselect && datoselect.planta}?
+                  ¿Estas segur@ que quieres Eliminar  
+                  {' '}{datoselect && datoselect.materia} {''}
+                  {datoselect && datoselect.link}?
             </ModalBody>
             <ModalFooter>
                 <Button color="danger" onClick={()=>eliminar()}>SI</Button>
@@ -159,27 +165,33 @@ export const AmbientesComponent = () => {
             </ModalHeader>
             <ModalBody>
                 <FormGroup>
-                    <Label for="ambiente">ID</Label>
+                    <Label for="link">ID</Label>
                     <Input className="form-control" readOnly type="text" 
                     value={dates[dates.length-1].id+1}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>N° Ambiente</Label>
-                    <Input className="form-control" type="number" name="number" 
-                    value={datoselect ? datoselect.number: ''} 
+                    <Label>SEMESTRE</Label>
+                    <Input className="form-control" type="number" name="semestre" 
+                    value={datoselect ? datoselect.semestre: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Capacidad de Estudiantes</Label>
-                    <Input className="form-control" type="number" name="capacidad"  
-                    value={datoselect ? datoselect.capacidad: ''} 
+                    <Label>MATERIA</Label>
+                    <Input className="form-control" type="text" name="materia"  
+                    value={datoselect ? datoselect.materia: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>Planta</Label>
-                    <Input className="form-control" type="number" name="planta"  
-                    value={datoselect ? datoselect.planta: ''} 
+                    <Label>SIGLA</Label>
+                    <Input className="form-control" type="text" name="sigla"  
+                    value={datoselect ? datoselect.sigla: ''} 
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>LINK</Label>
+                    <Input className="form-control" type="text" name="link"  
+                    value={datoselect ? datoselect.link: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
                 
@@ -191,6 +203,8 @@ export const AmbientesComponent = () => {
         </Modal>
         </div>
         </div>
+       
+           
         </>
     )
 }

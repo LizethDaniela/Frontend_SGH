@@ -3,15 +3,12 @@ import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import Head from '../../head/Head';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent';
-//import { Formulario } from './Componentes/Formulario'
-//import './Componentes/formulario.css'
-//import { Botones } from './Componentes/Botones'
 
 export const MatApp = () => {
     const data = [
-        {id:1, name:'Tecnicas de Programación 1', sigla:'SIS-110', carga:'2:45'},
-        {id:2, name:'Computación básica', sigla:'SIS-115', carga:'2:45'},
-        {id:3, name:'Estructura de datos', sigla:'SIS-310',carga:'2:45'},
+        {id:1, name:'Tecnicas de Programación 1', sigla:'SIS-110',semestre:'1', cargasem:'8', docente:'Lopez Luis'},
+        {id:2, name:'Computación básica', sigla:'SIS-115',semestre:'1', cargasem:'12',docente:'gustavo puita'},
+        {id:3, name:'Estructura de datos', sigla:'SIS-310',semestre:'3',cargasem:'10', docente:'limber ruiz'},
        
     ]
     const [dates, setDates]=useState(data);
@@ -21,8 +18,10 @@ export const MatApp = () => {
     const [datoselect, setDatoselect]=useState({
         id:'',
         name:'',
-        surname:'',
-        carga:'',
+        sigla:'',
+        semestre:'',
+        cargasem:'',
+        docente:'',
     });
     const select=(item, caso)=>{
         setDatoselect(item);
@@ -42,9 +41,10 @@ export const MatApp = () => {
        newdata.map(datos=>{
          if(datos.id===datoselect.id){
              datos.name=datoselect.name;
-             datos.surname=datoselect.surname;
-             datos.phone=datoselect.carga;
-             
+             datos.sigla=datoselect.sigla;
+             datos.semestre=datoselect.semestre;
+             datos.cargasem=datoselect.cargasem;
+             datos.docente=datoselect.docente;
          }
        });
        setDates(newdata);
@@ -82,7 +82,9 @@ export const MatApp = () => {
                        <th>ID</th>
                        <th>NOMBRE</th>
                        <th>SIGLA</th>
-                       <th>CARGA HORARIA SEMANAL</th>
+                       <th>SEMESTRE</th>
+                       <th>CARGA HORARIA</th>
+                       <th>DOCENTE</th>
                        <th>ACCIONES</th>
                    </tr>
                </thead>
@@ -92,7 +94,9 @@ export const MatApp = () => {
                            <td>{item.id}</td>
                            <td>{item.name}</td>
                            <td>{item.sigla}</td>
-                           <td>{item.carga}</td>
+                           <td>{item.semestre}</td>
+                           <td>{item.cargasem}</td>
+                           <td>{item.docente}</td>
                             <td>
                                <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
                                {'  '}
@@ -104,31 +108,43 @@ export const MatApp = () => {
             </table>
             <Modal isOpen={update}>
             <ModalHeader>
-                    <h1>EDITAR</h1>
+                    <h2>EDITAR</h2>
             </ModalHeader>
             <ModalBody>
                 <FormGroup>
-                    <Label for="usuario">ID</Label>
+                    <Label for="materia">ID</Label>
                     <Input className="form-control" readOnly type="text" 
                     value={datoselect && datoselect.id}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>NOMBRE</Label>
+                    <Label>MATERIA</Label>
                     <Input className="form-control" type="text" name="name" 
                     value={datoselect && datoselect.name} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>APELLIDO</Label>
-                    <Input className="form-control" type="text" name="surname"  
-                    value={datoselect && datoselect.surname}
+                    <Label>SIGLA</Label>
+                    <Input className="form-control" type="text" name="sigla"  
+                    value={datoselect && datoselect.sigla}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>CARGA HORARIA</Label>
-                    <Input className="form-control" type="number" name="carga"  
-                    value={datoselect && datoselect.carga}
+                    <Label>SEMESTRE</Label>
+                    <Input className="form-control" type="text" name="semestre"  
+                    value={datoselect && datoselect.semestre}
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>CARGA HORARIA SEMANAL</Label>
+                    <Input className="form-control" type="number" name="cargasem"  
+                    value={datoselect && datoselect.cargasem}
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>DOCENTE</Label>
+                    <Input className="form-control" type="text" name="docente"  
+                    value={datoselect && datoselect.docente}
                     onChange={handleChange}/>
                 </FormGroup>
             </ModalBody>
@@ -142,9 +158,9 @@ export const MatApp = () => {
 
         <Modal isOpen={delet}>
             <ModalBody>
-                  ¿Estas segur@ que quieres Eliminar a 
-                  {' '}{datoselect && datoselect.name}
-                  {datoselect && datoselect.surname}?
+                  ¿Estas segur@ que quieres Eliminar  
+                  {' '}{datoselect && datoselect.name} {''}
+                  {datoselect && datoselect.sigla}?
             </ModalBody>
             <ModalFooter>
                 <Button color="danger" onClick={()=>eliminar()}>SI</Button>
@@ -156,31 +172,43 @@ export const MatApp = () => {
 
         <Modal isOpen={insert}>
             <ModalHeader>
-                    <h1>INSERTAR</h1>
+                    <h2>INSERTAR</h2>
             </ModalHeader>
             <ModalBody>
                 <FormGroup>
-                    <Label for="usuario">ID</Label>
+                    <Label for="materia">ID</Label>
                     <Input className="form-control" readOnly type="text" 
                     value={dates[dates.length-1].id+1}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>NOMBRE</Label>
+                    <Label>MATERIA</Label>
                     <Input className="form-control" type="text" name="name" 
                     value={datoselect ? datoselect.name: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>APELLIDO</Label>
-                    <Input className="form-control" type="text" name="surname"  
-                    value={datoselect ? datoselect.surname: ''} 
+                    <Label>SIGLA</Label>
+                    <Input className="form-control" type="text" name="sigla"  
+                    value={datoselect ? datoselect.sigla: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label>CARGA HORARIA</Label>
-                    <Input className="form-control" type="number" name="phone"  
-                    value={datoselect ? datoselect.carga: ''} 
+                    <Label>SEMESTRE</Label>
+                    <Input className="form-control" type="number" name="semestre"  
+                    value={datoselect ? datoselect.semestre: ''} 
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>CARGA HORARIA SEMANAL</Label>
+                    <Input className="form-control" type="number" name="cargasem"  
+                    value={datoselect ? datoselect.cargasem: ''} 
+                    onChange={handleChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>DOCENTE</Label>
+                    <Input className="form-control" type="text" name="docente"  
+                    value={datoselect ? datoselect.docente: ''} 
                     onChange={handleChange}/>
                 </FormGroup>
             </ModalBody>

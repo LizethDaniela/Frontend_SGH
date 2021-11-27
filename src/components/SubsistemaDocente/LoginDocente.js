@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { MdPersonPin, MdVpnKey } from 'react-icons/md';
-import { useForm } from '../../../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 import { useSelector } from 'react-redux';
-import { authAsync, auth } from '../../../actions/auth';
+import { authAsync, auth } from '../../actions/auth';
 import { useDispatch } from 'react-redux';
 
-export const LoginComponent = () => {
+
+export const LoginDocente = () => {
     const dispatch = useDispatch();
    /* useEffect(() => {
         const userData = localStorage.getItem("user");
@@ -28,6 +29,7 @@ export const LoginComponent = () => {
     };
     return (
     <>
+        
         {user == null? (
         <div className="container">
             <div className="d-flex justify-content-center h-100">
@@ -90,7 +92,7 @@ export const LoginComponent = () => {
         </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
         {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
 }
-        </>)}*/ <Redirect to="/main"/>)}
+        </>)}*/ <Redirect to="/verhorarios"/>)}
     </>
     );
 };

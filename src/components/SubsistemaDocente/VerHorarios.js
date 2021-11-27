@@ -1,7 +1,10 @@
 import React from 'react'
 import {Button} from 'reactstrap';
 import { MdLocalPrintshop } from "react-icons/md";
+import Head from '../head/Head';
 import { DashboardDocente } from './DashboardDocente';
+
+
 export const VerHorarios = () => {
     const data = [
         {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'lunes'},
@@ -19,7 +22,8 @@ export const VerHorarios = () => {
      
     ]
     return (<>
-        
+      <Head/>
+      
         <div className="container">
            
         <select class="form-select" size="3" aria-label="size 3 select example">
@@ -33,7 +37,3 @@ export const VerHorarios = () => {
 </>
     )
 }
-
-{/*}) : (<>username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
-        {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)}
-</>)*/}
