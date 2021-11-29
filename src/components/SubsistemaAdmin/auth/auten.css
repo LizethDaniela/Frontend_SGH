@@ -1,23 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Marvel:ital@1&display=swap');
+
 .banner{
     background-image:linear-gradient(rgba(0,0,0,0.5),#009688), url("https://getwallpapers.com/wallpaper/full/0/b/b/15101.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 753px;   
+    height: 1000px;   
     
 }
 .present{
-    font-family:fantasy;
-    color:blanchedalmond;
+  
+    color:rgb(141, 185, 167);
     margin-left: 0px;
     font-style: oblique;
     padding: 70px;
-    font-family: 'Tangerine', sans-serif;
+    font-family:  'Marvel', sans-serif;
+    font-size: 15px;
 }
-.log{
-   /* background: linear-gradient(to top left, #995033, #704a6a);*/
-   background: ivory;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   border-radius: 5px;
-   margin-left: 900px;
+.log {
+    font-family: 'Courier New', Courier, monospace;
+   background-color: #81b2c900;
+   color: #fff;
+   border: 10px solid rgba(226, 230, 231, 0);
+   width: 15%;
+   margin-top: 0.5em;
+   padding: 8px 0px;
+   font-size: 1em;
+   font-weight: lighter;
+   letter-spacing: 1px;
+   margin-bottom: 0.20em;
+   margin-left: 80px;
+}
+.log:hover{
+    color: #0f2b36;
+    background-color: rgb(181, 220, 221);
+    border: 2px solid #1a303d;
 }

@@ -69,6 +69,8 @@ export const LinksComponent = () => {
             <Head/>
             <DashBoardComponent/>
             <div className="container">
+            <h3> ENLACES VIRTUALES</h3>
+
             <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>

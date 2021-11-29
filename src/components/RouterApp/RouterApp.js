@@ -14,7 +14,7 @@ import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/Modificar
 import Principal from '../principal/Principal';
 import RolesDocentes from '../SubsistemaAdmin/RolesPermisos/RolesDocente';
 import RolesEstudiantes from '../SubsistemaAdmin/RolesPermisos/RolesEstudiante';
-import Docentes from '../SubsistemaAdmin/CargaHoraria/Docentes';
+
 
 import { MatApp } from '../SubsistemaAdmin/Materia/MatApp';
 import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
@@ -29,6 +29,8 @@ import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
 import "../../styles/styles.css"
 import { Estudiante } from '../SubsistemaEstudiantes/Estudiante';
 import { LinksComponent } from '../SubsistemaAdmin/Ambientes/LinksComponent';
+import { DocentesList } from '../SubsistemaAdmin/auth/DocentesList';
+import { EstudentesList } from '../SubsistemaAdmin/auth/EstudentesList';
 
 
 export const RouterApp = () => {
@@ -37,14 +39,13 @@ export const RouterApp = () => {
             <Switch>
                 <Route exact path="/login" component={LoginComponent}/>
                 <Route exact path="/registerdocentes" component= {RegisterDocentsComponent}/>
+                <Route exact path="/listdoc" component= {DocentesList}/>
                 <Route exact path="/registerestudents" component={RegisterEstudentsComponent}/>
+                <Route exact path="/estlist" component= {EstudentesList}/>
                 <Route exact path="/asignarmaterias" component={AsignarMateriasComponent}/>
                 <Route exact path="/horarios" component={HorariosComponent}/>
                 <Route exact path="/modificar" component={ModificarHorarioComponent}/>
                 <Route exact path="/principal" component={Principal}/>
-                <Route exact path="/rolesdocente" component={RolesDocentes}/>
-                <Route exact path="/rolesestudiante" component={RolesEstudiantes}/>
-                <Route exact path="/cargahorariadocente" component={Docentes}/>
                 <Route exact path="/materiacarga" component={MatApp}/>
                 <Route exact path="/ambientes" component={AmbientesComponent}/>
                 <Route exact path="/links" component={LinksComponent}/>

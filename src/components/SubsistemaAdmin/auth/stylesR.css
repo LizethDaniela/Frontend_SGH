@@ -21,7 +21,7 @@ h2 {
     color: #fff;
     font-weight: lighter;
     font-family: -apple-system;
-    background-color: #461a3b;
+    background-color: #3d6474;
 }
 
 label {
@@ -45,7 +45,7 @@ input::placeholder {
 } 
 
 input:valid {
-    background-color: rgb(240, 191, 236);
+    background-color: rgb(241, 250, 249);
 }
 
 .lastName {
@@ -82,9 +82,9 @@ input:valid {
     align-items: center;
 }
 .createAccount button {
-    background-color: #ac5298;
+    background-color: #478ba0;
     color: #fff;
-    border: 2px solid rgb(112, 79, 119);
+    border: 2px solid rgb(37, 106, 133);
     width: 30%;
     margin-top: 1em;
     padding: 8px 0px;
@@ -94,9 +94,9 @@ input:valid {
     margin-bottom: 0.25em;
 }
 .createAccount button:hover {
-    color: #f4e4f5;
-    background-color: rgb(177, 131, 173);
-    border: 2px solid #550b39;
+    color: #0f2b36;
+    background-color: rgb(181, 220, 221);
+    border: 2px solid #1a303d;
 }
 .createAccount small {
     color: #999;
@@ -105,7 +105,7 @@ input:valid {
 .textField{
     height: 32px;
       width: 200px;
-      border: 1px solid #b11a47;
+      border: 1px solid #1a9fb1;
       padding: 0 32px 0 16px;
       background: #f0e9ed;
       
@@ -113,32 +113,29 @@ input:valid {
 .textField::placeholder {
     font-size: 1.2em;
     font-weight: lighter;
-    color: rgb(114, 33, 80);
+    color: rgb(33, 88, 114);
 }
   
 .textField:hover {
         cursor: pointer;
 
 }   
-.btnBuscar{
-        height: 32px;
-        width: 32px;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        background: #530843;
-        border: 1px solid #7c0f65;
-} 
-.barraBusqueda{
-    
-    padding: 70px 40px;
-    background-color: #dfbbda;
+
+.link  {
+    background-color: #478ba0;
+    color: #fff;
+    border: 2px solid rgb(37, 106, 133);
+    width: 28%;
+    margin-top: 6em;
+    margin-left: 650px;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
 }
-.table{
-  padding: 150px  50px ;
-  background: rgb(59, 48, 99);
-  width: 200px;
-  display: flex;
-  float: left;
-  border: 5px solid #dfbbda;
+.link:hover {
+    color: #0f2b36;
+    background-color: rgb(181, 220, 221);
+    border: 2px solid #1a303d;
 }

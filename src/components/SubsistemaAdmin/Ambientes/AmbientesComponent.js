@@ -68,7 +68,8 @@ export const AmbientesComponent = () => {
         <Head/>
         <DashBoardComponent/>
         <div className="container">
-        <Link to="/links" ><button type="button" className="log">LINKS </button></Link>
+        
+        <h3>AMBIENTES</h3>
             
         <div className="tabla">
            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
@@ -100,6 +101,7 @@ export const AmbientesComponent = () => {
                    ))}
                </tbody>
             </table>
+            <Link to="/links" ><button type="button" className="link">LINKS </button></Link>
             <Modal isOpen={update}>
             <ModalHeader>
                     <h2>EDITAR</h2>

@@ -1,16 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .container-head{
     width: 100%;
-    background-image:linear-gradient(rgba(155, 46, 78, 0.5),#f1c199), url("https://getwallpapers.com/wallpaper/full/b/9/a/165636.jpg");
+    background-image:linear-gradient(rgba(54, 77, 70, 0.5),#568d88), url("https://getwallpapers.com/wallpaper/full/0/b/b/15101.jpg");
+    
 
 }
 h1{
    
-    color: white;
+    color: rgb(241, 237, 231);
     text-align: center;
     padding: 20px 0px;
     box-shadow: #000;
-    font-family: 'Tangerine', sans-serif;
+    font-family: 'Lobster', cursive;
+    /*position: fixed;*/
+}
+h3{
+   
+    color: rgb(1, 5, 7);
+    text-align: center;
+    padding: 20px 0px;
+    
+    font-family: 'Lobster', cursive;
     /*position: fixed;*/
 }
 

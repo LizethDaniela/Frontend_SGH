@@ -2,7 +2,7 @@
 h3 {
     text-align: center;
     font-size: 2em;
-    color: aliceblue;
+    
 }
 select {
     margin-bottom: 5px;
@@ -15,7 +15,7 @@ select option {
 .btn-a{
     margin: -1px;
     padding: 1px;
-    background-color: rgb(230, 211, 227);
+    background-color: rgb(108, 176, 197);
     border: none;
     border-radius: 1px;
     width: 100px;
@@ -33,11 +33,10 @@ select option {
     gap: 10px;
 }
 
-select:hover{
-    color:rgb(38, 0, 255);
-}
+
 .btn-a:hover{
-    color: rgb(71, 47, 85);
+    color: rgb(135, 201, 201);
+    background: rgb(40, 90, 94);
 }
 .btn-op{
     width: 150px;
@@ -51,5 +50,5 @@ select:hover{
     width: 200px;
 }
 .cab{
-    background: rgb(109, 76, 145);
+    background: rgb(48, 114, 126);
 }

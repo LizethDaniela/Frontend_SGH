@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import {Link} from "react-router-dom";
+import { FaUsersCog} from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { useForm } from '../../../hooks/useForm';
 import Head from '../../head/Head';
@@ -12,7 +14,10 @@ export const RegisterDocentsComponent = () => {
         lastname: '',
         lastname2: '',
         date: '',
-        phone: ''
+        email:'',
+        phone: '',
+        carga: '',
+
 
     });
     const [validations, setValidations] = useState({
@@ -21,11 +26,13 @@ export const RegisterDocentsComponent = () => {
         lastname: '',
         lastname2: '',
         date: '',
-        phone: ''
+        email:'',
+        phone: '',
+        carga:'',
     })
       const validateAll = () => {
-        const { ci, name, lastname, lastname2, date, phone } = form;
-        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' };
+        const { ci, name, lastname, lastname2, date, phone,carga,email } = form;
+        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' ,carga:'',email:''};
         let isValid = true;
         if (!name) {
             validations.name = 'Name is required'
@@ -75,30 +82,35 @@ export const RegisterDocentsComponent = () => {
               return false
             }
             console.log(form);
-            setForm({ci:'',name: '', lastname: '', lastname2: '',date:'', phone:''});
+            setForm({ci:'',name: '', lastname: '', lastname2: '',date:'',email:'', phone:'',carga:''});
           }
           
-          const { ci,name, lastname, lastname2, date, phone } = form;
+          const { ci,name, lastname, lastname2, date, phone, carga,email } = form;
         
           const { 
             ci: ciVal, 
             name: nameVal, 
             lastname: lastnameVal,
             lastname2: lastname2Val, 
-            date: dateVal, 
-            phone: phoneVal 
+            date: dateVal,
+            email:emailVal, 
+            phone: phoneVal, 
+            carga: cargaVal 
+
           } = validations
     return (
       <>
       <Head/>
       <DashBoardComponent/>
         <div className="container">
+        <Link to="/listdoc" ><button type="button" className="link"><FaUsersCog/>  Lista de Docentes </button></Link>
+        
         <div className="form-wrapper">
           <h2>REGISTRO DE DOCENTES <MdAccountCircle /> </h2>
           
           <form onSubmit={handleSubmit} noValidate>
           <div className="simple">
-              <label htmlFor="CI">C.I.:</label>
+              <label htmlFor="CI">C.I:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
@@ -161,10 +173,22 @@ export const RegisterDocentsComponent = () => {
               <div>{dateVal}</div>
             </div>
             <div className="simple">
+              <label htmlFor="email">e-mail:</label>
+              <input
+                placeholder="e-mail...."
+                type="email"
+                name="email"
+                value={email} 
+                onChange={handlerChangeForm}
+                onBlur={validateOne}
+              />
+              <div>{emailVal}</div>
+            </div>
+            <div className="simple">
               <label htmlFor="phone">Teléfono:</label>
               <input
                 placeholder="Escriba aqui"
-                type="tel"
+                type="number"
                 name="phone"
                 value={phone} 
                 onChange={handlerChangeForm}
@@ -172,12 +196,25 @@ export const RegisterDocentsComponent = () => {
               />
               <div>{phoneVal}</div>
             </div>
+            <div className="carga">
+              <label htmlFor="number">Carga Horaria:</label>
+              <input
+                placeholder="carga semanal"
+                type="number"
+                name="carga"
+                value={carga} 
+                onChange={handlerChangeForm}
+                onBlur={validateOne}
+              />
+              <div>{cargaVal}</div>
+            </div>
             <div className="createAccount">
               <button type="submit">Registrar</button>
               <small>Asegurese de que todos los datos sean correctos</small>
             </div>
           </form>
         </div>
+        
       </div>
       </>
     );

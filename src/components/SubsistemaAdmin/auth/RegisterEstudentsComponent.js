@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
 import { useForm } from "../../../hooks/useForm";
 import Head from "../../head/Head";
 import { DashBoardComponent } from "../dashboard/DashBoardComponent";
@@ -8,27 +10,35 @@ import "./stylesR.css";
 export const RegisterEstudentsComponent=()=>{
     const [form, setForm, handlerChangeForm] = useForm({
         ci: '',
+        ru:'',
         name: '',
         lastname: '',
         lastname2: '',
         date: '',
+        email:'',
         phone: ''
 
     });
     const [validations, setValidations] = useState({
         ci: '',
+        ru:'',
         name: '',
         lastname: '',
         lastname2: '',
         date: '',
+        email:'',
         phone: ''
     })
       const validateAll = () => {
-        const { ci, name, lastname, lastname2, date, phone } = form;
-        const validations = { ci:'',name: '', lastname: '', lastname2: '',date:'', phone:'' };
+        const { ci, ru,name, lastname, lastname2, date,email, phone } = form;
+        const validations = { ci:'',ru:'',name: '', lastname: '', lastname2: '',date:'',email:'', phone:'' };
         let isValid = true;
-        if (!name) {
-            validations.name = 'Name is required'
+        if (!ci) {
+            validations.ci = 'C.I es obligatorio'
+            isValid = false
+          }
+          if (!ru) {
+            validations.ru = 'R.U es obligatorio'
             isValid = false
           }
           
@@ -75,18 +85,21 @@ export const RegisterEstudentsComponent=()=>{
               return false
             }
             console.log(form);
-            setForm({ci:'',name: '', lastname: '', lastname2: '',date:'', phone:''});
+            setForm({ci:'',ru:'',name: '', lastname: '', lastname2: '',date:'',email:'', phone:''});
           }
           
-          const { ci,name, lastname, lastname2, date, phone } = form;
+          const { ci,ru,name, lastname, lastname2, date, email,phone } = form;
         
           const { 
             ci: ciVal, 
+            ru:ruVal,
             name: nameVal, 
             lastname: lastnameVal,
             lastname2: lastname2Val, 
-            date: dateVal, 
+            date: dateVal,
+            email:emailVal, 
             phone: phoneVal 
+
           } = validations        
 
     return (
@@ -94,12 +107,14 @@ export const RegisterEstudentsComponent=()=>{
       <Head/>
       <DashBoardComponent/>
       <div className="container">
+      <Link to="/estlist" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
+
         <div className="form-wrapper">
           <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /> </h2>
           
           <form onSubmit={handleSubmit} noValidate>
           <div className="simple">
-              <label htmlFor="CI">C.I.:</label>
+              <label htmlFor="CI">C.I:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
@@ -110,6 +125,19 @@ export const RegisterEstudentsComponent=()=>{
                 
               />
              <div>{ciVal}</div>
+            </div>
+            <div className="simple">
+              <label htmlFor="RU">R.U:</label>
+              <input
+                placeholder="Escriba aqui"
+                type="number"
+                name="ru"
+                value={ru} 
+                onChange={handlerChangeForm}
+                onBlur={validateOne}
+                
+              />
+             <div>{ruVal}</div>
             </div>
             <div className="firstName">
               <label htmlFor="firstName">Nombre:</label>
@@ -162,10 +190,22 @@ export const RegisterEstudentsComponent=()=>{
               <div>{dateVal}</div>
             </div>
             <div className="simple">
+              <label htmlFor="email">e-mail:</label>
+              <input
+                placeholder="e-mail...."
+                type="email"
+                name="email"
+                value={email} 
+                onChange={handlerChangeForm}
+                onBlur={validateOne}
+              />
+              <div>{emailVal}</div>
+            </div>
+            <div className="simple">
               <label htmlFor="phone">Teléfono:</label>
               <input
                 placeholder="Escriba aqui"
-                type="tel"
+                type="number"
                 name="phone"
                 value={phone} 
                 onChange={handlerChangeForm}
