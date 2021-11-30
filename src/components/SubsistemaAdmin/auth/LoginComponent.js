@@ -1,96 +1,99 @@
-import React, { useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom';
-import { MdPersonPin, MdVpnKey } from 'react-icons/md';
-import { useForm } from '../../../hooks/useForm';
-import { useSelector } from 'react-redux';
-import { authAsync, auth } from '../../../actions/auth';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { MdPersonPin, MdVpnKey } from "react-icons/md";
+import { useForm } from "../../../hooks/useForm";
+import { useDispatch, useSelector } from "react-redux";
+import { auth, authAsync } from "../../../actions/auth";
 
 export const LoginComponent = () => {
-    const dispatch = useDispatch();
-   /* useEffect(() => {
-        const userData = localStorage.getItem("user");
-        if (userData != null) {
-            dispatch(auth(JSON.parse(userData)));
-        }
-    }, []);*/
-    const { auth: authRename} = useSelector(state => state);
-    const { user, msnerror } = authRename;
-    console.log(user);
-    const [form, handlerChangeForm, handlerResetForm] = useForm({
-        username: "Pepito",
-        password: "1234"
-    });
-    const {username, password} = form;
-    const handlerSubmit = (e) => {
-        e.preventDefault();
-        dispatch(authAsync(username, password));
-    };
-    return (
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token != null) {
+      dispatch(auth(token));
+    }
+  }, []);
+  const { auth: authRename } = useSelector((state) => state);
+  const { token, msnerror } = authRename;
+  console.log( msnerror );
+  const [form, handlerChangeForm, handlerResetForm] = useForm({
+    email: "",
+    password: "",
+    //rosio@gmail.com
+    //4567
+  });
+  const { email, password } = form;
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    dispatch(authAsync(email, password));
+  };
+  return (
     <>
-        {user == null? (
+      {token == null ? (
         <div className="container">
-            <div className="d-flex justify-content-center h-100">
-                <div className="card">
-                    <div className="card-header">
-                        <h3>Sign In</h3>
+          <div className="d-flex justify-content-center h-100">
+            <div className="card">
+              <div className="card-header">
+                <h3>Sign In</h3>
+              </div>
+              <div className="card-body">
+                <form onSubmit={handlerSubmit}>
+                  <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">
+                        <MdPersonPin />
+                      </span>
                     </div>
-                    <div className="card-body">
-                        <form onSubmit={handlerSubmit}>
-                            <div className="input-group form-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text">
-                                        <MdPersonPin />
-                                    </span>
-                                </div>
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    placeholder="username" 
-                                    autoComplete="off"
-                                    name="username" 
-                                    value={username} 
-                                    onChange={handlerChangeForm}
-                                />
-                            </div>
-                            <div className="input-group form-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text">
-                                        <MdVpnKey />
-                                    </span>
-                                </div>
-                                <input 
-                                    type="password" 
-                                    className="form-control" 
-                                    placeholder="password" 
-                                    autoComplete="off"
-                                    name="password" 
-                                    value={password} 
-                                    onChange={handlerChangeForm}
-                                />
-                            </div>
-                            <div>{msnerror}</div>
-                            <div className="row align-items-center remember">
-                                <input type="checkbox" /> Remember me
-                            </div>
-                            <div className="form-group">
-                                <div className="col-md-12 text-center">
-                                    <input type="submit" value="Login" className="btn float-rigth login_btn" />
-                                </div>
-                            </div>
-                        </form>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="email"
+                      value={email}
+                      onChange={handlerChangeForm}
+                      autoComplete="off"
+                      placeholder="username"
+                    />
+                  </div>
+                  <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">
+                        <MdVpnKey />
+                      </span>
                     </div>
-                    <div className="card-footer">
-                        <div className="d-flex justify-content-center">
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                    </div>
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="password"
+                      name="password"
+                      value={password}
+                      autoComplete="off"
+                      onChange={handlerChangeForm}
+                    />
+                  </div>
+                  <div className="row align-items-center remember">
+                    <input type="checkbox" /> Remember Me
+                  </div>
+                  <div className = "error">{msnerror}</div>
+                  <div className="form-group">
+                    <input
+                      type="submit"
+                      value="Login"
+                      className="btn float-right login_btn"
+                    />
+                  </div>
+                </form>
+              </div>
+              {/* <div className="card-footer">
+                <div className="d-flex justify-content-center links">
+                  Don't have an account? <Link to="/register"> Sign Up </Link>{" "}
                 </div>
+              </div> */}
             </div>
-        </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
-        {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
-}
-        </>)}*/ <Redirect to="/main"/>)}
+          </div>
+        </div>
+      ) : (
+        <Redirect to="/main" />
+      )}
     </>
-    );
+  );
 };

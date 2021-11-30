@@ -3,15 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-/*background-image: url("https://getwallpapers.com/wallpaper/download/344517");*/
-/*background-image: url("https://getwallpapers.com/wallpaper/full/1/9/6/7866.jpg");*/
-background-image: url("https://getwallpapers.com/wallpaper/full/a/d/5/7802.jpg");
+/* background-image: url("https://getwallpapers.com/wallpaper/download/344517"); */
+background-image: url("https://getwallpapers.com/wallpaper/small-retina/b/6/3/446941.jpg");
     /* background-image: url("https://getwallpapers.com/wallpaper/download/7676"); */
 /*background-image: url("https://getwallpapers.com/wallpaper/full/c/3/1/1520725-best-gravity-falls-desktop-wallpaper-1920x1080-ipad.jpg");
 /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
 background-size: cover;
 background-repeat: no-repeat;
-height: 120%;
+height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
@@ -77,6 +76,12 @@ input:focus{
     height: 20px;
     margin-left: 15px;
     margin-right: 5px;
+}
+
+.error
+{
+    margin-top: 10px;
+    margin-left: 80px;
 }
 
 .login_btn{

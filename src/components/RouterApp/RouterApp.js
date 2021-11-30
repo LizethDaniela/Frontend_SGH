@@ -26,12 +26,11 @@ import {VerHorariosAsignados}from '../SubsistemaDocente/VerHorariosAsignados'
 import { AmbientesComponent } from '../SubsistemaAdmin/Ambientes/AmbientesComponent';
 import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
 
-import "../../styles/styles.css"
 import { Estudiante } from '../SubsistemaEstudiantes/Estudiante';
 import { LinksComponent } from '../SubsistemaAdmin/Ambientes/LinksComponent';
 import { DocentesList } from '../SubsistemaAdmin/auth/DocentesList';
 import { EstudentesList } from '../SubsistemaAdmin/auth/EstudentesList';
-
+import "../../styles/styles.css"
 
 export const RouterApp = () => {
     return (
@@ -49,16 +48,15 @@ export const RouterApp = () => {
                 <Route exact path="/materiacarga" component={MatApp}/>
                 <Route exact path="/ambientes" component={AmbientesComponent}/>
                 <Route exact path="/links" component={LinksComponent}/>
-               
-        
+
                 <Route exact path="/logdocent" component={LoginDocente}/>
                 <Route exact path="/verhorarios" component={VerHorarios}/>
                 <Route exact path="/verhorariosasignados" component={VerHorariosAsignados}/>
-               
+            
                 <Route exact path="/princestud" component={Estudiante}/>
 
                 <Route exact path="/main" component={MainDashBoard}/>
-               
+            
 
                 <Route exact path="/" component={Autenticacion}/>
             </Switch>

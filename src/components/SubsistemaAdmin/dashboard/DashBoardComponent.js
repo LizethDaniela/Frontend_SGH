@@ -10,16 +10,15 @@ import {
 import { authLogoutAsync } from '../../../actions/auth';
 import "./styles.css"
 
-
 export const DashBoardComponent = ({ children, ...rest }) => {
-    const {auth} = useSelector(state => state);
-    const {user} = auth;
+    const { auth } = useSelector(state => state);
+    const { token } = auth;
     const dispatch = useDispatch();
     const handlerLogout = () => {
         dispatch(authLogoutAsync());
     };
     return (
-        user == null? (<Redirect to="/Login"/>): (<>
+        token == null? (<Redirect to="/login"/>): (<>
             {/* <input type="checkbox" id="check"/>
             <label htmlFor="check">
                 <div className="fas fa-bars">
@@ -35,7 +34,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
                     <li><Link to="/ambientes">Ambientes</Link></li>
                     <li><Link to="/horarios">Horarios</Link></li>
-                  
+                
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>

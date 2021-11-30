@@ -1,49 +1,77 @@
-import { types } from '../types/types';
+import { types } from "../types/types";
+import { enpoints } from "../types/endPoints";
 
-export const authAsync = (username, password) => {
-    return (dispatch) => {
-        setTimeout(() => {
-            if (username === "Pepito" && password === "1234") {
-                const userData = {
-                    id: new Date().getTime(), 
-                    displayName: username, 
-                    photo: ""
-                };
-                localStorage.setItem("user", JSON.stringify(userData));
-                dispatch(auth(userData));
-            } else {
-                dispatch(error("Credenciales incorrectas"));
-            }
-        }, 100);
-    };
+export const authAsync = (email, password) => {
+  return (dispatch) => {
+    fetch(enpoints.login.url, {
+      method: enpoints.login.method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => {
+        if (response.status === 300) {
+          return;
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          localStorage.setItem("token", data.serverResponse);
+          console.log(data.serverResponse);
+          dispatch(auth(data.serverResponse));
+          return;
+        }
+        dispatch(error("Credenciales incorrectas"));
+      });
+  };
 };
-
+/* export const authRegister = (authRegisterData) => {
+  return (dispatch) => {
+    fetch(enpoints.register.url, {
+      method: enpoints.register.method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(authRegisterData),
+    })
+      .then((response) => response.json())
+      .then(({ serverResponse }) => {
+        dispatch(register(serverResponse));
+      });
+  };
+}; */
 export const authLogoutAsync = () => {
-    return (dispatch) => {
-        setTimeout(() => {
-            localStorage.removeItem("user");
-            dispatch(logout());
-        }, 1000);
-    }
+  return (dispatch) => {
+    setTimeout(() => {
+      localStorage.removeItem("token");
+      dispatch(logout());
+    }, 100);
+  };
 };
-
-export const auth = (user) => {
-    return {
-        type: types.authLogin,
-        payload: user
-    };
+/* export const register = (response) => {
+  return {
+    type: types.authRegister,
+    payload: response,
+  };
+}; */
+export const auth = (token) => {
+  return {
+    type: types.authLogin,
+    payload: token,
+  };
 };
-
 export const logout = () => {
-    return {
-        type: types.authLogout,
-        payload: null,
-    };
+  return {
+    type: types.authLogout,
+    payload: null,
+  };
 };
-
 export const error = (msn) => {
-    return {
-        type: types.authError,
-        payload: msn
-    }
+  return {
+    type: types.authError,
+    payload: msn,
+  };
 };
