@@ -5,189 +5,116 @@ import { FaUsers } from "react-icons/fa";
 import { useForm } from "../../../hooks/useForm";
 import Head from "../../head/Head";
 import { DashBoardComponent } from "../dashboard/DashBoardComponent";
+import { registerEstudent } from "../../../actions/registerEstudent";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import "./stylesR.css";
 
 export const RegisterEstudentsComponent=()=>{
-    const [form, setForm, handlerChangeForm] = useForm({
-        ci: '',
-        ru:'',
-        name: '',
-        lastname: '',
-        lastname2: '',
-        date: '',
-        email:'',
-        phone: ''
+  const dispatch = useDispatch();
+  const [form, handlerChangeForm, handlerResetForm] = useForm({
+    ci: '',
+    ru:'',
+    nombre: '',
+    ap_paterno: '',
+    ap_materno: '',
+    cargo: '',
+    semestre: '',
+    email:'',
+    fecha_nac: '',
+    telefono: ''
+  });
 
-    });
-    const [validations, setValidations] = useState({
-        ci: '',
-        ru:'',
-        name: '',
-        lastname: '',
-        lastname2: '',
-        date: '',
-        email:'',
-        phone: ''
-    })
-      const validateAll = () => {
-        const { ci, ru,name, lastname, lastname2, date,email, phone } = form;
-        const validations = { ci:'',ru:'',name: '', lastname: '', lastname2: '',date:'',email:'', phone:'' };
-        let isValid = true;
-        if (!ci) {
-            validations.ci = 'C.I es obligatorio'
-            isValid = false
-          }
-          if (!ru) {
-            validations.ru = 'R.U es obligatorio'
-            isValid = false
-          }
-          
-          if (name && name.length < 3 || name.length > 50) {
-            validations.name = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-          
-          if (lastname && lastname.length < 3 || lastname.length > 50) {
-            validations.lastname = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-          if (lastname2 && lastname2.length < 3 || lastname2.length > 50) {
-            validations.lastname2 = 'Name must contain between 3 and 50 characters'
-            isValid = false
-          }
-         
-          if (!isValid) {
-            setValidations(validations)
-          }
-          
-          return isValid
-        }
-        const validateOne = (e) => {
-            const { name } = e.target;
-            const value = form[name];
-            let message = '';
-            
-            if (!value) {
-              message = `${name} es required`
-            }
-            
-            if (value && name === 'name' && (value.length < 3 || value.length > 50)) {
-              message = 'Name must contain between 3 and 50 characters'
-            }
-        
-            setValidations({...validations, [name]: message })
-          }
-          const handleSubmit = (e) => {
-            e.preventDefault()
-            const isValid = validateAll()
-            
-            if (!isValid) {
-              return false
-            }
-            console.log(form);
-            setForm({ci:'',ru:'',name: '', lastname: '', lastname2: '',date:'',email:'', phone:''});
-          }
-          
-          const { ci,ru,name, lastname, lastname2, date, email,phone } = form;
-        
-          const { 
-            ci: ciVal, 
-            ru:ruVal,
-            name: nameVal, 
-            lastname: lastnameVal,
-            lastname2: lastname2Val, 
-            date: dateVal,
-            email:emailVal, 
-            phone: phoneVal 
+  const { ci, ru, nombre, ap_paterno, ap_materno, cargo, semestre, email, fecha_nac, telefono } = form;
+  const { student } = useSelector((state) => state);
+  const { register_estudent } = student;
+  console.log( register_estudent );
+  const handlerSubmit = (e) => {
+    e.preventDefault()
+    dispatch(registerEstudent({ nombre, ap_paterno, ap_materno, ci, ru, cargo, semestre, email, fecha_nac, telefono }));
+    handlerResetForm();
+  }
 
-          } = validations        
-
-    return (
-      <>
+  return (
+    <>
       <Head/>
       <DashBoardComponent/>
       <div className="container">
-      <Link to="/estlist" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
+        <Link to="/estlist" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
 
         <div className="form-wrapper">
-          <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /> </h2>
+          <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /></h2>
           
-          <form onSubmit={handleSubmit} noValidate>
-          <div className="simple">
-              <label htmlFor="CI">C.I:</label>
+          <form onSubmit={handlerSubmit} noValidate>
+            <div className="simple">
+              <label htmlFor="ci">C.I.:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
                 name="ci"
                 value={ci} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
-                
               />
-             <div>{ciVal}</div>
             </div>
             <div className="simple">
-              <label htmlFor="RU">R.U:</label>
+              <label htmlFor="ru">R.U.:</label>
               <input
                 placeholder="Escriba aqui"
                 type="number"
                 name="ru"
                 value={ru} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
-                
               />
-             <div>{ruVal}</div>
             </div>
             <div className="firstName">
-              <label htmlFor="firstName">Nombre:</label>
+              <label htmlFor="nombre">Nombre:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
-                name="name"
-                value={name} 
+                name="nombre"
+                value={nombre} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
-               
               />
-             <div>{nameVal}</div>
             </div>
-            
             <div className="lastName">
-              <label htmlFor="lastName">Apellido Paterno:</label>
+              <label htmlFor="ap_paterno">Apellido Paterno:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
-                name="lastname"
-                value={lastname} 
+                name="ap_paterno"
+                value={ap_paterno} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-             <div>{lastnameVal}</div>
             </div>
             <div className="lastName2">
-              <label htmlFor="lastName2">Apellido Materno:</label>
+              <label htmlFor="ap_materno">Apellido Materno:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"
-                name="lastname2"
-                value={lastname2} 
+                name="ap_materno"
+                value={ap_materno} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-            <div>{lastname2Val}</div>
             </div>
-            <div className="date">
-              <label htmlFor="date">Fecha de Nacimiento:</label>
+            <div className="simple">
+              <label htmlFor="cargo">Cargo:</label>
               <input
-                placeholder="mm/dd/yyyy"
-                type="date"
-                name="date"
-                value={date} 
+                placeholder="estudiante"
+                type="text"
+                name="cargo"
+                value={cargo} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-              <div>{dateVal}</div>
+            </div>
+            <div className="simple">
+              <label htmlFor="semestre">Semestre:</label>
+              <input
+                placeholder="S01"
+                type="text"
+                name="semestre"
+                value={semestre} 
+                onChange={handlerChangeForm}
+              />
             </div>
             <div className="simple">
               <label htmlFor="email">e-mail:</label>
@@ -197,21 +124,28 @@ export const RegisterEstudentsComponent=()=>{
                 name="email"
                 value={email} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
+                autoComplete="off"
               />
-              <div>{emailVal}</div>
+            </div>
+            <div className="date">
+              <label htmlFor="fecha_nac">Fecha de Nacimiento:</label>
+              <input
+                placeholder="mm/dd/yyyy"
+                type="date"
+                name="fecha_nac"
+                value={fecha_nac} 
+                onChange={handlerChangeForm}
+              />
             </div>
             <div className="simple">
-              <label htmlFor="phone">Teléfono:</label>
+              <label htmlFor="telefono">Teléfono:</label>
               <input
                 placeholder="Escriba aqui"
                 type="number"
-                name="phone"
-                value={phone} 
+                name="telefono"
+                value={telefono} 
                 onChange={handlerChangeForm}
-                onBlur={validateOne}
               />
-              <div>{phoneVal}</div>
             </div>
             <div className="createAccount">
               <button type="submit">Registrar</button>
@@ -220,6 +154,6 @@ export const RegisterEstudentsComponent=()=>{
           </form>
         </div>
       </div>
-      </>
-    );
+    </>
+  );
 };

@@ -18,7 +18,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
         dispatch(authLogoutAsync());
     };
     return (
-        token == null? (<Redirect to="/login"/>): (<>
+        token == null? (<Redirect to="/"/>): (<>
             {/* <input type="checkbox" id="check"/>
             <label htmlFor="check">
                 <div className="fas fa-bars">

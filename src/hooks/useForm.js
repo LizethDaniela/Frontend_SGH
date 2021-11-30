@@ -5,8 +5,8 @@ export const useForm = (initForm) => {
     const handlerChangeForm = ({ target }) => {
         setForm({ ...form, [target.name]: target.value });
     };
-    const handlerResetForm = ({ target }) => {
-        setForm(initForm);
+    const handlerResetForm = () => {
+        setForm("");
     };
     return [form, handlerChangeForm, handlerResetForm];
 };
