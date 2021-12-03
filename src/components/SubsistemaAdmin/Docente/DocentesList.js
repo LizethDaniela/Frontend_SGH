@@ -1,17 +1,17 @@
-import React , {useState}from 'react'
-import { FaUsers } from "react-icons/fa";
+import React ,{useState}from 'react'
+import { FaUsersCog} from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import Head from '../../head/Head'
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
 
-export const EstudentesList = () => {
+export const DocentesList = () => {
     const data = [
-        {id:1, ci:'4464',ru:'45120',name:'Limber', surname:'Calizaya', materno:'Cruz',fn:'10/12/2000',email:'limber@gmail.com',phone:'45123654'},
-        {id:2, ci:'4564',ru:'45120',name:'Alex', surname:'Choque',materno:'Zeballos', fn:'10/12/2000',email:'alex@gmail.com',phone:'45123654'},
-        {id:3, ci:'2364',ru:'45120',name:'Cristhian', surname:'Castillo',materno:'Cruz',fn:'10/12/2000',email:'cris@gmail.com',phone:'45123654' },
-        {id:4, ci:'4544',ru:'45120',name:' Dilan', surname:'Perez',materno: 'Copa', fn:'10/12/2000',email:'dilan@gmail.com',phone:'45123654'},
-        {id:5, ci:'9584',ru:'45120',name:'Luis ', surname:' Palma' ,materno:'Ricaldi', fn:'10/12/2000',email:'luis@gmail.com',phone:'45123654'},
-       
+        {id:1,ci:'4464', name:'Limber', surname:'Calizaya', materno:'Cruz',fn:'10/12/2000',email:'limber@gmail.com',phone:'45123654', carga:'4'},
+        {id:2,ci:'9974', name:'Alex', surname:'Choque',materno:'Zeballos', fn:'10/12/2000',email:'alex@gmail.com',phone:'45123654',  carga:'4'},
+        {id:3,ci:'8874', name:'Cristhian', surname:'Castillo',materno:'Cruz',fn:'10/12/2000',email:'cris@gmail.com',phone:'45123654',  carga:'4'},
+        {id:4, ci:'5464',name:' Dilan', surname:'Perez',materno: 'Copa', fn:'10/12/2000',email:'dilan@gmail.com', phone:'45123654', carga:'4'},
+        {id:5,ci:'1234', name:'Luis ', surname:' Palma' ,materno:'Ricaldi', fn:'10/12/2000',email:'luis@gmail.com',phone:'45123654',  carga:'4'},
+    
     ]
     const [dates, setDates]=useState(data);
     const [update, setUpdate]=useState(false);
@@ -19,14 +19,13 @@ export const EstudentesList = () => {
     const [datoselect, setDatoselect]=useState({
         id:'',
         ci:'',
-        ru:'',
         name:'',
         surname:'',
         materno:'',
         fn:'',
         email:'',
         phone:'',
-        
+        carga:'',
     });
     const select=(item, caso)=>{
         setDatoselect(item);
@@ -41,74 +40,71 @@ export const EstudentesList = () => {
         }));
         console.log(datoselect);
     }
-   const editar=()=>{
-       var newdata=dates;
-       newdata.map(datos=>{
-         if(datos.id===datoselect.id){
-            datos.ru=datoselect.ru;
-             datos.name=datoselect.name;
-             datos.surname=datoselect.surname;
-             datos.materno=datoselect.materno;
-             datos.fn=datoselect.fn;
-             datos.email=datoselect.email;
-             datos.phone=datoselect.phone;
-             
-         }
-       });
-       setDates(newdata);
-       setUpdate(false);
-   }
-   const eliminar=()=>{
-      setDates(dates.filter
+    const editar=()=>{
+        var newdata=dates;
+        newdata.map(datos=>{
+            if(datos.id===datoselect.id){
+                datos.ci=datoselect.ci;
+                datos.name=datoselect.name;
+                datos.surname=datoselect.surname;
+                datos.materno=datoselect.materno;
+                datos.fn=datoselect.fn;
+                datos.email=datoselect.email;
+                datos.phone=datoselect.phone;
+                datos.carga=datoselect.carga;
+            }
+        });
+        setDates(newdata);
+        setUpdate(false);
+    }
+    const eliminar=()=>{
+        setDates(dates.filter
         (datos=>datos.id!==datoselect.id));
         setDelet(false);
-   }
-   const openModal=()=>{
-       setDatoselect(null);
-      
-   }
+    }
+    const openModal=()=>{
+        setDatoselect(null);
+    }
 
     return (
         <>
             <Head/>
             <DashBoardComponent/>
             <div className="container">
-            <h3><FaUsers/> Lista De Estudiantes</h3>
+            <h3><FaUsersCog/> LISTA DE DOCENTES</h3>
             <div className="tabla">
-           
+        
             <table className=" table-bordered thead-dark">
-               <thead>
-                   <tr>
-                       <th>CI</th>
-                       <th>RU</th>
-                       <th>Nombre</th>
-                       <th>Apellidos</th>
-                       <th>Fecha Nacimiento</th>
-                       <th>Email</th>
-                       <th>Teléfono</th>
-                       
-                       <th>ACCIONES</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   {dates.map((item)=>(
-                       <tr> 
-                           <td>{item.ci}</td>
-                           <td>{item.ru}</td>
-                           <td>{item.name}</td>
-                           <td>{item.surname} {item.materno}</td>
-                           <td>{item.fn}</td>
-                           <td>{item.email}</td>
-                           <td>{item.phone}</td>
-                           
+                <thead>
+                    <tr>
+                        <th>CI</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Carga</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {dates.map((item)=>(
+                        <tr> 
+                            <td>{item.ci}</td>
+                            <td>{item.name}</td>
+                            <td>{item.surname} {item.materno}</td>
+                            <td>{item.fn}</td>
+                            <td>{item.email}</td>
+                            <td>{item.phone}</td>
+                            <td>{item.carga}</td>
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
-                               {'  '}
-                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
-                           </td>
-                       </tr>
-                   ))}
-               </tbody>
+                                <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                                {'  '}
+                                <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
             <Modal isOpen={update}>
             <ModalHeader>
@@ -118,19 +114,13 @@ export const EstudentesList = () => {
                 <FormGroup>
                     <Label for="usuario">ID</Label>
                     <Input className="form-control" readOnly type="text" 
-                    value={datoselect && datoselect.id}
+                    value={datoselect.id}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
                     <Label>CI</Label>
                     <Input className="form-control" type="text" name="ci"  
                     value={datoselect && datoselect.ci}
-                    onChange={handleChange}/>
-                </FormGroup>
-                <FormGroup>
-                    <Label>RU</Label>
-                    <Input className="form-control" type="number" name="ru"  
-                    value={datoselect && datoselect.ru}
                     onChange={handleChange}/>
                 </FormGroup>
                 <FormGroup>
@@ -169,7 +159,12 @@ export const EstudentesList = () => {
                     value={datoselect && datoselect.phone}
                     onChange={handleChange}/>
                 </FormGroup>
-               
+                <FormGroup>
+                    <Label>CARGA HORARIA</Label>
+                    <Input className="form-control" type="number" name="carga"  
+                    value={datoselect && datoselect.carga}
+                    onChange={handleChange}/>
+                </FormGroup>
             </ModalBody>
             <ModalFooter>
                 <Button color="primary" onClick={()=>editar()}>EDITAR</Button>
@@ -181,9 +176,9 @@ export const EstudentesList = () => {
 
         <Modal isOpen={delet}>
             <ModalBody>
-                  ¿Estas segur@ que quieres Eliminar a 
-                  {' '}{datoselect && datoselect.name}{' '}
-                  {datoselect && datoselect.surname}?
+                    ¿Estas segur@ que quieres Eliminar a 
+                    {' '}{datoselect && datoselect.name}{' '}
+                    {datoselect && datoselect.surname}?
             </ModalBody>
             <ModalFooter>
                 <Button color="danger" onClick={()=>eliminar()}>SI</Button>
@@ -191,7 +186,7 @@ export const EstudentesList = () => {
             </ModalFooter>
         </Modal>
         </div>
-            </div>
+            </div> 
         </>
-    )
-}
+    );
+};

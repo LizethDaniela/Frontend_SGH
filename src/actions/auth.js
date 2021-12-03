@@ -28,21 +28,7 @@ export const authAsync = (email, password) => {
       });
   };
 };
-/* export const authRegister = (authRegisterData) => {
-  return (dispatch) => {
-    fetch(enpoints.register.url, {
-      method: enpoints.register.method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(authRegisterData),
-    })
-      .then((response) => response.json())
-      .then(({ serverResponse }) => {
-        dispatch(register(serverResponse));
-      });
-  };
-}; */
+
 export const authLogoutAsync = () => {
   return (dispatch) => {
     setTimeout(() => {
@@ -51,12 +37,7 @@ export const authLogoutAsync = () => {
     }, 100);
   };
 };
-/* export const register = (response) => {
-  return {
-    type: types.authRegister,
-    payload: response,
-  };
-}; */
+
 export const auth = (token) => {
   return {
     type: types.authLogin,

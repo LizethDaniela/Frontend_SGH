@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { MdPersonPin, MdVpnKey } from "react-icons/md";
 import { useForm } from "../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ export const LoginComponent = () => {
   const { auth: authRename } = useSelector((state) => state);
   const { token, msnerror } = authRename;
   console.log( msnerror );
-  const [form, handlerChangeForm, handlerResetForm] = useForm({
+  const [form, handlerChangeForm ] = useForm({
     email: "",
     password: "",
     //rosio@gmail.com

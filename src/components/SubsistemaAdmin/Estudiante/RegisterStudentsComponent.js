@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
@@ -8,31 +8,31 @@ import { DashBoardComponent } from "../dashboard/DashBoardComponent";
 import { registerEstudent } from "../../../actions/registerEstudent";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import "./stylesR.css";
+import "./stylesStudent.css";
 
-export const RegisterEstudentsComponent=()=>{
+export const RegisterStudentsComponent=()=>{
   const dispatch = useDispatch();
-  const [form, handlerChangeForm, handlerResetForm] = useForm({
-    ci: '',
-    ru:'',
-    nombre: '',
-    ap_paterno: '',
-    ap_materno: '',
-    cargo: '',
-    semestre: '',
-    email:'',
-    fecha_nac: '',
-    telefono: ''
+  const [form, handlerChangeForm] = useForm({
+    ci: "",
+    ru: "",
+    nombre: "",
+    ap_paterno: "",
+    ap_materno: "",
+    cargo: "",
+    semestre: "",
+    email: "",
+    fecha_nac: "",
+    telefono: ""
   });
 
   const { ci, ru, nombre, ap_paterno, ap_materno, cargo, semestre, email, fecha_nac, telefono } = form;
   const { student } = useSelector((state) => state);
-  const { register_estudent } = student;
-  console.log( register_estudent );
+  const { register_student } = student;
+  console.log(register_student);
+  
   const handlerSubmit = (e) => {
     e.preventDefault()
     dispatch(registerEstudent({ nombre, ap_paterno, ap_materno, ci, ru, cargo, semestre, email, fecha_nac, telefono }));
-    handlerResetForm();
   }
 
   return (
@@ -40,12 +40,12 @@ export const RegisterEstudentsComponent=()=>{
       <Head/>
       <DashBoardComponent/>
       <div className="container">
-        <Link to="/estlist" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
+        <Link to="/students/estudentslist"><button tipo="button" className="link"><FaUsers/> Lista de Estudiantes </button></Link>
 
         <div className="form-wrapper">
           <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /></h2>
           
-          <form onSubmit={handlerSubmit} noValidate>
+          <form onSubmit={handlerSubmit}>
             <div className="simple">
               <label htmlFor="ci">C.I.:</label>
               <input

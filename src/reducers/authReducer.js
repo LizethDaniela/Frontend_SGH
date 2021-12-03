@@ -11,9 +11,6 @@ export const authReducer = (state = {}, action) => {
     case types.authLogout: {
       return {};
     }
-    case types.authRegister: {
-      return { ...state, msnregister: action.payload };
-    }
     case types.authError: {
       return { ...state, msnerror: action.payload };
     }

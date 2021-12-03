@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -6,8 +6,11 @@ import {
     Link
   } from "react-router-dom";
 import { LoginComponent } from '../SubsistemaAdmin/auth/LoginComponent';
-import { RegisterEstudentsComponent } from '../SubsistemaAdmin/auth/RegisterEstudentsComponent';
-import { RegisterDocentsComponent } from '../SubsistemaAdmin/auth/RegisterDocentsComponent';
+import { RegisterDocentsComponent } from '../SubsistemaAdmin/Docente/RegisterDocentsComponent';
+import { DocentesList } from '../SubsistemaAdmin/Docente/DocentesList';
+import { RegisterStudentsComponent } from '../SubsistemaAdmin/Estudiante/RegisterStudentsComponent';
+import { ContainerStudentsListComponent } from '../SubsistemaAdmin/Estudiante/ContainerStudentsListComponent';
+
 import { AsignarMateriasComponent } from '../SubsistemaAdmin/AsignarMaterias/AsignarMateriasComponent';
 import { HorariosComponent } from '../SubsistemaAdmin/Horarios/HorariosComponent';
 import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/ModificarHorarioComponent';
@@ -15,11 +18,9 @@ import Principal from '../principal/Principal';
 import RolesDocentes from '../SubsistemaAdmin/RolesPermisos/RolesDocente';
 import RolesEstudiantes from '../SubsistemaAdmin/RolesPermisos/RolesEstudiante';
 
-
 import { MatApp } from '../SubsistemaAdmin/Materia/MatApp';
 import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
 import { Autenticacion } from '../SubsistemaAdmin/auth/Autenticacion';
-
 
 import {VerHorarios}from '../SubsistemaDocente/VerHorarios'
 import {VerHorariosAsignados}from '../SubsistemaDocente/VerHorariosAsignados'
@@ -28,9 +29,10 @@ import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
 
 import { Estudiante } from '../SubsistemaEstudiantes/Estudiante';
 import { LinksComponent } from '../SubsistemaAdmin/Ambientes/LinksComponent';
-import { DocentesList } from '../SubsistemaAdmin/auth/DocentesList';
-import { EstudentesList } from '../SubsistemaAdmin/auth/EstudentesList';
+
 import "../../styles/styles.css"
+
+
 
 export const RouterApp = () => {
     return (
@@ -39,8 +41,8 @@ export const RouterApp = () => {
                 <Route exact path="/login" component={LoginComponent}/>
                 <Route exact path="/registerdocentes" component= {RegisterDocentsComponent}/>
                 <Route exact path="/listdoc" component= {DocentesList}/>
-                <Route exact path="/registerestudents" component={RegisterEstudentsComponent}/>
-                <Route exact path="/estlist" component= {EstudentesList}/>
+                <Route exact path="/students/registerstudents" component= {RegisterStudentsComponent}/>
+                <Route exact path="/students/estudentslist" component= {ContainerStudentsListComponent}/>
                 <Route exact path="/asignarmaterias" component={AsignarMateriasComponent}/>
                 <Route exact path="/horarios" component={HorariosComponent}/>
                 <Route exact path="/modificar" component={ModificarHorarioComponent}/>

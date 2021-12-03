@@ -29,7 +29,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                 <header> Administrador</header>
                 <ul>
                     <li><Link to="/registerdocentes">Docentes</Link></li>
-                    <li><Link to="/registerestudents">Estudiantes</Link></li>
+                    <li><Link to="/students/registerstudents">Estudiantes</Link></li>
                     <li><Link to="/materiacarga">Materias</Link></li>
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
                     <li><Link to="/ambientes">Ambientes</Link></li>
