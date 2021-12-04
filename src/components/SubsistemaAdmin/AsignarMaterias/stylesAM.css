@@ -1,5 +1,5 @@
 .materia{
-    height: 880px;
+    height: 900px;
     margin-top: 10px;
     margin-left: 270px;
     width: 1200px;
@@ -14,9 +14,6 @@ h3 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 5px;
-    font-family:fantasy;
-    background: rgb(143, 202, 196);
-
 }
 
 select {
@@ -29,12 +26,10 @@ select option {
 }
 
 .form-control {
-    background: rgba(131, 234, 241, 0.664);
-   /* font-family:fantasy;*/
-
+    font-size: 3px;
     
+    background-color: rgba(131, 234, 241, 0.664);
 }
-
 
 .btn-a{
     margin: 15px;

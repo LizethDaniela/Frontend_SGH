@@ -1,11 +1,7 @@
 import React from 'react'
 import {Button} from 'reactstrap';
 import { MdLocalPrintshop } from "react-icons/md";
-import { Link } from 'react-router-dom';
-import Head from '../head/Head';
-import './NavBarDoc.css';
-import { FaHome,FaUserClock } from "react-icons/fa";
-
+import { DashboardDocente } from './DashboardDocente';
 export const VerHorariosAsignados = () => {
     const data = [
         {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'lunes'},
@@ -23,17 +19,9 @@ export const VerHorariosAsignados = () => {
      
     ]
     return (<>
-       <Head/>
-       <div>
-       <nav className="navbar">
-          <Link to="/principaldoc" > <h4><FaHome/></h4></Link>
-          <Link to="/horariosasig" >Horarios Asignados</Link>
-          <Link to="/ajustes" >Reajuste de horarios</Link>
-          <button type="button" className="btn btn-secondary">Cerrar Sesión</button>  
-       </nav>
+        
         <div className="container">
-        <h3> <FaUserClock/>  Horarios Asignados </h3>
-       
+           
         <div className="row">
        
         
@@ -94,7 +82,7 @@ export const VerHorariosAsignados = () => {
         <Button type="submit" color="success"   >   <MdLocalPrintshop/>  IMPRIMIR</Button>
         
         </div>
-    </div>
+    
 </>
     )
 }

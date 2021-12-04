@@ -1,11 +1,5 @@
-.table-bordered{
-   /* margin:10px 100px;*/
-   border: 3px solid #02303b;
-}
-.bordes{
-    /* margin:10px 100px;*/
-    border: 3px solid #02303b;
- }
-.alineacion{
-    margin-top: -290px;
+.tabla{
+    margin:100px 100px;
+    margin-left: 220px;
+    
 }
