@@ -8,6 +8,11 @@ export const types = {
   registerEstudent: "register/student",
   listStudents: "list/students",
   editStudent: "edit/student",
-  deleteStudent: "delete/student"
+  deleteStudent: "delete/student",
 
+  //docente
+  registerDocente: "register/docente",
+  listDocentes: "list/docentes",
+  editDocente: "edit/docente",
+  deleteDocente: "delete/docente"
 };

@@ -26,9 +26,9 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                 </div>
             </label> */}
             <div className="sidebar">
-                <header> Administrador</header>
+                <header> Administrador </header>
                 <ul>
-                    <li><Link to="/registerdocentes">Docentes</Link></li>
+                    <li><Link to="/docentes/registerdocentes">Docentes</Link></li>
                     <li><Link to="/students/registerstudents">Estudiantes</Link></li>
                     <li><Link to="/materiacarga">Materias</Link></li>
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>

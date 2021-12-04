@@ -6,5 +6,9 @@ export const enpoints = {
 
   //estudiante
   registerEstudent: { url: "http://localhost:8000/api/1.0/student", method: "POST" },
-  getlistStudents: { url: "http://localhost:8000/api/1.0/student", method: "GET" }
+  getlistStudents: { url: "http://localhost:8000/api/1.0/student", method: "GET" },
+
+  //docente
+  registerDocente: { url: "http://localhost:8000/api/1.0/teacher", method: "POST" },
+  getlistDocentes: { url: "http://localhost:8000/api/1.0/teacher", method: "GET" },
 };

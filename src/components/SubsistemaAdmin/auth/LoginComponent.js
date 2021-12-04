@@ -92,7 +92,7 @@ export const LoginComponent = () => {
           </div>
         </div>
       ) : (
-        <Redirect to="/main" />
+        <Redirect to="/mainDashboard" />
       )}
     </>
   );

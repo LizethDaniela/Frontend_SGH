@@ -7,8 +7,7 @@
     height: 1000px;   
     
 }
-.present{
-  
+.present {
     color:rgb(141, 185, 167);
     margin-left: 0px;
     font-style: oblique;
@@ -18,19 +17,19 @@
 }
 .log {
     font-family: 'Courier New', Courier, monospace;
-   background-color: #81b2c900;
-   color: #fff;
-   border: 10px solid rgba(226, 230, 231, 0);
-   width: 15%;
-   margin-top: 0.5em;
-   padding: 8px 0px;
-   font-size: 1em;
-   font-weight: lighter;
-   letter-spacing: 1px;
-   margin-bottom: 0.20em;
-   margin-left: 80px;
+    background-color: #81b2c900;
+    color: #fff;
+    border: 10px solid rgba(226, 230, 231, 0);
+    width: 15%;
+    margin-top: 0.5em;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.20em;
+    margin-left: 80px;
 }
-.log:hover{
+.log:hover {
     color: #0f2b36;
     background-color: rgb(181, 220, 221);
     border: 2px solid #1a303d;

@@ -85,6 +85,6 @@ section{
     transition: all .5s;
 }
 .img {
-  width: 900px;
-  margin-right: 90px;
+    width: 900px;
+    margin-right: 90px;
 }

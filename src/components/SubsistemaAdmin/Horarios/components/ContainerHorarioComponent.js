@@ -18,9 +18,7 @@ export const ContainerHorarioComponent = (props) => {
     { docente:'Juan', siglaMateria:'SIS-110', ambiente:'Amb2Piso1',idperiodo:8,dia:'viernes'},
     { docente:'Juan', siglaMateria:'SIS-110', ambiente:'Amb2Piso1',idperiodo:5,dia:'viernes'},
     { docente:'Juan', siglaMateria:'SIS-110', ambiente:'Amb2Piso1',idperiodo:6,dia:'sabado'},
-   
 
-   
 ]
     const[newId, setNewId]=useState("");
 const[materia, setMateria]=useState("");
