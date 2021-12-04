@@ -92,7 +92,7 @@ export const LoginDocente = () => {
         </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
         {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
 }
-        </>)}*/ <Redirect to="/principaldoc"/>)}
+        </>)}*/ <Redirect to="/verhorarios"/>)}
     </>
     );
 };
