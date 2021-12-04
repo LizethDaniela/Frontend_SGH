@@ -1,9 +1,8 @@
 .sidebar {
     position:absolute;
-    /*left: -340px;*/
-    width: 300px;
+    width: 0px;
     height: 750px;
-    top: 185px;
+    top: 10px;
     background: #042331;
     transition: all .5s ease;
     opacity: 0.8;
@@ -19,11 +18,11 @@
 .sidebar ul a{
     display: block;
     height: 100%;
-    width: 100%;
+    width: 80px;
     line-height: 65px;
     font-size: 20px;
     color: white;
-    padding-left: 30px;
+    padding-left: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid black;
     border-top: 1px solid rgba(255,255,255,.1);
@@ -33,7 +32,7 @@ ul li:hover a{
     padding-left: 50px;
 }
 .sidebar ul a i{
-    margin-right: 16px;
+    margin-right: 10px;
 }
 #check{
     display: none;
@@ -48,11 +47,11 @@ label #btn,label #cancel{
     cursor: pointer;
 }
 label #btn{
-    left: 40px;
+    left: 10px;
     top: 25px;
     font-size: 35px;
     color: white;
-    padding: 6px 12px;
+    padding: 6px 6px;
     transition: all .5s;
 }
 label #cancel{
@@ -76,12 +75,12 @@ label #cancel{
     left: 195px;
 }
 #check:checked ~ section{
-    margin-left: 250px;
+    margin-left: 50px;
 }
 section{
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 200vh;
     transition: all .5s;
 }
 .img {
