@@ -18,7 +18,7 @@ export const AsignarMateriasComponent = () => {
                         </form>
                     </div>
                     <div>
-                        <h3>MATERIAS</h3>
+                        <h3>Materias</h3>
                         <hr/>
                     </div>
                     <div className="asignar">

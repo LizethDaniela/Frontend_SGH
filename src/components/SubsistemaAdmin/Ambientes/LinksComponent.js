@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Head from '../../head/Head'
+import {FaRegBuilding,FaPencilAlt} from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
 
@@ -69,6 +70,7 @@ export const LinksComponent = () => {
             <Head/>
             <DashBoardComponent/>
             <div className="container">
+            <div className="alineacion">
             <h3> ENLACES VIRTUALES</h3>
 
             <div className="tabla">
@@ -93,7 +95,7 @@ export const LinksComponent = () => {
                            <td>{item.link}</td>
                            
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}><FaPencilAlt/>  EDITAR</button>{'  '}
                                {'  '}
                                <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
                            </td>
@@ -205,7 +207,7 @@ export const LinksComponent = () => {
         </Modal>
         </div>
         </div>
-       
+       </div>
            
         </>
     )

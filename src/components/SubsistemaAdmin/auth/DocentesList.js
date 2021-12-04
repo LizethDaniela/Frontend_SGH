@@ -1,5 +1,5 @@
 import React ,{useState}from 'react'
-import { FaUsersCog} from "react-icons/fa";
+import { FaUsersCog,FaPencilAlt} from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import Head from '../../head/Head'
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
@@ -42,7 +42,7 @@ export const DocentesList = () => {
         console.log(datoselect);
     }
    const editar=()=>{
-       var newdata=dates;
+       let newdata=dates;
        newdata.map(datos=>{
          if(datos.id===datoselect.id){
             datos.ci=datoselect.ci;
@@ -63,17 +63,12 @@ export const DocentesList = () => {
         (datos=>datos.id!==datoselect.id));
         setDelet(false);
    }
-   const openModal=()=>{
-       setDatoselect(null);
-      
-   }
-   
-
     return (
         <>
             <Head/>
             <DashBoardComponent/>
             <div className="container">
+            <div className="alineacion">
             <h3><FaUsersCog/> LISTA DE DOCENTES</h3>
             <div className="tabla">
            
@@ -101,7 +96,7 @@ export const DocentesList = () => {
                            <td>{item.phone}</td>
                            <td>{item.carga}</td>
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}><FaPencilAlt/>  EDITAR</button>{'  '}
                                {'  '}
                                <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
                            </td>
@@ -189,7 +184,8 @@ export const DocentesList = () => {
             </ModalFooter>
         </Modal>
         </div>
-            </div> 
+        </div>
+        </div> 
         </>
     )
 }
