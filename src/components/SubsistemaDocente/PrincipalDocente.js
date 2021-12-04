@@ -8,10 +8,11 @@ import {
     Link
   } from "react-router-dom";
 import { authLogoutAsync } from '../../actions/auth';
+import Head from '../head/Head';
 import "./dashstyles.css";
 
 
-export const DashboardDocente= ({ children, ...rest }) => {
+export const PrincipalDocente= ({ children, ...rest }) => {
     const {auth} = useSelector(state => state);
     const {user} = auth;
     const dispatch = useDispatch();
@@ -19,32 +20,26 @@ export const DashboardDocente= ({ children, ...rest }) => {
         dispatch(authLogoutAsync());
     };
     return (
-        user == null? (<Redirect to="/Login"/>): (<>
+        user == null? (<Redirect to="/"/>): (<>
             {/* <input type="checkbox" id="check"/>
             <label htmlFor="check">
                 <div className="fas fa-bars">
                     <MdCancel className="iconcolor"/>
                 </div>
             </label> */}
+            <Head/>
             <div className="sidebar">
                 <header>Docente</header>
                 <ul>
-                    +
-                    <li><a href="#"><i className="fas fa-qrcode"></i>Events</a></li>
-                    {/*<li><a href="#"><i className="fas fa-qrcode"></i>About</a></li>
-                    <li><a href="#"><i className="fas fa-qrcode"></i>Services</a></li>*/}
-
-
                     <li><Link to="/verhorariosasignados"> Ver Horarios Asignados</Link></li>
-                    <li><Link to="/horarios"> Ver Horarios</Link></li>
+                    <li><Link to="/solicitar">Reajuste de Horarios</Link></li>
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>
-            <section>
-                <div className="d-flex justify-content-center h-100">
-                    <img src={'/imgauth/ciudadela.jpg'} className="img"/>
-                </div>
-            </section>
+            <div className="container">
+                aqui el contenido principal docente
+            </div>
+           
         </>)
     );
 };

@@ -12,7 +12,7 @@ import Head from '../head/Head';
 
 
 
-export const Estudiante= ({ children, ...rest }) => {
+export const ProgramarMaterias= ({ children, ...rest }) => {
     const {auth} = useSelector(state => state);
     const {user} = auth;
     const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export const Estudiante= ({ children, ...rest }) => {
                 </ul>
             </div>
             <div className="container">
-                aqui el contenido principal subsistema estudiante
+                aqui el contenido para programar materias
             </div>
            
         </>)

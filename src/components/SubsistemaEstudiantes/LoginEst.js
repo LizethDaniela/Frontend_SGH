@@ -7,7 +7,7 @@ import { authAsync, auth } from '../../actions/auth';
 import { useDispatch } from 'react-redux';
 
 
-export const LoginDocente = () => {
+export const LoginEst = () => {
     const dispatch = useDispatch();
    /* useEffect(() => {
         const userData = localStorage.getItem("user");
@@ -92,7 +92,7 @@ export const LoginDocente = () => {
         </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
         {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
 }
-        </>)}*/ <Redirect to="/pagdoc"/>)}
+        </>)}*/ <Redirect to="/princestud"/>)}
     </>
     );
 };

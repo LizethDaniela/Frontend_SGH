@@ -8,7 +8,7 @@ import {
     Link
   } from "react-router-dom";
 import { authLogoutAsync } from '../../../actions/auth';
-import "./styles.css"
+import "./DashSty.css"
 
 
 export const DashBoardComponent = ({ children, ...rest }) => {
@@ -19,7 +19,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
         dispatch(authLogoutAsync());
     };
     return (
-        user == null? (<Redirect to="/Login"/>): (<>
+        user == null? (<Redirect to="/"/>): (<>
             {/* <input type="checkbox" id="check"/>
             <label htmlFor="check">
                 <div className="fas fa-bars">

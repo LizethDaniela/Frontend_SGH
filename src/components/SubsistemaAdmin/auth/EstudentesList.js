@@ -1,5 +1,5 @@
 import React , {useState}from 'react'
-import { FaUsers } from "react-icons/fa";
+import { FaUsers,FaPencilAlt,FaTrashAlt } from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import Head from '../../head/Head'
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
@@ -63,20 +63,18 @@ export const EstudentesList = () => {
         (datos=>datos.id!==datoselect.id));
         setDelet(false);
    }
-   const openModal=()=>{
-       setDatoselect(null);
-      
-   }
+   
 
     return (
         <>
             <Head/>
             <DashBoardComponent/>
             <div className="container">
+            <div className="alineacion">
             <h3><FaUsers/> Lista De Estudiantes</h3>
             <div className="tabla">
            
-            <table className=" table-bordered thead-dark">
+            <table className=" table-bordered ">
                <thead>
                    <tr>
                        <th>CI</th>
@@ -102,9 +100,9 @@ export const EstudentesList = () => {
                            <td>{item.phone}</td>
                            
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}><FaPencilAlt/> EDITAR</button>{'  '}
                                {'  '}
-                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
+                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
                            </td>
                        </tr>
                    ))}
@@ -191,6 +189,7 @@ export const EstudentesList = () => {
             </ModalFooter>
         </Modal>
         </div>
+            </div>
             </div>
         </>
     )

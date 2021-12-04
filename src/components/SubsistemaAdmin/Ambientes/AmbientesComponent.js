@@ -1,9 +1,10 @@
 import React, {useState}from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import {FaRegBuilding,FaPencilAlt,FaTrashAlt} from "react-icons/fa";
 import Head from '../../head/Head'
 import { DashBoardComponent } from '../dashboard/DashBoardComponent'
 import {Link} from "react-router-dom";
-
+import "./ambientes.css"
 export const AmbientesComponent = () => {
     const data = [
         {id:1, number:'7', capacidad:'60',planta:'1'},
@@ -68,15 +69,16 @@ export const AmbientesComponent = () => {
         <Head/>
         <DashBoardComponent/>
         <div className="container">
+       
+        <div className="alineacion">
+        <h3><FaRegBuilding/>Ambientes</h3>
         
-        <h3>AMBIENTES</h3>
-            
         <div className="tabla">
-           <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
+            <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
            <br/><br/>
-            <table className=" table-bordered thead-dark">
-               <thead>
-                   <tr>
+            <table className=" table-bordered">
+               <thead className="bordes">
+                   <tr className="bordes">
                        <th>ID</th>
                        <th>PLANTA</th>
                        <th>N°AMBIENTE</th>
@@ -84,7 +86,7 @@ export const AmbientesComponent = () => {
                        <th>ACCIONES</th>
                    </tr>
                </thead>
-               <tbody>
+               <tbody className="bordes">
                    {dates.map((item)=>(
                        <tr> 
                            <td>{item.id}</td>
@@ -93,9 +95,9 @@ export const AmbientesComponent = () => {
                            <td>{item.capacidad}</td>
                            
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}><FaPencilAlt/> EDITAR</button>{'  '}
                                {'  '}
-                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
+                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
                            </td>
                        </tr>
                    ))}
@@ -191,6 +193,7 @@ export const AmbientesComponent = () => {
                 <Button color="secondary" onClick={()=>setInsert(false)}>CANCELAR</Button>
             </ModalFooter>
         </Modal>
+        </div>
         </div>
         </div>
         </>

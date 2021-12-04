@@ -12,8 +12,7 @@ import { AsignarMateriasComponent } from '../SubsistemaAdmin/AsignarMaterias/Asi
 import { HorariosComponent } from '../SubsistemaAdmin/Horarios/HorariosComponent';
 import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/ModificarHorarioComponent';
 import Principal from '../principal/Principal';
-import RolesDocentes from '../SubsistemaAdmin/RolesPermisos/RolesDocente';
-import RolesEstudiantes from '../SubsistemaAdmin/RolesPermisos/RolesEstudiante';
+
 
 
 import { MatApp } from '../SubsistemaAdmin/Materia/MatApp';
@@ -21,7 +20,7 @@ import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
 import { Autenticacion } from '../SubsistemaAdmin/auth/Autenticacion';
 
 
-import {VerHorarios}from '../SubsistemaDocente/VerHorarios'
+import {Solicitar, VerHorarios}from '../SubsistemaDocente/Solicitar'
 import {VerHorariosAsignados}from '../SubsistemaDocente/VerHorariosAsignados'
 import { AmbientesComponent } from '../SubsistemaAdmin/Ambientes/AmbientesComponent';
 import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
@@ -31,6 +30,10 @@ import { Estudiante } from '../SubsistemaEstudiantes/Estudiante';
 import { LinksComponent } from '../SubsistemaAdmin/Ambientes/LinksComponent';
 import { DocentesList } from '../SubsistemaAdmin/auth/DocentesList';
 import { EstudentesList } from '../SubsistemaAdmin/auth/EstudentesList';
+import { PrincipalDocente } from '../SubsistemaDocente/PrincipalDocente';
+import { LoginEst } from '../SubsistemaEstudiantes/LoginEst';
+import { ProgramarMaterias } from '../SubsistemaEstudiantes/ProgramarMaterias';
+import { VerHorariosEst } from '../SubsistemaEstudiantes/VerHorariosEst';
 
 
 export const RouterApp = () => {
@@ -52,10 +55,15 @@ export const RouterApp = () => {
                
         
                 <Route exact path="/logdocent" component={LoginDocente}/>
-                <Route exact path="/verhorarios" component={VerHorarios}/>
+                <Route exact path="/pagdoc" component={PrincipalDocente}/>
                 <Route exact path="/verhorariosasignados" component={VerHorariosAsignados}/>
+                <Route exact path="/solicitar" component={Solicitar}/>
                
+
                 <Route exact path="/princestud" component={Estudiante}/>
+                <Route exact path="/loginest" component={LoginEst}/>
+                <Route exact path="/verhorarios" component={VerHorariosEst}/>
+                <Route exact path="/programat" component={ProgramarMaterias}/>
 
                 <Route exact path="/main" component={MainDashBoard}/>
                

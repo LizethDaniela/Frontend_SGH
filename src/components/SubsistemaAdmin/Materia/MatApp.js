@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import Head from '../../head/Head';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent';
-
+import { FaClipboardList,FaPencilAlt,FaTrashAlt} from "react-icons/fa";
 export const MatApp = () => {
     const data = [
         {id:1, name:'Tecnicas de Programación 1', sigla:'SIS-110',semestre:'1', cargasem:'8', docente:'Lopez Luis'},
@@ -38,7 +38,7 @@ export const MatApp = () => {
     }
    const editar=()=>{
        var newdata=dates;
-       newdata.map(datos=>{
+       newdata.map((datos)=>{
          if(datos.id===datoselect.id){
              datos.name=datoselect.name;
              datos.sigla=datoselect.sigla;
@@ -73,8 +73,10 @@ export const MatApp = () => {
          <Head/>
         <DashBoardComponent/>
         <div className="container">
+        <div className="alineacion">
+            <h3> <FaClipboardList/>Lista de Materias</h3>
         <div className="tabla">
-           <Button color="success" onClick={()=>openModal()}>INSERTAR</Button>
+           <Button color="success" onClick={()=>openModal()}> INSERTAR</Button>
            <br/><br/>
             <table className=" table-bordered thead-dark">
                <thead>
@@ -98,9 +100,9 @@ export const MatApp = () => {
                            <td>{item.cargasem}</td>
                            <td>{item.docente}</td>
                             <td>
-                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}>EDITAR</button>{'  '}
+                               <button className="btn btn-primary" onClick={()=>select(item, 'Editar')}><FaPencilAlt/>  EDITAR</button>{'  '}
                                {'  '}
-                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}>ELIMINAR</button>
+                               <button className="btn btn-danger" onClick={()=>select(item, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
                            </td>
                        </tr>
                    ))}
@@ -219,7 +221,7 @@ export const MatApp = () => {
         </Modal>
         </div>
         </div> 
-            
+         </div>   
         </>
     )
 }
