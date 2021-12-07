@@ -74,7 +74,7 @@ export const StudentItem = ({ _id, ci, ru, nombre, ap_paterno, ap_materno, cargo
 
             <Modal isOpen={update}>
                 <ModalHeader>
-                    <h2>EDITAR</h2>
+                    EDITAR
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>
@@ -128,7 +128,7 @@ export const StudentItem = ({ _id, ci, ru, nombre, ap_paterno, ap_materno, cargo
                     </FormGroup>
                     <FormGroup>
                         <Label>E-MAIL</Label>
-                        <Input className="form-control" type="text" name="email"  
+                        <Input className="form-control" type="email" name="email"  
                             value={datoselect.email}
                             onChange={handlerChange}
                         />

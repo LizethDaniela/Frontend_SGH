@@ -117,7 +117,7 @@ export const RegisterStudentsComponent=()=>{
               />
             </div>
             <div className="simple">
-              <label htmlFor="email">e-mail:</label>
+              <label htmlFor="email">E-mail:</label>
               <input
                 placeholder="e-mail...."
                 type="email"

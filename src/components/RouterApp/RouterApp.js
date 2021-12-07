@@ -14,6 +14,9 @@ import { Estudiante } from '../SubsistemaEstudiantes/Estudiante';
 import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
 //LOGIN ADMINISTRADOR
 import { LoginComponent } from '../SubsistemaAdmin/auth/LoginComponent';
+//ADMINISTRADOR
+import { RegisterAdministradorComponent } from '../SubsistemaAdmin/Administrador/RegisterAdministradorComponent';
+import { ContainerAdministradorListComponent } from '../SubsistemaAdmin/Administrador/ContainerAdministradorListComponent';
 //DOCENTES
 import { RegisterDocentesComponent } from '../SubsistemaAdmin/Docente/RegisterDocentesComponent';
 import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/ContainerDocentesListComponent';
@@ -29,16 +32,14 @@ import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/Modificar
 import RolesDocentes from '../SubsistemaAdmin/RolesPermisos/RolesDocente';
 import RolesEstudiantes from '../SubsistemaAdmin/RolesPermisos/RolesEstudiante';
 //MATERIAS
-import { MatApp } from '../SubsistemaAdmin/Materia/MatApp';
+import { ContainerMateriasListComponent } from '../SubsistemaAdmin/Materia/ContainerMateriasListComponent';
 //AMBIENTES
-import { AmbientesComponent } from '../SubsistemaAdmin/Ambientes/AmbientesComponent';
-import { LinksComponent } from '../SubsistemaAdmin/Ambientes/LinksComponent';
+import { ContainerAmbientesListComponent } from '../SubsistemaAdmin/Ambientes/ContainerAmbientesListComponent';
 
 import {VerHorarios}from '../SubsistemaDocente/VerHorarios'
 import {VerHorariosAsignados}from '../SubsistemaDocente/VerHorariosAsignados'
 
 import "../../styles/styles.css"
-
 
 
 
@@ -55,6 +56,9 @@ export const RouterApp = () => {
 
                 <Route exact path="/mainDashboard" component={MainDashBoard}/>
 
+                <Route exact path="/administrador/registeradmin" component= {RegisterAdministradorComponent}/>
+                <Route exact path="/administrador/administradorlist" component= {ContainerAdministradorListComponent}/>
+
                 <Route exact path="/docentes/registerdocentes" component= {RegisterDocentesComponent}/>
                 <Route exact path="/docentes/docenteslist" component= {ContainerDocentesListComponent}/>
 
@@ -66,10 +70,9 @@ export const RouterApp = () => {
                 <Route exact path="/horarios" component={HorariosComponent}/>
                 <Route exact path="/modificar" component={ModificarHorarioComponent}/>
                 
-                <Route exact path="/materiacarga" component={MatApp}/>
+                <Route exact path="/materias" component= {ContainerMateriasListComponent}/>
 
-                <Route exact path="/ambientes" component={AmbientesComponent}/>
-                <Route exact path="/links" component={LinksComponent}/>
+                <Route exact path="/ambientes" component= {ContainerAmbientesListComponent}/>
 
                 <Route exact path="/verhorarios" component={VerHorarios}/>
                 <Route exact path="/verhorariosasignados" component={VerHorariosAsignados}/>

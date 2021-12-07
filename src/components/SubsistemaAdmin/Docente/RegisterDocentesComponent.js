@@ -87,7 +87,7 @@ export const RegisterDocentesComponent = () => {
             <div className="simple">
               <label htmlFor="cargo">Cargo:</label>
               <input
-                placeholder="estudiante"
+                placeholder="Escriba aqui"
                 type="text"
                 name="cargo"
                 value={cargo} 
@@ -95,7 +95,7 @@ export const RegisterDocentesComponent = () => {
               />
             </div>
             <div className="simple">
-              <label htmlFor="email">e-mail:</label>
+              <label htmlFor="email">E-mail:</label>
               <input
                 placeholder="e-mail...."
                 type="email"
@@ -125,8 +125,8 @@ export const RegisterDocentesComponent = () => {
                 onChange={handlerChangeForm}
               />
             </div>
-            <div className="firstName">
-              <label htmlFor="nombre">Carga Horaria:</label>
+            <div className="simple">
+              <label htmlFor="carga_horaria">Carga Horaria:</label>
               <input
                 placeholder="Escriba aqui"
                 type="text"

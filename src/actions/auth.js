@@ -1,5 +1,6 @@
 import { types } from "../types/types";
 import { enpoints } from "../types/endPoints";
+import { useEffect } from "react";
 
 export const authAsync = (email, password) => {
   return (dispatch) => {
@@ -54,5 +55,127 @@ export const error = (msn) => {
   return {
     type: types.authError,
     payload: msn,
+  };
+};
+
+export const registerAdministrador = (registerAdministradorData) => {
+  return (dispatch) => {
+      fetch(enpoints.register.url, {
+          method: enpoints.register.method,
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(registerAdministradorData),
+      })
+      .then((response) => response.json())
+      .then(({ serverResponse }) => {
+          console.log( serverResponse );
+          dispatch(registeradministrador( serverResponse ));
+      })
+      .catch((error) => {
+          console.log("ERROR");
+      });
+  };
+};
+
+export const registeradministrador = (response) => {
+  return {
+      type: types.registerAdministrador,
+      payload: response,
+  };
+};
+
+export const listAdministradores = () => {
+  return (dispatch) => {
+      useEffect(() => {
+          fetch(enpoints.getusers.url)
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(adminlist( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          });
+      }, []);
+  };
+};
+
+export const deleteAdministrador = ( id ) => {
+  return (dispatch) => {
+      Promise.all([
+          fetch(`http://localhost:8000/api/1.0/user/${id}`, {
+              method: "DELETE"
+          })
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(deleteadministrador( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          }),
+          fetch(enpoints.getusers.url)
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(adminlist( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          }),
+      ]);
+  };
+};
+
+export const editAdministrador = ( id, editdata ) => {
+  return (dispatch) => {
+      Promise.all([
+          fetch(`http://localhost:8000/api/1.0/user/${id}`, {
+              method: "PUT",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(editdata),
+          })
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(editadministrador( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          }),
+          fetch(enpoints.getusers.url)
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(adminlist( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          }),
+      ]);
+  };
+};
+
+export const adminlist = (responselist) => {
+  return {
+      type: types.listAdministradores,
+      payload: responselist,
+  };
+};
+
+export const deleteadministrador = (responsedelete) => {
+  return {
+      type: types.deleteAdministrador,
+      payload: responsedelete,
+  };
+};
+
+export const editadministrador = (responseedit) => {
+  return {
+      type: types.editAdministrador,
+      payload: responseedit,
   };
 };

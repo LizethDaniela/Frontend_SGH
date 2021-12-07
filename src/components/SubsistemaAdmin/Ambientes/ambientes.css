@@ -1,5 +1,14 @@
-.tabla{
-    margin:100px 100px;
-    margin-left: 220px;
-    
+.errorambiente {
+    text-align: center;
+    color: royalblue;
+}
+.msjlink {
+    text-align: center;
+    color: red;
+}
+table th {
+    text-align: center;
+}
+table tr {
+    text-align: center;
 }

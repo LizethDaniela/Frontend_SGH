@@ -15,6 +15,9 @@ export const registerEstudent = (studentRegisterData) => {
         .then(({ studentResponse }) => {
             console.log( studentResponse);
             dispatch(register(studentResponse));
+        })
+        .catch((error) => {
+            console.log("ERROR")
         });
     };
 };
@@ -40,7 +43,7 @@ export const listStudents = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, [register]);
+        }, []);
     };
 };
 

@@ -70,9 +70,6 @@ export const LoginComponent = () => {
                       onChange={handlerChangeForm}
                     />
                   </div>
-                  <div className="row align-items-center remember">
-                    <input type="checkbox" /> Remember Me
-                  </div>
                   <div className = "error">{msnerror}</div>
                   <div className="form-group">
                     <input
@@ -83,11 +80,6 @@ export const LoginComponent = () => {
                   </div>
                 </form>
               </div>
-              {/* <div className="card-footer">
-                <div className="d-flex justify-content-center links">
-                  Don't have an account? <Link to="/register"> Sign Up </Link>{" "}
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

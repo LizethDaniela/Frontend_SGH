@@ -15,6 +15,9 @@ export const registerDocente = (registerTeacherData) => {
         .then(({ teacherResponse }) => {
             console.log( teacherResponse );
             dispatch(registerdocente( teacherResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR")
         });
     };
 };

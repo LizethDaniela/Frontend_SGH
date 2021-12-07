@@ -1,8 +1,8 @@
 export const enpoints = {
   //administrador
-  register: { url: "http://localhost:8000/api/1.0/user/", method: "POST" },
+  register: { url: "http://localhost:8000/api/1.0/user", method: "POST" },
   login: { url: "http://localhost:8000/api/1.0/user/singin", method: "POST" },
-  getusers: { url: "http://localhost:8000/api/1.0/user/", method: "GET" },
+  getusers: { url: "http://localhost:8000/api/1.0/user", method: "GET" },
 
   //estudiante
   registerEstudent: { url: "http://localhost:8000/api/1.0/student", method: "POST" },
@@ -11,4 +11,13 @@ export const enpoints = {
   //docente
   registerDocente: { url: "http://localhost:8000/api/1.0/teacher", method: "POST" },
   getlistDocentes: { url: "http://localhost:8000/api/1.0/teacher", method: "GET" },
+
+  //materia
+  registerMateria: { url: "http://localhost:8000/api/1.0/materia", method: "POST" },
+  getlistMaterias: { url: "http://localhost:8000/api/1.0/materia", method: "GET" },
+
+  //ambiente
+  registerAmbiente: { url: "http://localhost:8000/api/1.0/ambiente", method: "POST" },
+  getlistAmbientes: { url: "http://localhost:8000/api/1.0/ambiente", method: "GET" }
+
 };

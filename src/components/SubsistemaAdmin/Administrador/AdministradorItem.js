@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
-import { deleteDocente, editDocente } from '../../../actions/registerDocente';
+import { deleteAdministrador, editAdministrador } from '../../../actions/auth';
 
-export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, email, fecha_nac, telefono, carga_horaria, otro }) => {
+export const AdministradorItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, email, username, fecha_nac, telefono, otro }) => {
     const dispatch = useDispatch();
-    const { docente } = useSelector(state => state);
-    const { edit_docente, delete_docente } = docente;
-    console.log(edit_docente);
-    console.log(delete_docente);
+    const { auth } = useSelector(state => state);
+    const { edit_admin, delete_admin } = auth;
+    console.log(edit_admin);
+    console.log(delete_admin);
 
     const [ update, setUpdate ] = useState( false );
     const [ delet, setDelet ] = useState( false );
@@ -20,9 +20,9 @@ export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, em
         ap_materno: "",
         cargo: "",
         email: "",
+        username: "",
         fecha_nac: "",
-        telefono: "",
-        carga_horaria: ""
+        telefono: ""
     });
 
     const select = ( item, caso )=>{
@@ -41,15 +41,15 @@ export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, em
 
     const handlerEdit = (id, editdata) => {
         console.log(editdata);
-        dispatch(editDocente(id, editdata));
-        if ( edit_docente != null )
+        dispatch(editAdministrador(id, editdata));
+        if ( edit_admin != null )
             setUpdate(false);
     };
 
     const handlerDelete = (id) => {
         console.log(id);
-        dispatch(deleteDocente(id));
-        if ( delete_docente != null )
+        dispatch(deleteAdministrador(id));
+        if ( delete_admin != null )
             setDelet(false);
     };
     return (
@@ -61,9 +61,9 @@ export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, em
                 <td>{ ap_materno }</td>
                 <td>{ cargo }</td>
                 <td>{ email }</td>
+                <td>{ username }</td>
                 <td>{ fecha_nac }</td>
                 <td>{ telefono }</td>
-                <td>{ carga_horaria }</td>
                 <td>
                     <button className="btn btn-primary" onClick={() => select(otro, 'Editar')}>EDITAR</button>{'  '}
                     {'  '}
@@ -119,6 +119,13 @@ export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, em
                         />
                     </FormGroup>
                     <FormGroup>
+                        <Label>USERNAME:</Label>
+                        <Input className="form-control" type="text" name="username"  
+                            value={datoselect.username}
+                            onChange={handlerChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
                         <Label>FECHA DE NACIMIENTO:</Label>
                         <Input className="form-control" type="date" name="fecha_nac"  
                             value={datoselect.fecha_nac}
@@ -129,13 +136,6 @@ export const DocenteItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, em
                         <Label>TELEFONO:</Label>
                         <Input className="form-control" type="number" name="telefono"  
                             value={datoselect.telefono}
-                            onChange={handlerChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label>CARGA HORARIA:</Label>
-                        <Input className="form-control" type="text" name="carga_horaria"  
-                            value={datoselect.carga_horaria}
                             onChange={handlerChange}
                         />
                     </FormGroup>

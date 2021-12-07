@@ -24,7 +24,6 @@ select option {
 }
 .horario{
     height: 150px;
-    margin-top: -625px;
     width: 60%;  
 }
 .formatohorario{

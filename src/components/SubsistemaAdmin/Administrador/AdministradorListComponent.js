@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StudentItem } from './StudentItem';
+import { AdministradorItem } from './AdministradorItem';
 
-export const StudentsListComponent = () => {
-    const { student } = useSelector((state) => state);
-    const { data } = student;
+export const AdministradorListComponent = () => {
+    const { auth } = useSelector((state) => state);
+    const { data } = auth;
     console.log(data);
     return (
         <div className="tabla">
@@ -12,14 +12,13 @@ export const StudentsListComponent = () => {
                 <thead>
                     <tr>
                         <th>C.I.</th>
-                        <th>R.U.</th>
                         <th>Nombre</th>
                         <th>Apellido paterno</th>
                         <th>Apellido materno</th>
                         <th>Cargo</th>
-                        <th>Semestre</th>
                         <th>E-mail</th>
-                        <th>Fecha nacimiento</th>
+                        <th>Username</th>
+                        <th>Fecha de nacimiento</th>
                         <th>Teléfono</th>
                         <th>ACCIONES</th>
                     </tr>
@@ -27,7 +26,7 @@ export const StudentsListComponent = () => {
                 <tbody>
                     { data &&
                         data.map( item => {
-                            return <StudentItem key = {item._id} {...item} otro = { item }/>;
+                            return <AdministradorItem key = {item._id} {...item} otro = { item }/>;
                         })
                     }
                 </tbody>
