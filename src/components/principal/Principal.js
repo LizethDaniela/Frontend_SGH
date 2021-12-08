@@ -10,7 +10,7 @@ export const Principal = () => {
       <div className="banner">
         <div className="present ">
           <h1><MdOutlineEditCalendar/> Sistema de Gestión de Horarios </h1><br/>
-          <h2> Ingeniería de Sistemas </h2><hr/>
+          <h1> Ingeniería de Sistemas </h1><hr/>
           <Link to="/admin/login" ><button type="button" className="log"><FaUserTie/> Admin </button></Link>
           <Link to="/docent/login" ><button type="button" className="log"><FaBriefcase/> Docentes </button></Link> 
           <Link to="/estudent/login" ><button type="button" className="log"><FaGraduationCap/> Estudiantes </button></Link> 

@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
 import { Route, Routes} from "react-router-dom";
+
 import { Principal } from '../principal/Principal';
 import { LoginComponent } from '../SubsistemaAdmin/auth/LoginComponent';
 import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
@@ -23,7 +24,9 @@ import { ContainerAmbientesListComponent } from '../SubsistemaAdmin/Ambientes/Co
 
 //SEMESTRES
 import { ContainerSemestresListComponent } from '../SubsistemaAdmin/Semestre/ContainerSemestresListComponent';
-
+//HORARIOS
+import { HorariosComponent } from '../SubsistemaAdmin/Horarios/HorariosComponent';
+import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/ModificarHorarioComponent';
 
 //SUB SISTEMA DOCENTE
 import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
