@@ -36,10 +36,14 @@ import { ContainerMateriasListComponent } from '../SubsistemaAdmin/Materia/Conta
 //AMBIENTES
 import { ContainerAmbientesListComponent } from '../SubsistemaAdmin/Ambientes/ContainerAmbientesListComponent';
 
+//SEMESTRES
+import { ContainerSemestresListComponent } from '../SubsistemaAdmin/Semestre/ContainerSemestresListComponent';
+
 import {VerHorarios}from '../SubsistemaDocente/VerHorarios'
 import {VerHorariosAsignados}from '../SubsistemaDocente/VerHorariosAsignados'
 
 import "../../styles/styles.css"
+
 
 
 
@@ -73,6 +77,8 @@ export const RouterApp = () => {
                 <Route exact path="/materias" component= {ContainerMateriasListComponent}/>
 
                 <Route exact path="/ambientes" component= {ContainerAmbientesListComponent}/>
+
+                <Route exact path="/semestres" component= {ContainerSemestresListComponent}/>
 
                 <Route exact path="/verhorarios" component={VerHorarios}/>
                 <Route exact path="/verhorariosasignados" component={VerHorariosAsignados}/>

@@ -1,21 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AmbienteItem } from './AmbienteItem';
+import { SemestreItem } from './SemestreItem';
 
-export const AmbientesListComponent = () => {
-    const { ambientefisico } = useSelector((state) => state);
-    const { data } = ambientefisico;
+export const SemestresListComponent = () => {
+    const { sem } = useSelector((state) => state);
+    const { data } = sem;
     console.log(data);
     return (
         <div className="tabla">
             <table className=" table-bordered thead-dark">
                 <thead>
                     <tr>
-                        <th>AMBIENTE</th>
-                        <th>PISO</th>
-                        <th>CAPACIDAD DE PERSONAS</th>
-                        <th>MODALIDAD DE CLASE</th>
-                        <th>LINK DE LA CLASE</th>
+                        <th>SEMESTRE</th>
+                        <th>GRUPO</th>
+                        <th>GESTION</th>
+                        <th>NIVEL ACADEMICO</th>
                         <th colSpan="5">DISPONIBILIDAD DE TIEMPO</th>
                         <th>ACCIONES</th>
                     </tr>
@@ -23,7 +22,7 @@ export const AmbientesListComponent = () => {
                 <tbody>
                     { data &&
                         data.map( item => {
-                            return <AmbienteItem key = {item._id} {...item} otro = { item }/>;
+                            return <SemestreItem key = {item._id} {...item} otro = { item }/>;
                         })
                     }
                 </tbody>

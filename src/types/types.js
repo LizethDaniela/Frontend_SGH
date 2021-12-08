@@ -31,6 +31,12 @@ export const types = {
   registerAmbiente: "register/ambiente",
   listAmbientes: "list/ambientes",
   editAmbiente: "edit/ambiente",
-  deleteAmbiente: "delete/ambiente"
+  deleteAmbiente: "delete/ambiente",
+
+  //semestre
+  registerSemestre: "register/semestre",
+  listSemestres: "list/semestres",
+  editSemestre: "edit/semestre",
+  deleteSemestre: "delete/semestre"
 
 };

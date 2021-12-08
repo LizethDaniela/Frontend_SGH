@@ -1,4 +1,9 @@
-/* Made with love by Mutiullah Samim*/
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
@@ -9,8 +14,8 @@ background-image: url("https://getwallpapers.com/wallpaper/small-retina/b/6/3/44
 /*background-image: url("https://getwallpapers.com/wallpaper/full/c/3/1/1520725-best-gravity-falls-desktop-wallpaper-1920x1080-ipad.jpg");
 /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
 background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
+background-repeat: repeat;
+height: 100vh;
 font-family: 'Numans', sans-serif;
 }
 
@@ -21,14 +26,15 @@ font-family: 'Numans', sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 150px;
+    margin-left: 400px;
+    margin-right: 0px;
 }
 
 .card{
     height: 370px;
-    margin-top: auto;
+    margin-top: 300px;
     margin-bottom: auto;
-    width: 400px;
+    width: 300px;
     background-color: rgba(0,0,0,0.5) !important;
 }
 

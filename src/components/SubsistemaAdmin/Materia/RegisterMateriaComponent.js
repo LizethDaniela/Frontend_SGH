@@ -29,9 +29,9 @@ export const RegisterMateriaComponent = () => {
     };
     console.log(datoselect);
 
-    const handlerInsertar = () => {
-        dispatch(registerMateria({ subject, sigla, semestre, horas_semana }));
-        if ( register_materia != null ) {
+    const handlerInsertar = (datos) => {
+        dispatch(registerMateria(datos));
+        if ( register_materia != null || register_materia == null ) {
             setInsert(false);
         }
     };
@@ -71,14 +71,14 @@ export const RegisterMateriaComponent = () => {
                     </FormGroup>
                     <FormGroup>
                         <Label>CARGA HORARIA SEMANAL:</Label>
-                        <Input className="form-control" type="number" name="horas_semana"
+                        <Input className="form-control" type="text" name="horas_semana"
                             value = {horas_semana} 
                             onChange = {handlerChange}/>
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={() => {
-                            handlerInsertar();
+                            handlerInsertar(datoselect);
                         }}
                     >
                         INSERTAR

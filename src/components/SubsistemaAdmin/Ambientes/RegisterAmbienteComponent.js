@@ -78,27 +78,35 @@ export const RegisterAmbienteComponent = () => {
     const { msjlink } = link;
     //MODALIDAD LINK CLASE
 
-    const array = [];
-    const disponibilidad_tiempo = [ ...array, 
-        disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
-        disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
-        disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
-        disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20 ];
+    const handlerInsertar = (datos) => {
+        const { ambiente, piso, capacidad, modalidad, link_clase, 
+            disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+            disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
+            disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
+            disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
+        } = datos;
 
-    const handlerInsertar = () => {
+        const array = [];
+        const disponibilidad_tiempo = [ ...array, 
+            disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+            disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
+            disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
+            disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20 ];
+        
         dispatch(registerAmbiente({ ambiente, piso, capacidad, modalidad, link_clase, disponibilidad_tiempo }));
-        if ( register_ambiente != null ) {
+        
+        if ( register_ambiente != null || register_ambiente == null) {
             setInsert(false);
         }
     };
 
-    const openModal=()=>{
+    const openModal = () => {
         setInsert(true);
     };
 
     return (
         <>
-            <button type="button" onClick={()=>openModal()}>INSERTAR</button>
+            <button type="button" onClick={() => openModal()}>INSERTAR</button>
 
             <Modal isOpen = {insert}>
                 <ModalHeader>
@@ -154,7 +162,7 @@ export const RegisterAmbienteComponent = () => {
                             <tbody>
                                 <tr> 
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo1"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo1"
                                             value = {disponibilidad_tiempo1}
                                             onChange = {handlerChange}
                                         />
@@ -162,7 +170,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo2"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo2"
                                             value = {disponibilidad_tiempo2} 
                                             onChange = {handlerChange}
                                         />
@@ -170,7 +178,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo3"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo3"
                                             value = {disponibilidad_tiempo3} 
                                             onChange = {handlerChange}
                                         />
@@ -178,7 +186,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo4"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo4"
                                             value = {disponibilidad_tiempo4}
                                             onChange = {handlerChange}
                                         />
@@ -195,7 +203,7 @@ export const RegisterAmbienteComponent = () => {
                             <tbody>
                                 <tr> 
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo5"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo5"
                                             value = {disponibilidad_tiempo5}
                                             onChange = {handlerChange}
                                         />
@@ -203,7 +211,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo6"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo6"
                                             value = {disponibilidad_tiempo6} 
                                             onChange = {handlerChange}
                                         />
@@ -211,7 +219,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo7"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo7"
                                             value = {disponibilidad_tiempo7} 
                                             onChange = {handlerChange}
                                         />
@@ -219,7 +227,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo8"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo8"
                                             value = {disponibilidad_tiempo8}
                                             onChange = {handlerChange}
                                         />
@@ -236,7 +244,7 @@ export const RegisterAmbienteComponent = () => {
                             <tbody>
                                 <tr> 
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo9"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo9"
                                             value = {disponibilidad_tiempo9}
                                             onChange = {handlerChange}
                                         />
@@ -244,7 +252,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo10"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo10"
                                             value = {disponibilidad_tiempo10} 
                                             onChange = {handlerChange}
                                         />
@@ -252,7 +260,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo11"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo11"
                                             value = {disponibilidad_tiempo11} 
                                             onChange = {handlerChange}
                                         />
@@ -260,7 +268,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo12"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo12"
                                             value = {disponibilidad_tiempo12}
                                             onChange = {handlerChange}
                                         />
@@ -277,7 +285,7 @@ export const RegisterAmbienteComponent = () => {
                             <tbody>
                                 <tr> 
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo13"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo13"
                                             value = {disponibilidad_tiempo13}
                                             onChange = {handlerChange}
                                         />
@@ -285,7 +293,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo14"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo14"
                                             value = {disponibilidad_tiempo14} 
                                             onChange = {handlerChange}
                                         />
@@ -293,7 +301,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo15"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo15"
                                             value = {disponibilidad_tiempo15} 
                                             onChange = {handlerChange}
                                         />
@@ -301,7 +309,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo16"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo16"
                                             value = {disponibilidad_tiempo16}
                                             onChange = {handlerChange}
                                         />
@@ -318,7 +326,7 @@ export const RegisterAmbienteComponent = () => {
                             <tbody>
                                 <tr> 
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo17"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo17"
                                             value = {disponibilidad_tiempo17}
                                             onChange = {handlerChange}
                                         />
@@ -326,7 +334,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo18"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo18"
                                             value = {disponibilidad_tiempo18} 
                                             onChange = {handlerChange}
                                         />
@@ -334,7 +342,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo19"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo19"
                                             value = {disponibilidad_tiempo19} 
                                             onChange = {handlerChange}
                                         />
@@ -342,7 +350,7 @@ export const RegisterAmbienteComponent = () => {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Input className="form-control" type="string" name="disponibilidad_tiempo20"
+                                        <Input className="form-control" type="text" name="disponibilidad_tiempo20"
                                             value = {disponibilidad_tiempo20}
                                             onChange = {handlerChange}
                                         />
@@ -354,7 +362,7 @@ export const RegisterAmbienteComponent = () => {
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={() => {
-                            handlerInsertar();
+                            handlerInsertar(datoselect);
                         }}
                     >
                         INSERTAR

@@ -6,6 +6,9 @@
     text-align: center;
     color: red;
 }
+table {
+    margin-top: 20px;
+}
 table th {
     text-align: center;
 }

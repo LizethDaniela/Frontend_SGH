@@ -87,7 +87,7 @@ export const MateriaItem = ({ _id, subject, sigla, semestre, horas_semana, otro 
                     </FormGroup>
                     <FormGroup>
                         <Label>CARGA HORARIA SEMANAL:</Label>
-                        <Input className="form-control" type="number" name="horas_semana"
+                        <Input className="form-control" type="text" name="horas_semana"
                             value = {datoselect.horas_semana} 
                             onChange = {handlerChange}/>
                     </FormGroup>

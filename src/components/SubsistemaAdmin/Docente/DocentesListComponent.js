@@ -20,6 +20,7 @@ export const DocentesListComponent = () => {
                         <th>Fecha de nacimiento</th>
                         <th>Teléfono</th>
                         <th>Carga horaria</th>
+                        <th colSpan="5">DISPONIBILIDAD DE TIEMPO</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>

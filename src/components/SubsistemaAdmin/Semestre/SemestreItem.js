@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAmbiente, editAmbiente } from '../../../actions/registerAmbiente';
-import "./ambientes.css";
+import { deleteSemestre, editSemestre } from '../../../actions/registerSemestre';
 
-export const AmbienteItem = ( props ) => {
+export const SemestreItem = ( props ) => {
     const dispatch = useDispatch();
-    const { ambientefisico } = useSelector(state => state);
-    const { edit_ambiente, delete_ambiente } = ambientefisico;
-    console.log(edit_ambiente);
-    console.log(delete_ambiente);
+    const { sem } = useSelector(state => state);
+    const { edit_semestre, delete_semestre } = sem;
+    console.log(edit_semestre);
+    console.log(delete_semestre);
 
     const [ update, setUpdate ] = useState( false );
     const [ delet, setDelet ] = useState( false );
     const [ datoselect, setDatoselect ] = useState({
-        ambiente: "",
-        piso: "",
-        capacidad: "",
-        modalidad: "",
-        link_clase: "",
+        semestre: "",
+        grupo: "",
+        gestion: "",
+        nivel_academico: "",
         disponibilidad_tiempo1: "",
         disponibilidad_tiempo2: "",
         disponibilidad_tiempo3: "",
@@ -41,7 +39,7 @@ export const AmbienteItem = ( props ) => {
         disponibilidad_tiempo20: ""
     });
 
-    const { ambiente, piso, capacidad, modalidad, link_clase, 
+    const { semestre, grupo, gestion, nivel_academico, 
         disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
         disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
         disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
@@ -49,13 +47,13 @@ export const AmbienteItem = ( props ) => {
     } = datoselect;
 
     const select = ( item, caso )=>{
-        const { _id, ambiente, piso, capacidad, modalidad, link_clase, disponibilidad_tiempo } = item;
+        const { _id, semestre, grupo, gestion, nivel_academico, disponibilidad_tiempo } = item;
         const [ disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
             disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
             disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
             disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
         ] = disponibilidad_tiempo;
-        setDatoselect({ _id, ambiente, piso, capacidad, modalidad, link_clase, disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+        setDatoselect({ _id, semestre, grupo, gestion, nivel_academico, disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
             disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
             disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
             disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
@@ -73,29 +71,6 @@ export const AmbienteItem = ( props ) => {
         }));
     };
 
-    //ERROR AMBIENTE
-    const [ error, setError ] = useState({
-        msnambiente: ""
-    });
-
-    const onblurAmbiente = () => {
-        setError( { ...error , msnambiente: "El ambiente debe ser unico, no debe haber ambientes duplicados"});
-    };
-
-    const { msnambiente } = error;
-
-    //ERROR AMBIENTE
-
-    //MODALIDAD LINK CLASE
-    const [ link, setLink] = useState({
-        msjlink: ""
-    });
-    const onblurlinkClase = () => {
-        setLink({ ...link, msjlink: "Solo debe colocar el link de la clase cuando la modalidad de la clase es virtual" });
-    };
-    const { msjlink } = link;
-    //MODALIDAD LINK CLASE
-
     const array = [];
     const disponibilidad_tiempo = [ ...array, 
         disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
@@ -105,25 +80,24 @@ export const AmbienteItem = ( props ) => {
     ];
 
     const handlerEdit = (id) => {
-        dispatch(editAmbiente(id, { ambiente, piso, capacidad, modalidad, link_clase, disponibilidad_tiempo }));
-        if ( edit_ambiente != null )
+        dispatch(editSemestre(id, { semestre, grupo, gestion, nivel_academico, disponibilidad_tiempo }));
+        if ( edit_semestre != null )
             setUpdate(false);
     };
 
     const handlerDelete = (id) => {
         console.log(id);
-        dispatch(deleteAmbiente(id));
-        if ( delete_ambiente != null )
+        dispatch(deleteSemestre(id));
+        if ( delete_semestre != null )
             setDelet(false);
     };
     return (
         <>
             <tr> 
-                <td>{ props.ambiente }</td>
-                <td>{ props.piso } </td>
-                <td>{ props.capacidad }</td>
-                <td>{ props.modalidad }</td>
-                <td>{ props.link_clase }</td>
+                <td>{ props.semestre }</td>
+                <td>{ props.grupo } </td>
+                <td>{ props.gestion }</td>
+                <td>{ props.nivel_academico }</td>
                 <td>
                     { props.disponibilidad_tiempo[0] } <br/>
                     { props.disponibilidad_tiempo[1] } <br/>
@@ -167,43 +141,32 @@ export const AmbienteItem = ( props ) => {
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>
-                        <Label>AMBIENTE:</Label>
-                        <Input className="form-control" type="text" name="ambiente"
-                            value = {datoselect.ambiente}
+                        <Label>SEMESTRE:</Label>
+                        <Input className="form-control" type="text" name="semestre"
+                            value = {datoselect.semestre}
                             onChange = {handlerChange}
-                            onBlur = {onblurAmbiente}
                         />
                     </FormGroup>
-                    <div className="errorambiente">{msnambiente}</div>
                     <FormGroup>
-                        <Label>PISO:</Label>
-                        <Input className="form-control" type="text" name="piso"
-                            value = {piso}
+                        <Label>GRUPO:</Label>
+                        <Input className="form-control" type="text" name="grupo"
+                            value = {grupo}
                             onChange = {handlerChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label>CAPACIDAD DE PERSONAS:</Label>
-                        <Input className="form-control" type="number" name="capacidad"
-                            value = {capacidad}
+                        <Label>GESTION:</Label>
+                        <Input className="form-control" type="text" name="gestion"
+                            value = {gestion}
                             onChange = {handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label>MODALIDAD DE CLASE:</Label>
-                        <Input className="form-control" type="text" name="modalidad"
-                            value = {modalidad}
+                        <Label>NIVEL ACADEMICO:</Label>
+                        <Input className="form-control" type="number" name="nivel_academico"
+                            value = {nivel_academico}
                             onChange = {handlerChange}
                         />
                     </FormGroup>
-                    <FormGroup>
-                        <Label>LINK DE LA CLASE:</Label>
-                        <Input className="form-control" type="text" name="link_clase"
-                            value = {link_clase}
-                            onChange = {handlerChange}
-                            onBlur = {onblurlinkClase}
-                        />
-                    </FormGroup>
-                    <div className="msjlink">{msjlink}</div>
                     <FormGroup>
                         <Label>DISPONIBILIDAD DE TIEMPO:</Label>
                         <table className=" table-bordered thead-dark">
@@ -427,8 +390,8 @@ export const AmbienteItem = ( props ) => {
             <Modal isOpen={delet}>
                 <ModalBody>
                     ¿Estas segur@ que quieres eliminar el
-                    {' '}{datoselect.ambiente} piso {' '}
-                    {datoselect.piso}?
+                    {' '}{datoselect.semestre} grupo {' '}
+                    {datoselect.grupo}?
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" onClick={() => {

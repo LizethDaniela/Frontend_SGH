@@ -5,7 +5,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, L
 //import CargaHorariaDocentes from '../CargaHoraiaDocentes/CargaHorariaDocentes';
 import './stylos.css';
 
-
 const RolesDocente = () => {
     const data = [
         {id:1, name:'Luis Alejandro', surname:'Perez Cruz', phone:'78965412', role:'user', status:'activo'},

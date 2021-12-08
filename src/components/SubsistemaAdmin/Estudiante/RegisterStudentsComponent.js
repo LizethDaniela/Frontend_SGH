@@ -31,7 +31,7 @@ export const RegisterStudentsComponent=()=>{
   console.log(register_student);
   
   const handlerSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(registerEstudent({ nombre, ap_paterno, ap_materno, ci, ru, cargo, semestre, email, fecha_nac, telefono }));
   }
 
@@ -130,7 +130,7 @@ export const RegisterStudentsComponent=()=>{
             <div className="date">
               <label htmlFor="fecha_nac">Fecha de Nacimiento:</label>
               <input
-                placeholder="mm/dd/yyyy"
+                placeholder="yyyy/mm/dd"
                 type="date"
                 name="fecha_nac"
                 value={fecha_nac} 

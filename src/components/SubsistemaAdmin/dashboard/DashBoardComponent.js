@@ -32,10 +32,10 @@ export const DashBoardComponent = ({ children, ...rest }) => {
                     <li><Link to="/docentes/registerdocentes">Docentes</Link></li>
                     <li><Link to="/students/registerstudents">Estudiantes</Link></li>
                     <li><Link to="/materias">Materias</Link></li>
+                    <li><Link to="/semestres">Semestres</Link></li>
                     <li><Link to="/ambientes">Ambientes</Link></li>
                     <li><Link to="/asignarmaterias">Asignar Materias</Link></li>
                     <li><Link to="/horarios">Horarios</Link></li>
-                
                     <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
                 </ul>
             </div>

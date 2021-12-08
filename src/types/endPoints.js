@@ -18,6 +18,10 @@ export const enpoints = {
 
   //ambiente
   registerAmbiente: { url: "http://localhost:8000/api/1.0/ambiente", method: "POST" },
-  getlistAmbientes: { url: "http://localhost:8000/api/1.0/ambiente", method: "GET" }
+  getlistAmbientes: { url: "http://localhost:8000/api/1.0/ambiente", method: "GET" },
+
+  //semestre
+  registerSemestre: { url: "http://localhost:8000/api/1.0/semestre", method: "POST" },
+  getlistSemestres: { url: "http://localhost:8000/api/1.0/semestre", method: "GET" }
 
 };

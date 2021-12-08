@@ -24,10 +24,10 @@ export const AsignarMateriasComponent = () => {
                     <div className="asignar">
                         <div className="card-body">
                             <form className="form-control">
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <h4>1° Semestre</h4>
                                 </div>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
                                     <option selected>Grupo</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -43,10 +43,10 @@ export const AsignarMateriasComponent = () => {
                     
                         <div className="card-body">
                             <form className="form-control">
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <h4>2° Semestre</h4>
                                 </div>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
                                     <option selected>Grupo</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -62,10 +62,10 @@ export const AsignarMateriasComponent = () => {
                     
                         <div className="card-body">
                             <form className="form-control">
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <h4>3° Semestre</h4>
                                 </div>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
                                     <option selected>Grupo</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>

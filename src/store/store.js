@@ -4,6 +4,7 @@ import { ambienteReducer } from "../reducers/ambienteReducer";
 import { authReducer } from "../reducers/authReducer";
 import { docenteReducer } from "../reducers/docenteReducer";
 import { materiaReducer } from "../reducers/materiaReducer";
+import { semestreReducer } from "../reducers/semestreReducer";
 import { studentReducer } from "../reducers/studentReducer";
 
 const reducers = combineReducers ({
@@ -11,7 +12,8 @@ const reducers = combineReducers ({
     student: studentReducer,
     docente: docenteReducer,
     materia: materiaReducer,
-    ambientefisico: ambienteReducer
+    ambientefisico: ambienteReducer,
+    sem: semestreReducer
 });
 
 const composeEnhancers =

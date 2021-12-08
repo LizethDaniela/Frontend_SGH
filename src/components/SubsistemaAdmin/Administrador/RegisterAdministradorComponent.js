@@ -127,7 +127,7 @@ export const RegisterAdministradorComponent = () => {
                         <div className="date">
                             <label htmlFor="fecha_nac">Fecha de Nacimiento:</label>
                             <input
-                                placeholder="mm/dd/yyyy"
+                                placeholder="yyyy/mm/dd"
                                 type="date"
                                 name="fecha_nac"
                                 value={fecha_nac} 

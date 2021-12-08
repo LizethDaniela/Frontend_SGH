@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdComputer,MdOutlineEditCalendar } from "react-icons/md";
-import {  FaGraduationCap,FaUserTie,FaBriefcase} from "react-icons/fa";
+import { FaGraduationCap,FaUserTie,FaBriefcase } from "react-icons/fa";
 import {
     Link
 } from "react-router-dom";
@@ -17,12 +17,12 @@ export const Principal = () => {
           <Link to="/logdocent" ><button type="button" className="log"><FaBriefcase/> Docentes </button></Link> 
           <Link to="/princestud" ><button type="button" className="log"><FaGraduationCap/> Estudiantes </button></Link> 
 
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title"><MdComputer/> Misión </h4>
-                  <p class="card-text">Formar profesionales integrales en el área de los sistemas, 
+          <div className="row">
+            <div className="col-sm-4">
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title"><MdComputer/> Misión </h4>
+                  <p className="card-text">Formar profesionales integrales en el área de los sistemas, 
                   con competencias científicas, disciplinares y humanas que les permitan liderar 
                   procesos de desarrollo tecnológico a nivel regional y nacional, en capacidad de 
                   tomar decisiones con sentido crítico para proponer soluciones óptimas en el manejo 
@@ -31,11 +31,11 @@ export const Principal = () => {
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title"><MdComputer/>  Visión</h4>
-                  <p class="card-text">La Carrera de Ingeniería de Sistemas, se ubicará como promotor del 
+            <div className="col-sm-4">
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title"><MdComputer/>  Visión</h4>
+                  <p className="card-text">La Carrera de Ingeniería de Sistemas, se ubicará como promotor del 
                   avance tecnológico, a nivel local, nacional e internacional, permitiendo la interacción de 
                   saberes y apropiamiento de las tecnologías computacionales que faciliten el manejo de la 
                   información y la creación de modelos organizacionales, pretendiendo que los profesionales 
