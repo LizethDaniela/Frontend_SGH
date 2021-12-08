@@ -1,67 +1,3 @@
-/*
-
-
-
-
-
-
-import Principal from '../principal/Principal';
-
-
-
-
-import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
-import { Autenticacion } from '../SubsistemaAdmin/auth/Autenticacion';
-
-
-
-
-
-
-
-import "../../styles/styles.css"
-
-
-
-
-
-
-
-
-
-
-export const RouterApp = () => {
-    return (
-        <Router>
-            <Switch>
-                
-                
-               
-            
-               
-        
-                
-           
-             
-               
-
-                
-                <Route exact path="" component={}/>
-                <Route exact path="" component={}/>
-                <Route exact path="" component={}/>
-
-                <Route exact path="/main" component={MainDashBoard}/>
-               
-
-                <Route exact path="/" component={Autenticacion}/>
-            </Switch>
-        </Router>
-    );
-};
-<Route  path="/dashboard/*" element={<Menu/>} />
-        <Route  path="/dashboardDocentes/*" element={<MenuDocentes/>} />
-        <Route  path="/dashboardEstudiantes" element={<MenuEstudiantes/>} />
-*/
 import React, {Fragment} from "react";
 import { Route, Routes} from "react-router-dom";
 import { Autenticacion } from '../SubsistemaAdmin/auth/Autenticacion';
@@ -95,29 +31,29 @@ function RouterApp() {
   return (
     <Fragment>
       <Routes>
-      <Route  path="/" element={<Autenticacion/>} />
-      <Route  path="/admin/login" element={<LoginComponent/>} />
-      <Route  path="/admin/main" element={<MainDashBoard/>} />
-      <Route  path="/admin/registerdocentes" element={<RegisterDocentsComponent/>} />
-      <Route  path="/admin/registerdocentes/listadocent" element={<DocentesList/>} />
-      <Route  path="/admin/registerestudents" element={<RegisterEstudentsComponent/>} />
-      <Route  path="/admin/registerestudents/listaestudents" element={<EstudentesList/>} />
-      <Route  path="/admin/asignarmaterias" element={<AsignarMateriasComponent/>} />
-      <Route  path="/admin/horarios" element={<HorariosComponent/>} />
-      <Route  path="/admin/horarios/modificar" element={<ModificarHorarioComponent/>} />
-      <Route  path="/admin/materias" element={<MatApp/>} />
-      <Route  path="/admin/ambientes" element={<AmbientesComponent/>} />
-      <Route  path="/admin/ambientes/links" element={<LinksComponent/>} />
+          <Route  path="/" element={<Autenticacion/>} />
+          <Route  path="/admin/login" element={<LoginComponent/>} />
+          <Route  path="/admin/main" element={<MainDashBoard/>} />
+          <Route  path="/admin/registerdocentes" element={<RegisterDocentsComponent/>} />
+          <Route  path="/admin/registerdocentes/listadocent" element={<DocentesList/>} />
+          <Route  path="/admin/registerestudents" element={<RegisterEstudentsComponent/>} />
+          <Route  path="/admin/registerestudents/listaestudents" element={<EstudentesList/>} />
+          <Route  path="/admin/asignarmaterias" element={<AsignarMateriasComponent/>} />
+          <Route  path="/admin/horarios" element={<HorariosComponent/>} />
+          <Route  path="/admin/horarios/modificar" element={<ModificarHorarioComponent/>} />
+          <Route  path="/admin/materias" element={<MatApp/>} />
+          <Route  path="/admin/ambientes" element={<AmbientesComponent/>} />
+          <Route  path="/admin/ambientes/links" element={<LinksComponent/>} />
 
-      <Route  path="/docent/login" element={<LoginDocente/>} />
-      <Route  path="/docent/main" element={<PrincipalDocente/>} />
-      <Route  path="/docent/verhorariosasignados" element={<VerHorariosAsignados/>} />
-      <Route  path="/docent/reajuste" element={<Solicitar/>} />
+          <Route  path="/docent/login" element={<LoginDocente/>} />
+          <Route  path="/docent/main" element={<PrincipalDocente/>} />
+          <Route  path="/docent/verhorariosasignados" element={<VerHorariosAsignados/>} />
+          <Route  path="/docent/reajuste" element={<Solicitar/>} />
 
-      <Route  path="/estudent/login" element={<LoginEst/>} />
-      <Route  path="/estudent/main" element={<Estudiante/>} />
-      <Route  path="/estudent/verhorarios" element={<VerHorariosEst/>} />
-      <Route  path="/estudent/programaciones" element={<ProgramarMaterias/>} />
+          <Route  path="/estudent/login" element={<LoginEst/>} />
+          <Route  path="/estudent/main" element={<Estudiante/>} />
+          <Route  path="/estudent/verhorarios" element={<VerHorariosEst/>} />
+          <Route  path="/estudent/programaciones" element={<ProgramarMaterias/>} />
 
         
       </Routes>
