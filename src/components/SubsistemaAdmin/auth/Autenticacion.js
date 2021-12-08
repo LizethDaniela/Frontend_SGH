@@ -12,9 +12,9 @@ export const Autenticacion = () => {
       <div className="present ">
       <h1><MdOutlineEditCalendar/>    Sistema de Gestión de Horarios</h1><br></br>
        <h1>Ingeniería de Sistemas </h1><hr/>
-       <Link to="/login" ><button type="button" className="log"><FaUserTie/> Admin</button></Link>
-       <Link to="/logdocent" ><button type="button" className="log"><FaBriefcase/> Docentes</button></Link> 
-       <Link to="/loginest" ><button type="button" className="log"><FaGraduationCap/> Estudiantes</button></Link> 
+       <Link to="/admin/login" ><button type="button" className="log"><FaUserTie/> Admin</button></Link>
+       <Link to="/docent/login" ><button type="button" className="log"><FaBriefcase/> Docentes</button></Link> 
+       <Link to="/estudent/login" ><button type="button" className="log"><FaGraduationCap/> Estudiantes</button></Link> 
 
        <div class="row">
         <div class="col-sm-4">

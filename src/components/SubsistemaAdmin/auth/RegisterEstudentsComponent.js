@@ -107,7 +107,7 @@ export const RegisterEstudentsComponent=()=>{
       <Head/>
       <DashBoardComponent/>
       <div className="container">
-      <Link to="/estlist" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
+      <Link to="/admin/registerestudents/listaestudents" ><button type="button" className="link"><FaUsers/>  Lista de Estudiantes </button></Link>
 
         <div className="form-wrapper">
           <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /> </h2>

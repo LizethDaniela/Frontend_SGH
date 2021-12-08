@@ -1,34 +1,16 @@
 import React from 'react'
-import { MdCancel, MdLockOpen } from "react-icons/md";
-import { useDispatch, useSelector } from 'react-redux';
-import {Redirect,Link } from "react-router-dom";
-import { authLogoutAsync } from '../../actions/auth';
 import Head from '../head/Head';
+import { DashDocente } from './DashDocente';
 
-
-export const Solicitar= ({ children, ...rest }) => {
-    const {auth} = useSelector(state => state);
-    const {user} = auth;
-    const dispatch = useDispatch();
-    const handlerLogout = () => {
-        dispatch(authLogoutAsync());
-    };
+export const Solicitar= () => {
     return (
-        user == null? (<Redirect to="/"/>): (<>
-           
-            <Head/>
-            <div className="sidebar">
-                <header>Docente</header>
-                <ul>
-                    <li><Link to="/verhorariosasignados"> Ver Horarios Asignados</Link></li>
-                    <li><Link to="/solicitar">Reajuste de Horarios</Link></li>
-                    <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
-                </ul>
-            </div>
+       <>
+       <Head/>
+       <DashDocente/>
             <div className="container">
-                aqui el contenido solicitaar
+                aqui el contenido para solicitar cambio de horario
             </div>
            
-        </>)
+        </>
     );
 };

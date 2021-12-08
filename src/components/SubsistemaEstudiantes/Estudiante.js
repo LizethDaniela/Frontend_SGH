@@ -1,40 +1,19 @@
-import React from 'react'
-import { MdCancel, MdLockOpen } from "react-icons/md";
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    Switch,
-    Route,
-    Redirect,
-    Link
-  } from "react-router-dom";
-import { authLogoutAsync } from '../../actions/auth';
+import React from 'react';
 import Head from '../head/Head';
+import { DashEstudiante } from './DashEstudiante';
 
 
-
-export const Estudiante= ({ children, ...rest }) => {
-    const {auth} = useSelector(state => state);
-    const {user} = auth;
-    const dispatch = useDispatch();
-    const handlerLogout = () => {
-        dispatch(authLogoutAsync());
-    };
+export const Estudiante= () => {
+   
     return (
-        user == null? (<Redirect to="/"/>): (<>
+       <>
           
             <Head/>
-            <div className="sidebar">
-                <header>Estudiante</header>
-                <ul>
-                    <li><Link to="/verhorarios"> Ver Horarios </Link></li>
-                    <li><Link to="/programat">Programar Materias</Link></li>
-                    <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
-                </ul>
-            </div>
+            <DashEstudiante/>
             <div className="container">
-                aqui el contenido principal subsistema estudiante
+                aqui el contenido para programar materias
             </div>
            
-        </>)
+       </>
     );
 };

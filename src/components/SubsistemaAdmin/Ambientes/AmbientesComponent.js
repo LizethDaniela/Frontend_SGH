@@ -103,7 +103,7 @@ export const AmbientesComponent = () => {
                    ))}
                </tbody>
             </table>
-            <Link to="/links" ><button type="button" className="link">LINKS </button></Link>
+            <Link to="/admin/ambientes/links" ><button type="button" className="link">LINKS </button></Link>
             <Modal isOpen={update}>
             <ModalHeader>
                     <h2>EDITAR</h2>

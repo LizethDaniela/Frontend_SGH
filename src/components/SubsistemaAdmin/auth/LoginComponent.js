@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+
 import { MdPersonPin, MdVpnKey } from 'react-icons/md';
 import { useForm } from '../../../hooks/useForm';
 import { useSelector } from 'react-redux';
 import { authAsync, auth } from '../../../actions/auth';
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 export const LoginComponent = () => {
+    const history = useNavigate();
     const dispatch = useDispatch();
    /* useEffect(() => {
         const userData = localStorage.getItem("user");
@@ -15,6 +17,7 @@ export const LoginComponent = () => {
         }
     }, []);*/
     const { auth: authRename} = useSelector(state => state);
+   
     const { user, msnerror } = authRename;
     console.log(user);
     const [form, handlerChangeForm, handlerResetForm] = useForm({
@@ -33,7 +36,7 @@ export const LoginComponent = () => {
             <div className="d-flex justify-content-center h-100">
                 <div className="card">
                     <div className="card-header">
-                        <h3>Sign In</h3>
+                        <h3>Login Admin</h3>
                     </div>
                     <div className="card-body">
                         <form onSubmit={handlerSubmit}>
@@ -70,9 +73,7 @@ export const LoginComponent = () => {
                                 />
                             </div>
                             <div>{msnerror}</div>
-                            <div className="row align-items-center remember">
-                                <input type="checkbox" /> Remember me
-                            </div>
+                            
                             <div className="form-group">
                                 <div className="col-md-12 text-center">
                                     <input type="submit" value="Login" className="btn float-rigth login_btn" />
@@ -80,17 +81,11 @@ export const LoginComponent = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="card-footer">
-                        <div className="d-flex justify-content-center">
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
-        </div>) : (/*{username==="Pepito"?(<Redirect to="/Dashboard"/>):(<>
-        {username==="Luis"?(<Redirect to="/DashboardDocente"/>):(<></>)
-}
-        </>)}*/ <Redirect to="/main"/>)}
+        </div>) : (<>{ history("/admin/main")}</>)}
+               
     </>
     );
 };
