@@ -1,14 +1,15 @@
 import React from 'react'
 import {Provider} from "react-redux"
 import store from '../store/store'
-import { RouterApp } from './RouterApp/RouterApp'
+import { BrowserRouter } from "react-router-dom";
+import  RouterApp  from './RouterApp/RouterApp'
 
 export const MainApp = () => {
     return (
         <Provider store = {store}>
-
-            <RouterApp />
-
+            <BrowserRouter>
+                <RouterApp />
+            </BrowserRouter>
         </Provider>
     );
 };

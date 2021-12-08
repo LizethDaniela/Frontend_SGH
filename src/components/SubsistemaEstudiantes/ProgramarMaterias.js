@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react'
+
 import Head from '../head/Head';
 import { DashEstudiante } from './DashEstudiante';
 
 
-export const Estudiante= () => {
+
+
+export const ProgramarMaterias= () => {
    
     return (
        <>

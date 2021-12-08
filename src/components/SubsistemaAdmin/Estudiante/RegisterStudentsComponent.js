@@ -40,7 +40,7 @@ export const RegisterStudentsComponent=()=>{
       <Head/>
       <DashBoardComponent/>
       <div className="container">
-        <Link to="/students/estudentslist"><button tipo="button" className="link"><FaUsers/> Lista de Estudiantes </button></Link>
+        <Link to="/admin/registerestudents/listaestudents"><button tipo="button" className="link"><FaUsers/> Lista de Estudiantes </button></Link>
 
         <div className="form-wrapper">
           <h2>REGISTRO DE ESTUDIANTES <MdAccountCircle /></h2>

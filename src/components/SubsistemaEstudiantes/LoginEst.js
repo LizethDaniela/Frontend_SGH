@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 
-export const LoginDocente = () => {
+export const LoginEst = () => {
     const history = useNavigate();
     const dispatch = useDispatch();
    /* useEffect(() => {
@@ -36,7 +36,7 @@ export const LoginDocente = () => {
             <div className="d-flex justify-content-center h-100">
                 <div className="card">
                     <div className="card-header">
-                        <h3>Login Docente</h3>
+                        <h3>Login Estudiante</h3>
                     </div>
                     <div className="card-body">
                         <form onSubmit={handlerSubmit}>
@@ -81,10 +81,10 @@ export const LoginDocente = () => {
                             </div>
                         </form>
                     </div>
-                    
+                   
                 </div>
             </div>
-        </div>) : ( <>{ history("/docent/main")}</>)}
+        </div>) : (<>{ history("/estudent/main")}</>)}
     </>
     );
 };

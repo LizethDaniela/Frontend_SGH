@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import { MdPersonPin, MdVpnKey } from "react-icons/md";
 import { useForm } from "../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { auth, authAsync } from "../../../actions/auth";
 
 export const LoginComponent = () => {
+  const history = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -34,7 +35,7 @@ export const LoginComponent = () => {
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-header">
-                <h3>Sign In</h3>
+                <h3>Login Administrador</h3>
               </div>
               <div className="card-body">
                 <form onSubmit={handlerSubmit}>
@@ -84,7 +85,7 @@ export const LoginComponent = () => {
           </div>
         </div>
       ) : (
-        <Redirect to="/mainDashboard" />
+        <>{ history("/admin/main")}</>
       )}
     </>
   );

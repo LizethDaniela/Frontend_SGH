@@ -55,7 +55,7 @@ export class ModificarHorarioComponent extends React.Component{
                                 </select>
                                 
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">    
-                                     <Link to="/modificar" ><Button  className="btn-op"color="primary">BUSCAR</Button></Link>
+                                     <Link to="/admin/horarios/modificar" ><Button  className="btn-op"color="primary">BUSCAR</Button></Link>
                                 </div> 
                                 <hr/>           
                 </div>

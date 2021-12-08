@@ -72,7 +72,7 @@ export const RegisterDocentesComponent = () => {
       <Head/>
       <DashBoardComponent/>
       <div className="container">
-        <Link to="/docentes/docenteslist"><button tipo="button" className="link"><FaUsers/> Lista de Docentes </button></Link>
+        <Link to="/admin/registerdocentes/listadocent"><button tipo="button" className="link"><FaUsers/> Lista de Docentes </button></Link>
 
         <div className="form-wrapper">
           <h2>REGISTRO DE DOCENTES <MdAccountCircle /></h2>

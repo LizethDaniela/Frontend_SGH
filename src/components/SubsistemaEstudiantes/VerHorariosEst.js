@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react'
+
 import Head from '../head/Head';
 import { DashEstudiante } from './DashEstudiante';
 
 
-export const Estudiante= () => {
+
+
+export const VerHorariosEst= () => {
    
     return (
        <>
@@ -11,7 +14,7 @@ export const Estudiante= () => {
             <Head/>
             <DashEstudiante/>
             <div className="container">
-                aqui el contenido para programar materias
+                aqui el contenido para ver horarios ahora si 
             </div>
            
        </>

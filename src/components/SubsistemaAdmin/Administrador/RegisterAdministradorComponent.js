@@ -38,7 +38,7 @@ export const RegisterAdministradorComponent = () => {
             <Head/>
             <DashBoardComponent/>
             <div className="container">
-                <Link to="/administrador/administradorlist"><button tipo="button" className="link"><FaUsers/> Lista de Administradores </button></Link>
+                <Link to="/admin/registeradmin/listadmins"><button tipo="button" className="link"><FaUsers/> Lista de Administradores </button></Link>
 
                 <div className="form-wrapper">
                     <h2>REGISTRO DE ADMINISTRADOR <MdAccountCircle /></h2>
