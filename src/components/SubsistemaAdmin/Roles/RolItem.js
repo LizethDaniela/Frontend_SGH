@@ -48,7 +48,6 @@ export const RolItem = ({ _id, name, method, url, otro }) => {
     return (
         <>
             <tr>
-                <td>{ _id }</td>
                 <td>{ name }</td>
                 <td>{ method } </td>
                 <td>{ url }</td>

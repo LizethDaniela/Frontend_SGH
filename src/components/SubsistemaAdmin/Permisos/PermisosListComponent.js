@@ -45,8 +45,10 @@ export const PermisosListComponent = () => {
                 <div className="tabla">
                     <table className=" table-bordered thead-dark">
                         <thead>
-                            <th>Rol</th>
-                            <th>Añadir Rol</th>
+                            <tr>
+                                <th>Rol</th>
+                                <th>Añadir Rol</th>
+                            </tr>
                         </thead>
                         <tbody>
                             { dataRoles &&

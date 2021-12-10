@@ -29,6 +29,9 @@ export const authReducer = (state = {}, action) => {
     case types.editAdministrador: {
       return { ...state, edit_admin: action.payload };
     }
+    case types.getAdminroles: {
+      return { ...state, dataAdminroles: action.payload };
+    }
     default: {
       return state;
     }

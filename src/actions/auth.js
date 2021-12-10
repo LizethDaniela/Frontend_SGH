@@ -200,3 +200,28 @@ export const editadministrador = (responseedit) => {
       payload: responseedit,
   };
 };
+
+export const listAdminRoles = () => {
+  return (dispatch) => {
+      useEffect(() => {
+          fetch(enpoints.getadminroles.url)
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(adminroleslist( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          });
+      });
+  };
+};
+
+export const adminroleslist = (responseadminroles) => {
+  return {
+      type: types.getAdminroles,
+      payload: responseadminroles,
+  };
+};
+
+

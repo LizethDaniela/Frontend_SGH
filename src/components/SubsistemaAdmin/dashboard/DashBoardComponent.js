@@ -29,7 +29,7 @@ export const DashBoardComponent = () => {
                     <li><Link to="/admin/ambientes">Ambientes</Link></li>
                     <li><Link to="/admin/asignarmaterias">Asignar Materias</Link></li>
                     <li><Link to="/admin/horarios">Horarios</Link></li>
-                    <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
+                    <li onClick={handlerLogout}><Link to="/"><MdLockOpen />Logout</Link></li>
                 </ul>
             </div>
             

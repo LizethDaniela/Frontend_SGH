@@ -11,7 +11,6 @@ export const RolesListComponent = () => {
             <table className=" table-bordered thead-dark">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>ROL</th>
                         <th>METODO</th>
                         <th>URL</th>

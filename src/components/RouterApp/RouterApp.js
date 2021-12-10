@@ -11,6 +11,7 @@ import { ContainerAdministradorListComponent } from '../SubsistemaAdmin/Administ
 import { ContainerRolesListComponent } from "../SubsistemaAdmin/Roles/ContainerRolesListComponent";
 //PERMISOS
 import { ContainerPermisosListComponent } from "../SubsistemaAdmin/Permisos/ContainerPermisosListComponent";
+import { ContainerAdminRolesListComponent } from "../SubsistemaAdmin/Permisos/ContainerAdminRolesListComponent";
 //DOCENTES
 import { RegisterDocentesComponent } from '../SubsistemaAdmin/Docente/RegisterDocentesComponent';
 import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/ContainerDocentesListComponent';
@@ -60,6 +61,7 @@ function RouterApp() {
           <Route path="/admin/roles" element= {<ContainerRolesListComponent />}/>
 
           <Route path="/admin/permisos" element= {<ContainerPermisosListComponent />}/>
+          <Route path="/admin/permisos/listpermisos" element= {<ContainerAdminRolesListComponent />}/>
 
           <Route  path="/admin/registerdocentes" element={<RegisterDocentesComponent/>} />
           <Route  path="/admin/registerdocentes/listadocent" element={< ContainerDocentesListComponent/>} />

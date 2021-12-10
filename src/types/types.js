@@ -9,6 +9,7 @@ export const types = {
   getAdmin: "obtener/admin",
   editAdministrador: "edit/administrador",
   deleteAdministrador: "delete/administrador",
+  getAdminroles: "get/adminroles",
 
   //roles
   registerRol: "register/rol",
