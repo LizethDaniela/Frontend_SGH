@@ -20,6 +20,9 @@ export const authReducer = (state = {}, action) => {
     case types.listAdministradores: {
       return { ...state, data: action.payload };
     }
+    case types.getAdmin: {
+      return { ...state, obtener_admin: action.payload };
+    }
     case types.deleteAdministrador: {
       return { ...state, delete_admin: action.payload };
     }

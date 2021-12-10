@@ -41,7 +41,7 @@ export const listMaterias = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 

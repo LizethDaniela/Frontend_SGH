@@ -1,0 +1,6 @@
+.adminrol {
+    margin-left: 130px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}

@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from '../../head/Head';
 import { DashBoardComponent } from './DashBoardComponent';
-import "./DashSty.css"
+import "./DashSty.css";
+
 export const MainDashBoard = () => {
     return (
         <div>

@@ -43,7 +43,7 @@ export const listStudents = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 

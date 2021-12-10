@@ -7,6 +7,10 @@ import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
 //ADMINS
 import { RegisterAdministradorComponent } from '../SubsistemaAdmin/Administrador/RegisterAdministradorComponent';
 import { ContainerAdministradorListComponent } from '../SubsistemaAdmin/Administrador/ContainerAdministradorListComponent';
+//ROLES
+import { ContainerRolesListComponent } from "../SubsistemaAdmin/Roles/ContainerRolesListComponent";
+//PERMISOS
+import { ContainerPermisosListComponent } from "../SubsistemaAdmin/Permisos/ContainerPermisosListComponent";
 //DOCENTES
 import { RegisterDocentesComponent } from '../SubsistemaAdmin/Docente/RegisterDocentesComponent';
 import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/ContainerDocentesListComponent';
@@ -52,6 +56,10 @@ function RouterApp() {
 
           <Route  path="/admin/registeradmin" element={<RegisterAdministradorComponent/>} />
           <Route  path="/admin/registeradmin/listadmins" element={< ContainerAdministradorListComponent/>} />
+
+          <Route path="/admin/roles" element= {<ContainerRolesListComponent />}/>
+
+          <Route path="/admin/permisos" element= {<ContainerPermisosListComponent />}/>
 
           <Route  path="/admin/registerdocentes" element={<RegisterDocentesComponent/>} />
           <Route  path="/admin/registerdocentes/listadocent" element={< ContainerDocentesListComponent/>} />

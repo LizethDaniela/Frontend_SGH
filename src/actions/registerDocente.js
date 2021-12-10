@@ -41,7 +41,7 @@ export const listDocentes = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 

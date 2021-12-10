@@ -97,7 +97,21 @@ export const listAdministradores = () => {
           .catch((error) => {
               console.log("ERROR");
           });
-      }, []);
+      });
+  };
+};
+
+export const obtenerAdministrador = (id) => {
+  return (dispatch) => {
+      fetch(`http://localhost:8000/api/1.0/user/${id}`)
+      .then((response) => response.json())
+      .then(({ serverResponse }) => {
+          console.log( serverResponse );
+          dispatch(getadmin( serverResponse ));
+      })
+      .catch((error) => {
+          console.log("ERROR");
+      });
   };
 };
 
@@ -163,6 +177,13 @@ export const adminlist = (responselist) => {
   return {
       type: types.listAdministradores,
       payload: responselist,
+  };
+};
+
+export const getadmin = (responseadmin) => {
+  return {
+    type: types.getAdmin,
+    payload: responseadmin,
   };
 };
 

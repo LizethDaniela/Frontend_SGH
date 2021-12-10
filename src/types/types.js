@@ -6,8 +6,16 @@ export const types = {
 
   registerAdministrador: "register/admin",
   listAdministradores: "list/administradores",
+  getAdmin: "obtener/admin",
   editAdministrador: "edit/administrador",
   deleteAdministrador: "delete/administrador",
+
+  //roles
+  registerRol: "register/rol",
+  listRoles: "list/roles",
+  editRol: "edit/rol",
+  deleteRol: "delete/rol",
+  addRolAdmin: "add/roladmin",
 
   //estudiante
   registerEstudent: "register/student",

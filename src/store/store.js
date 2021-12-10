@@ -4,11 +4,13 @@ import { ambienteReducer } from "../reducers/ambienteReducer";
 import { authReducer } from "../reducers/authReducer";
 import { docenteReducer } from "../reducers/docenteReducer";
 import { materiaReducer } from "../reducers/materiaReducer";
+import { rolReducer } from "../reducers/rolReducer";
 import { semestreReducer } from "../reducers/semestreReducer";
 import { studentReducer } from "../reducers/studentReducer";
 
 const reducers = combineReducers ({
     auth: authReducer,
+    rol: rolReducer,
     student: studentReducer,
     docente: docenteReducer,
     materia: materiaReducer,
