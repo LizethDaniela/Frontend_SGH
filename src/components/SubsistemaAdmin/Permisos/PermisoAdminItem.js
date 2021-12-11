@@ -9,10 +9,6 @@ export const PermisoAdminItem = (props) => {
     const { obtener_admin } = auth;
     console.log(obtener_admin);
 
-    if (obtener_admin != null) {
-        props.admin(obtener_admin);
-    }
-
     const [ select, setSelect ] = useState( false );
 
     const openModal = ()=>{

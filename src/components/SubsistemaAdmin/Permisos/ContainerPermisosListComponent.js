@@ -5,7 +5,9 @@ import { HeaderPermisoComponet } from './HeaderPermisoComponet';
 import { ObtenerAdminRolesListComponent } from './ObtenerAdminRolesListComponent';
 import { ObtenerPermisosAdminComponent } from './ObtenerPermisosAdminComponent';
 import { ObtenerPermisosRolComponent } from './ObtenerPermisosRolComponent';
-import { PermisosListComponent } from './PermisosListComponent';
+import { PermisosAdminListComponent } from './PermisosAdminListComponent';
+import { PermisosRolListComponent } from './PermisosRolListComponent';
+import "./styles.css";
 
 export const ContainerPermisosListComponent = () => {
     return (
@@ -19,7 +21,10 @@ export const ContainerPermisosListComponent = () => {
                     <ObtenerPermisosRolComponent />
                     <ObtenerAdminRolesListComponent />
                 </div>
-                <PermisosListComponent />
+                <div className="adminrol">
+                    <PermisosAdminListComponent />
+                    <PermisosRolListComponent />
+                </div>
             </div>
         </>
     );

@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addRol } from '../../../actions/registerRol';
+import { Navigate } from 'react-router';
 
 export const PermisoRolItem = (props) => {
     const dispatch = useDispatch();
-    const { rol } = useSelector((state) => state);
+    const { auth, rol } = useSelector((state) => state);
     const { add_roladmin } = rol;
     console.log(add_roladmin);
+    const { obtener_admin } = auth;
 
-    const { _id, nombre, ap_paterno, ap_materno } = props.datoAdmin;
+    let admin = {};
+    obtener_admin != null ? ( admin = obtener_admin ): (
+        <Navigate to="/admin/permisos" />
+    )
+    const { _id, nombre, ap_paterno, ap_materno } = admin;
 
     const [ insert, setInsert ] = useState( false );
 
