@@ -1,4 +1,5 @@
 import React from 'react';
+import { RolItem } from './RolItem';
 
 export const AdminRolesItem = (props) => {
     return (
@@ -9,7 +10,14 @@ export const AdminRolesItem = (props) => {
                 <td>{ props.ap_paterno } </td>
                 <td>{ props.ap_materno }</td>
                 <td>{ props.cargo }</td>
-                {
+                <td>
+                { props.roles &&
+                    props.roles.map( item => {
+                        return <RolItem key = {item._id} {...item}/>;
+                    })
+                }
+                </td>
+                {/* {
                     props.roles.map((item) => (
                         <td key = {item._id}>
                             { item.name } <br/>
@@ -17,7 +25,7 @@ export const AdminRolesItem = (props) => {
                             { item.url } <br/>
                         </td>
                     ))
-                }
+                } */}
             </tr>
         </>
     );

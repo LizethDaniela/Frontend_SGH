@@ -11,7 +11,8 @@ export const PermisosListComponent = () => {
     console.log(data);
     console.log(dataRoles);
 
-    const [administrador, setAdministrador] = useState("");
+    const [administrador, setAdministrador] = useState({});
+    
     const adminR = (obtener_admin) => {
         setAdministrador(obtener_admin);
     };

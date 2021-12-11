@@ -16,7 +16,7 @@ export const AdminRolesListComponent = () => {
                         <th>Apellido paterno</th>
                         <th>Apellido materno</th>
                         <th>Cargo</th>
-                        <th colSpan="5">ROLES</th>
+                        <th>ROLES</th>
                     </tr>
                 </thead>
                 <tbody>

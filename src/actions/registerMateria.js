@@ -8,6 +8,7 @@ export const registerMateria = (registerMateriaData) => {
             method: enpoints.registerMateria.method,
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(registerMateriaData),
         })

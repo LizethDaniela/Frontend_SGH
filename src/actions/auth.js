@@ -103,7 +103,11 @@ export const listAdministradores = () => {
 
 export const obtenerAdministrador = (id) => {
   return (dispatch) => {
-      fetch(`http://localhost:8000/api/1.0/user/${id}`)
+      fetch(`http://localhost:8000/api/1.0/user/${id}`, {
+        headers: {
+          "Authorization": localStorage.getItem("token")
+        }
+      })
       .then((response) => response.json())
       .then(({ serverResponse }) => {
           console.log( serverResponse );

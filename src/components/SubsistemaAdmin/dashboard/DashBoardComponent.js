@@ -32,7 +32,6 @@ export const DashBoardComponent = () => {
                     <li onClick={handlerLogout}><Link to="/"><MdLockOpen />Logout</Link></li>
                 </ul>
             </div>
-            
         </>)
     );
 };
