@@ -8,6 +8,9 @@ export const docenteReducer = (state = {}, action) => {
         case types.listDocentes: {
             return { ...state, data: action.payload };
         }
+        case types.getTeacher: {
+            return { ...state, obtener_docente: action.payload };
+        }
         case types.deleteDocente: {
             return { ...state, delete_docente: action.payload };
         }

@@ -27,6 +27,7 @@ export const types = {
   //docente
   registerDocente: "register/docente",
   listDocentes: "list/docentes",
+  getTeacher: "obtener/teacher",
   editDocente: "edit/docente",
   deleteDocente: "delete/docente",
 

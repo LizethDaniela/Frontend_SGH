@@ -20,7 +20,7 @@ import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/Conta
 import { RegisterStudentsComponent } from '../SubsistemaAdmin/Estudiante/RegisterStudentsComponent';
 import { ContainerStudentsListComponent } from '../SubsistemaAdmin/Estudiante/ContainerStudentsListComponent';
 // ASIGNAR MATERIAS
-import { AsignarMateriasComponent } from '../SubsistemaAdmin/AsignarMaterias/AsignarMateriasComponent';
+import { ContainerAsignarMateriasComponent } from "../SubsistemaAdmin/AsignarMaterias/ContainerAsignarMateriasComponent";
 //MATERIAS
 import { ContainerMateriasListComponent } from '../SubsistemaAdmin/Materia/ContainerMateriasListComponent';
 
@@ -69,9 +69,9 @@ function RouterApp() {
           <Route  path="/admin/registerestudents" element={<RegisterStudentsComponent/>} />
           <Route  path="/admin/registerestudents/listaestudents" element={<ContainerStudentsListComponent/>} />
 
-          <Route  path="/admin/asignarmaterias" element={<AsignarMateriasComponent/>} />
+          <Route  path="/admin/asignarmaterias" element={<ContainerAsignarMateriasComponent/>} />
 
-          <Route  path="/admin/materias" element={<ContainerMateriasListComponent />} />
+          <Route  path="/admin/materias" element={<ContainerMateriasListComponent/>} />
 
           <Route  path="/admin/ambientes" element={<ContainerAmbientesListComponent/>} />
 
@@ -79,7 +79,6 @@ function RouterApp() {
           
           <Route  path="/admin/horarios" element={<HorariosComponent/>} />
           <Route  path="/admin/horarios/modificar" element={<ModificarHorarioComponent/>} />
-      
 
 
           <Route  path="/docent/login" element={<LoginDocente/>} />

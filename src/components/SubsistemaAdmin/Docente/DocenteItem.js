@@ -153,63 +153,63 @@ export const DocenteItem = ( props ) => {
                     <FormGroup>
                         <Label>C.I.:</Label>
                         <Input className="form-control" type="text" name="ci"  
-                            value={datoselect.ci}
+                            value={ci}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>NOMBRE:</Label>
                         <Input className="form-control" type="text" name="nombre" 
-                            value={datoselect.nombre} 
+                            value={nombre} 
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>APELLIDO PATERNO:</Label>
                         <Input className="form-control" type="text" name="ap_paterno"  
-                            value={datoselect.ap_paterno}
+                            value={ap_paterno}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>APELLIDO MATERNO:</Label>
                         <Input className="form-control" type="text" name="ap_materno"  
-                            value={datoselect.ap_materno}
+                            value={ap_materno}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>CARGO:</Label>
                         <Input className="form-control" type="text" name="cargo"  
-                            value={datoselect.cargo}
+                            value={cargo}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>E-MAIL</Label>
                         <Input className="form-control" type="email" name="email"  
-                            value={datoselect.email}
+                            value={email}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>FECHA DE NACIMIENTO:</Label>
                         <Input className="form-control" type="date" name="fecha_nac"  
-                            value={datoselect.fecha_nac}
+                            value={fecha_nac}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>TELEFONO:</Label>
                         <Input className="form-control" type="number" name="telefono"  
-                            value={datoselect.telefono}
+                            value={telefono}
                             onChange={handlerChange}
                         />
                     </FormGroup>
                     <FormGroup>
                         <Label>CARGA HORARIA:</Label>
                         <Input className="form-control" type="text" name="carga_horaria"  
-                            value={datoselect.carga_horaria}
+                            value={carga_horaria}
                             onChange={handlerChange}
                         />
                     </FormGroup>
@@ -225,7 +225,7 @@ export const DocenteItem = ( props ) => {
                                 <tr> 
                                     <td>
                                         <Input className="form-control" type="text" name="disponibilidad_tiempo1"
-                                            value = {disponibilidad_tiempo1}
+                                            value = {disponibilidad_tiempo1 == null ? "" : disponibilidad_tiempo1}
                                             onChange = {handlerChange}
                                         />
                                     </td>
@@ -436,8 +436,8 @@ export const DocenteItem = ( props ) => {
             <Modal isOpen={delet}>
                 <ModalBody>
                     ¿Estas segur@ que quieres eliminar a 
-                    {' '}{ datoselect.nombre}{' '}
-                    {datoselect.ap_paterno}{' '}{datoselect.ap_materno}?
+                    {' '}{nombre}{' '}
+                    {ap_paterno}{' '}{ap_materno}?
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" onClick={ () => {

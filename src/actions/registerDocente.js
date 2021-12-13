@@ -45,6 +45,21 @@ export const listDocentes = () => {
     };
 };
 
+export const obtenerDocente = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/api/1.0/teacher/${id}`)
+        .then((response) => response.json())
+        .then(({ teacherResponse }) => {
+            console.log( teacherResponse );
+            console.log("docente encontrado");
+            dispatch(getteacher( teacherResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR");
+        });
+    };
+};
+
 export const deleteDocente = ( id ) => {
     return (dispatch) => {
         Promise.all([
@@ -107,6 +122,13 @@ export const docenteslist = (responselist) => {
     return {
         type: types.listDocentes,
         payload: responselist,
+    };
+};
+
+export const getteacher = (responseteacher) => {
+    return {
+        type: types.getTeacher,
+        payload: responseteacher,
     };
 };
 
