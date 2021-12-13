@@ -9,10 +9,10 @@ import { DashBoardComponent } from '../dashboard/DashBoardComponent';
 
 export const HorariosComponent=(props)=> {
     return(
-      <>
-      <Head/>
-      <DashBoardComponent/>
-      <div className="container">
+    <>
+        <Head/>
+        <DashBoardComponent/>
+        <div className="container">
             <div className="horario">
                 <TitleComponent/>
                 
@@ -20,11 +20,9 @@ export const HorariosComponent=(props)=> {
                 
             </div>
             
-            </div>
-  
-        </>
+        </div>
 
-      
+    </>
     )
-  
+
 }

@@ -14,7 +14,33 @@ export const MainDashBoard = () => {
             <Outlet/>
             <div className="container">
             <div className="submenu">
-            <article class="full-box tile">
+            
+            </div>
+            <div className="informacion">
+                <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Perfil Profecional <FaUserCheck/></a>
+                </li>
+                </ul>
+                <label>CI:</label><br/>5412035<hr/>
+                <label>Nombres:</label><br/>Liam <hr/>
+                <label>Ap. Paterno:</label><br/>Ramos<hr/>
+                <label>Ap. Materno</label><br/>Ruiz<hr/>
+                <label>Fecha de Nacimiento:</label><br/>15/10/1990<hr/>
+                <label>Email:</label><br/>liam@gmail.com<hr/>
+                <label>Telefono:</label><br/>45123654<hr/>
+            
+                
+            </div>
+            <div className="img">
+                <img src={'/imgauth/ciudadela.jpg'} className="img"/>
+            </div>
+        </div>
+            <Footer/>
+        </>
+    );
+};
+/*<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
                     Docentes
 				</div>
@@ -61,29 +87,4 @@ export const MainDashBoard = () => {
 					<p> 70</p>
 					<small> Registrados</small>
 				</div>
-			</article>
-            </div>
-            <div className="informacion">
-                <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Informacion General <FaUserCheck/></a>
-                </li>
-                </ul>
-                <label>CI:</label><br/>5412035<hr/>
-                <label>Nombres:</label><br/>Liam <hr/>
-                <label>Ap. Paterno:</label><br/>Ramos<hr/>
-                <label>Ap. Materno</label><br/>Ruiz<hr/>
-                <label>Fecha de Nacimiento:</label><br/>15/10/1990<hr/>
-                <label>Email:</label><br/>liam@gmail.com<hr/>
-                <label>Telefono:</label><br/>45123654<hr/>
-            
-                
-            </div>
-            <div className="img">
-                <img src={'/imgauth/ciudadela.jpg'} className="img"/>
-            </div>
-        </div>
-            <Footer/>
-        </>
-    );
-};
+			</article>*/
