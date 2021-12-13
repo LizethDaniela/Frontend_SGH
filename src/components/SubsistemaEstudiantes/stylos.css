@@ -1,0 +1,18 @@
+/*.container{
+    position: absolute;
+    background-color: #acc4c9; 
+}*/
+.tabla{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: lightgreen;
+}
+td{
+    border: solid 1px black;
+    padding: 20px;
+}
+.head{
+    background-color: seagreen;
+    color:white;
+}
