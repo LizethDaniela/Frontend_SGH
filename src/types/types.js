@@ -49,6 +49,16 @@ export const types = {
   registerSemestre: "register/semestre",
   listSemestres: "list/semestres",
   editSemestre: "edit/semestre",
-  deleteSemestre: "delete/semestre"
+  deleteSemestre: "delete/semestre",
+
+  //Subsistemas Docente
+  docentLogin:"docent/login",
+  docentLogout:"docent/logout",
+  docentError:"docentError",
+
+  //Subsistemas Estudiante
+  studentLogin:"estudent/login",
+  studentLogout:"estudent/logout",
+  studentError:"estudentError",
 
 };

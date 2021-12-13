@@ -1,32 +1,35 @@
-import React from 'react'
-import { MdCancel, MdLockOpen } from "react-icons/md";
-import { useDispatch, useSelector } from 'react-redux';
-import {Link} from "react-router-dom";
-import { authLogoutAsync } from '../../actions/auth';
+import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { MdLockOpen } from "react-icons/md";
+import { Route, Switch, Redirect, Link} from "react-router-dom";
+import { LogoutDocent } from '../../actions/logDocent';
 import { useNavigate } from "react-router-dom";
+
 import "./dashstyles.css";
 
-
-export const DashDocente= ({ children, ...rest }) => {
+export const DashDocente = ({children, ...rest}) => {
     const history = useNavigate();
-    const {auth} = useSelector(state => state);
-    const {user} = auth;
+    const {logDocent}=useSelector(state=> state);
+   // const {user} = auth;
+    const { displayName }=logDocent;
     const dispatch = useDispatch();
     const handlerLogout = () => {
-        dispatch(authLogoutAsync());
+        dispatch(LogoutDocent());
     };
     return (
-        user == null? (<>{ history("/")}</>): (<>
-            
+        displayName==null?(<>{ history("/")}</>):(<>
             <div className="sidebar">
-                <header>Docente</header>
-                <ul>
-                    <li><Link to="/docent/verhorariosasignados"> Ver Horarios Asignados</Link></li>
-                    <li><Link to="/docent/reajuste">Reajuste de Horarios</Link></li>
-                    <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
-                </ul>
-            </div>
-           
+            <header>Docente</header>
+            <ul>
+                <li><Link to="/docent/verhorariosasignados"> Ver Horarios Asignados</Link></li>
+                <li><Link to="/docent/reajuste">Reajuste de Horarios</Link></li>
+                <li ><a href="#" onClick={handlerLogout}> <MdLockOpen /> Logout</a></li>
+            </ul>
+        </div>
+            {/*<Switch>
+                <Route path="/dashboard"/>
+            </Switch>*/}
         </>)
-    );
-};
+        
+    )
+}
