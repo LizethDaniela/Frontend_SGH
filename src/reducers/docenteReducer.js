@@ -17,6 +17,9 @@ export const docenteReducer = (state = {}, action) => {
         case types.editDocente: {
             return { ...state, edit_docente: action.payload };
         }
+        case types.getDocentematerias: {
+            return { ...state, dataDocentematerias: action.payload };
+        }
         default: {
             return state;
         }

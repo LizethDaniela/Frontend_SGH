@@ -1,13 +1,12 @@
 import React from 'react';
 import Head from '../../head/Head';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent';
-import { HeaderSemestreComponent } from './HeaderSemestreComponent';
 import { BuscarDocenteComponent } from './BuscarDocenteComponent';
 import { HeaderMateriaComponent } from './HeaderMateriaComponent';
 import { MateriasListComponent } from './MateriasListComponent';
-import { SemestresListComponent } from './SemestresListComponent';
-import "./stylesAM.css";
 import { HeaderBuscarDocenteComponent } from './HeaderBuscarDocenteComponent';
+import { ObtenerListDocenteMateriasComponent } from './ObtenerListDocenteMateriasComponent';
+import "./stylesAM.css";
 
 export const ContainerAsignarMateriasComponent = () => {
     return (
@@ -16,16 +15,15 @@ export const ContainerAsignarMateriasComponent = () => {
             <DashBoardComponent />
             <div className="container">
                 <div className="d-flex justify-content-center h-100">
-                    <div className="materiasemestre">
+                    <div className="materiaslistamaterias">
                         <div className="materia">
                             <HeaderBuscarDocenteComponent />
                             <BuscarDocenteComponent />
                             <HeaderMateriaComponent />
                             <MateriasListComponent />
                         </div>
-                        <div className="semestre">
-                            <HeaderSemestreComponent />
-                            <SemestresListComponent />
+                        <div className="listamaterias">
+                            <ObtenerListDocenteMateriasComponent />
                         </div>
                     </div>
                 </div>

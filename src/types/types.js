@@ -30,12 +30,14 @@ export const types = {
   getTeacher: "obtener/teacher",
   editDocente: "edit/docente",
   deleteDocente: "delete/docente",
+  getDocentematerias: "get/docentematerias",
 
   //materia
   registerMateria: "register/materia",
   listMaterias: "list/materias",
   editMateria: "edit/materia",
   deleteMateria: "delete/materia",
+  addMateriaTeacher: "add/materiateacher",
 
   //ambiente
   registerAmbiente: "register/ambiente",

@@ -145,3 +145,26 @@ export const editdocente = (responseedit) => {
         payload: responseedit,
     };
 };
+
+export const listDocenteMaterias = () => {
+    return (dispatch) => {
+        useEffect(() => {
+            fetch(enpoints.getdocentesmaterias.url)
+            .then((response) => response.json())
+            .then(({ teacherResponse }) => {
+                console.log( teacherResponse );
+                dispatch(docentemateriaslist( teacherResponse ));
+            })
+            .catch((error) => {
+                console.log("ERROR");
+            });
+        });
+    };
+};
+
+export const docentemateriaslist = (responsedocentematerias) => {
+    return {
+        type: types.getDocentematerias,
+        payload: responsedocentematerias,
+    };
+};

@@ -21,6 +21,7 @@ import { RegisterStudentsComponent } from '../SubsistemaAdmin/Estudiante/Registe
 import { ContainerStudentsListComponent } from '../SubsistemaAdmin/Estudiante/ContainerStudentsListComponent';
 // ASIGNAR MATERIAS
 import { ContainerAsignarMateriasComponent } from "../SubsistemaAdmin/AsignarMaterias/ContainerAsignarMateriasComponent";
+import { ContainerDocenteMateriasComponent } from "../SubsistemaAdmin/AsignarMaterias/ContainerDocenteMateriasComponent";
 //MATERIAS
 import { ContainerMateriasListComponent } from '../SubsistemaAdmin/Materia/ContainerMateriasListComponent';
 
@@ -70,6 +71,7 @@ function RouterApp() {
           <Route  path="/admin/registerestudents/listaestudents" element={<ContainerStudentsListComponent/>} />
 
           <Route  path="/admin/asignarmaterias" element={<ContainerAsignarMateriasComponent/>} />
+          <Route  path="/admin/asignarmaterias/listdocentematerias" element={<ContainerDocenteMateriasComponent/>} />
 
           <Route  path="/admin/materias" element={<ContainerMateriasListComponent/>} />
 

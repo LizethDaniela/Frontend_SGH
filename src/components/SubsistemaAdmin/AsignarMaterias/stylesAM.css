@@ -1,19 +1,18 @@
-.materiasemestre {
+.materiaslistamaterias {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 }
 
 .materia{
-    width: 800px;
+    width: 900px;
     margin-top: 10px;
     background-color: rgba(225, 235, 234, 0.87) !important;
 }
 
-.semestre{
-    width: 350px;
+.listamaterias{
+    width: 300px;
     margin-top: 10px;
-    background-color: rgb(143, 202, 196);
 }
 
 .sem {
@@ -28,7 +27,7 @@ h3 {
 
 .asignar{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 5px;
     font-family:fantasy;
     background: rgb(143, 202, 196);
