@@ -4,16 +4,22 @@ import { ambienteReducer } from "../reducers/ambienteReducer";
 import { authReducer } from "../reducers/authReducer";
 import { docenteReducer } from "../reducers/docenteReducer";
 import { materiaReducer } from "../reducers/materiaReducer";
+import { rolReducer } from "../reducers/rolReducer";
 import { semestreReducer } from "../reducers/semestreReducer";
 import { studentReducer } from "../reducers/studentReducer";
+import { loginDocente } from "../reducers/loginDocente";
+import { loginEstudent } from "../reducers/loginEstudent";
 
 const reducers = combineReducers ({
     auth: authReducer,
+    rol: rolReducer,
     student: studentReducer,
     docente: docenteReducer,
     materia: materiaReducer,
     ambientefisico: ambienteReducer,
-    sem: semestreReducer
+    sem: semestreReducer,
+    logDocent: loginDocente,
+    logStudent: loginEstudent,
 });
 
 const composeEnhancers =

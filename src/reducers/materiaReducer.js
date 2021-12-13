@@ -14,6 +14,9 @@ export const materiaReducer = (state = {}, action) => {
         case types.editMateria: {
             return { ...state, edit_materia: action.payload };
         }
+        case types.addMateriaTeacher: {
+            return { ...state, add_materiateacher: action.payload };
+        }
         default: {
             return state;
         }

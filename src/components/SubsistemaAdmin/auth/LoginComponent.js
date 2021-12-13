@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import { MdPersonPin, MdVpnKey } from "react-icons/md";
 import { useForm } from "../../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { auth, authAsync } from "../../../actions/auth";
 
 export const LoginComponent = () => {
-  const history = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token != null) {
       dispatch(auth(token));
     }
-  }, []);
+  });
   const { auth: authRename } = useSelector((state) => state);
   const { token, msnerror } = authRename;
   console.log( msnerror );
@@ -85,7 +84,7 @@ export const LoginComponent = () => {
           </div>
         </div>
       ) : (
-        <>{ history("/admin/main")}</>
+          <Navigate to="/admin/main"/>
       )}
     </>
   );

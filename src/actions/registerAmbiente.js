@@ -41,7 +41,7 @@ export const listAmbientes = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 

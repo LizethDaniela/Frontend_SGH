@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { Route, Routes, BrowserRouter} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 
 import { Principal } from '../principal/Principal';
 import { LoginComponent } from '../SubsistemaAdmin/auth/LoginComponent';
@@ -7,6 +7,11 @@ import { MainDashBoard } from '../SubsistemaAdmin/dashboard/MainDashBoard';
 //ADMINS
 import { RegisterAdministradorComponent } from '../SubsistemaAdmin/Administrador/RegisterAdministradorComponent';
 import { ContainerAdministradorListComponent } from '../SubsistemaAdmin/Administrador/ContainerAdministradorListComponent';
+//ROLES
+import { ContainerRolesListComponent } from "../SubsistemaAdmin/Roles/ContainerRolesListComponent";
+//PERMISOS
+import { ContainerPermisosListComponent } from "../SubsistemaAdmin/Permisos/ContainerPermisosListComponent";
+import { ContainerAdminRolesListComponent } from "../SubsistemaAdmin/Permisos/ContainerAdminRolesListComponent";
 //DOCENTES
 import { RegisterDocentesComponent } from '../SubsistemaAdmin/Docente/RegisterDocentesComponent';
 import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/ContainerDocentesListComponent';
@@ -15,7 +20,8 @@ import { ContainerDocentesListComponent } from '../SubsistemaAdmin/Docente/Conta
 import { RegisterStudentsComponent } from '../SubsistemaAdmin/Estudiante/RegisterStudentsComponent';
 import { ContainerStudentsListComponent } from '../SubsistemaAdmin/Estudiante/ContainerStudentsListComponent';
 // ASIGNAR MATERIAS
-import { AsignarMateriasComponent } from '../SubsistemaAdmin/AsignarMaterias/AsignarMateriasComponent';
+import { ContainerAsignarMateriasComponent } from "../SubsistemaAdmin/AsignarMaterias/ContainerAsignarMateriasComponent";
+import { ContainerDocenteMateriasComponent } from "../SubsistemaAdmin/AsignarMaterias/ContainerDocenteMateriasComponent";
 //MATERIAS
 import { ContainerMateriasListComponent } from '../SubsistemaAdmin/Materia/ContainerMateriasListComponent';
 
@@ -55,15 +61,21 @@ function RouterApp() {
           <Route  path="/admin/registeradmin" element={<RegisterAdministradorComponent/>} />
           <Route  path="/admin/registeradmin/listadmins" element={< ContainerAdministradorListComponent/>} />
 
+          <Route path="/admin/roles" element= {<ContainerRolesListComponent />}/>
+
+          <Route path="/admin/permisos" element= {<ContainerPermisosListComponent />}/>
+          <Route path="/admin/permisos/listpermisos" element= {<ContainerAdminRolesListComponent />}/>
+
           <Route  path="/admin/registerdocentes" element={<RegisterDocentesComponent/>} />
           <Route  path="/admin/registerdocentes/listadocent" element={< ContainerDocentesListComponent/>} />
 
           <Route  path="/admin/registerestudents" element={<RegisterStudentsComponent/>} />
           <Route  path="/admin/registerestudents/listaestudents" element={<ContainerStudentsListComponent/>} />
 
-          <Route  path="/admin/asignarmaterias" element={<AsignarMateriasComponent/>} />
+          <Route  path="/admin/asignarmaterias" element={<ContainerAsignarMateriasComponent/>} />
+          <Route  path="/admin/asignarmaterias/listdocentematerias" element={<ContainerDocenteMateriasComponent/>} />
 
-          <Route  path="/admin/materias" element={<ContainerMateriasListComponent />} />
+          <Route  path="/admin/materias" element={<ContainerMateriasListComponent/>} />
 
           <Route  path="/admin/ambientes" element={<ContainerAmbientesListComponent/>} />
 

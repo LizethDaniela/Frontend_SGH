@@ -6,8 +6,17 @@ export const types = {
 
   registerAdministrador: "register/admin",
   listAdministradores: "list/administradores",
+  getAdmin: "obtener/admin",
   editAdministrador: "edit/administrador",
   deleteAdministrador: "delete/administrador",
+  getAdminroles: "get/adminroles",
+
+  //roles
+  registerRol: "register/rol",
+  listRoles: "list/roles",
+  editRol: "edit/rol",
+  deleteRol: "delete/rol",
+  addRolAdmin: "add/roladmin",
 
   //estudiante
   registerEstudent: "register/student",
@@ -18,14 +27,17 @@ export const types = {
   //docente
   registerDocente: "register/docente",
   listDocentes: "list/docentes",
+  getTeacher: "obtener/teacher",
   editDocente: "edit/docente",
   deleteDocente: "delete/docente",
+  getDocentematerias: "get/docentematerias",
 
   //materia
   registerMateria: "register/materia",
   listMaterias: "list/materias",
   editMateria: "edit/materia",
   deleteMateria: "delete/materia",
+  addMateriaTeacher: "add/materiateacher",
 
   //ambiente
   registerAmbiente: "register/ambiente",
@@ -38,5 +50,15 @@ export const types = {
   listSemestres: "list/semestres",
   editSemestre: "edit/semestre",
   deleteSemestre: "delete/semestre",
+
+  //Subsistemas Docente
+  docentLogin:"docent/login",
+  docentLogout:"docent/logout",
+  docentError:"docentError",
+
+  //Subsistemas Estudiante
+  studentLogin:"estudent/login",
+  studentLogout:"estudent/logout",
+  studentError:"estudentError",
 
 };

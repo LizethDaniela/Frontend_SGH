@@ -41,7 +41,22 @@ export const listDocentes = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
+    };
+};
+
+export const obtenerDocente = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/api/1.0/teacher/${id}`)
+        .then((response) => response.json())
+        .then(({ teacherResponse }) => {
+            console.log( teacherResponse );
+            console.log("docente encontrado");
+            dispatch(getteacher( teacherResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR");
+        });
     };
 };
 
@@ -110,6 +125,13 @@ export const docenteslist = (responselist) => {
     };
 };
 
+export const getteacher = (responseteacher) => {
+    return {
+        type: types.getTeacher,
+        payload: responseteacher,
+    };
+};
+
 export const deletedocente = (responsedelete) => {
     return {
         type: types.deleteDocente,
@@ -121,5 +143,28 @@ export const editdocente = (responseedit) => {
     return {
         type: types.editDocente,
         payload: responseedit,
+    };
+};
+
+export const listDocenteMaterias = () => {
+    return (dispatch) => {
+        useEffect(() => {
+            fetch(enpoints.getdocentesmaterias.url)
+            .then((response) => response.json())
+            .then(({ teacherResponse }) => {
+                console.log( teacherResponse );
+                dispatch(docentemateriaslist( teacherResponse ));
+            })
+            .catch((error) => {
+                console.log("ERROR");
+            });
+        });
+    };
+};
+
+export const docentemateriaslist = (responsedocentematerias) => {
+    return {
+        type: types.getDocentematerias,
+        payload: responsedocentematerias,
     };
 };

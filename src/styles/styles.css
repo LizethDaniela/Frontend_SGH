@@ -32,7 +32,8 @@ font-family: 'Numans', sans-serif;
 
 .card{
     height: 370px;
-    margin-top: 300px;
+    margin-top: 180px;
+    margin-right: 200px;
     margin-bottom: auto;
     width: 300px;
     background-color: rgba(0,0,0,0.5) !important;
@@ -110,6 +111,7 @@ input:focus{
 .links a{
     margin-left: 4px;
 }
+
 .form-group {
     margin-bottom: 15px;
 }

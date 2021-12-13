@@ -8,6 +8,7 @@ export const registerMateria = (registerMateriaData) => {
             method: enpoints.registerMateria.method,
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(registerMateriaData),
         })
@@ -41,7 +42,7 @@ export const listMaterias = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 
@@ -124,6 +125,26 @@ export const editmateria = (responseedit) => {
     };
 };
 
+export const addMateria = (idTeacher, idMateria) => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/api/1.0/addmateria/${idTeacher}/${idMateria}`, {
+            method: "POST"
+        })
+        .then((response) => response.json())
+        .then(({ materiaResponse }) => {
+            console.log( materiaResponse );
+            dispatch(addmateria( materiaResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR");
+        });
+    };
+};
 
-
+export const addmateria = (responseaddmateria) => {
+    return {
+        type: types.addMateriaTeacher,
+        payload: responseaddmateria,
+    };
+};
 

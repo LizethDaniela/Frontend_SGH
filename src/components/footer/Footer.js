@@ -48,7 +48,7 @@ export const Footer=()=>{
                         <p>Copyright ©-Universidad Autònoma Tomàs Frìas | Ingenierìa de Sistemas </p>
                     </div>
                 </div>
-            </div>
+    </div>
     </>
     );
     }

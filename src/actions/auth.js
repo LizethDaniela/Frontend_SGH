@@ -97,7 +97,25 @@ export const listAdministradores = () => {
           .catch((error) => {
               console.log("ERROR");
           });
-      }, []);
+      });
+  };
+};
+
+export const obtenerAdministrador = (id) => {
+  return (dispatch) => {
+      fetch(`http://localhost:8000/api/1.0/user/${id}`, {
+        headers: {
+          "Authorization": localStorage.getItem("token")
+        }
+      })
+      .then((response) => response.json())
+      .then(({ serverResponse }) => {
+          console.log( serverResponse );
+          dispatch(getadmin( serverResponse ));
+      })
+      .catch((error) => {
+          console.log("ERROR");
+      });
   };
 };
 
@@ -166,6 +184,13 @@ export const adminlist = (responselist) => {
   };
 };
 
+export const getadmin = (responseadmin) => {
+  return {
+    type: types.getAdmin,
+    payload: responseadmin,
+  };
+};
+
 export const deleteadministrador = (responsedelete) => {
   return {
       type: types.deleteAdministrador,
@@ -179,3 +204,28 @@ export const editadministrador = (responseedit) => {
       payload: responseedit,
   };
 };
+
+export const listAdminRoles = () => {
+  return (dispatch) => {
+      useEffect(() => {
+          fetch(enpoints.getadminroles.url)
+          .then((response) => response.json())
+          .then(({ serverResponse }) => {
+              console.log( serverResponse );
+              dispatch(adminroleslist( serverResponse ));
+          })
+          .catch((error) => {
+              console.log("ERROR");
+          });
+      });
+  };
+};
+
+export const adminroleslist = (responseadminroles) => {
+  return {
+      type: types.getAdminroles,
+      payload: responseadminroles,
+  };
+};
+
+

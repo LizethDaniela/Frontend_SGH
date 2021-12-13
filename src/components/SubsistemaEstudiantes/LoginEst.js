@@ -1,49 +1,42 @@
-import React, { useEffect } from 'react'
+import React from 'react';
 import { MdPersonPin, MdVpnKey } from 'react-icons/md';
 import { useForm } from '../../hooks/useForm';
-import { useSelector } from 'react-redux';
-import { authAsync, auth } from '../../actions/auth';
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { authStudent } from '../../actions/logEstudent';
+import { Navigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 export const LoginEst = () => {
-    const history = useNavigate();
+
     const dispatch = useDispatch();
-   /* useEffect(() => {
-        const userData = localStorage.getItem("user");
-        if (userData != null) {
-            dispatch(auth(JSON.parse(userData)));
-        }
-    }, []);*/
-    const { auth: authRename} = useSelector(state => state);
-    const { user, msnerror } = authRename;
-    console.log(user);
+    const { logStudent } = useSelector((state )=> state);
+    const { displayName }=logStudent;
+    const {msnerror}= logStudent;
+
     const [form, handlerChangeForm, handlerResetForm] = useForm({
-        username: "Pepito",
-        password: "1234"
+        username: "Gojan",
+        password: "12345",
     });
-    const {username, password} = form;
+    const { username, password }=form;
     const handlerSubmit = (e) => {
         e.preventDefault();
-        dispatch(authAsync(username, password));
+        dispatch(authStudent(username, password));
     };
     return (
-    <>
-        
-        {user == null? (
-        <div className="container">
+        <>
+        {displayName == null?(<div className="container">
             <div className="d-flex justify-content-center h-100">
                 <div className="card">
                     <div className="card-header">
-                        <h3>Login Estudiante</h3>
+                        <h3>Login Docente</h3>
                     </div>
                     <div className="card-body">
                         <form onSubmit={handlerSubmit}>
                             <div className="input-group form-group">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text">
-                                        <MdPersonPin />
+                                    <MdPersonPin />
                                     </span>
                                 </div>
                                 <input 
@@ -75,16 +68,18 @@ export const LoginEst = () => {
                             <div>{msnerror}</div>
                             
                             <div className="form-group">
-                                <div className="col-md-12 text-center">
-                                    <input type="submit" value="Login" className="btn float-rigth login_btn" />
-                                </div>
+                                <input
+                                    type="submit"
+                                    value="Login"
+                                    className="btn float-right login_btn"
+                                />
                             </div>
                         </form>
                     </div>
-                   
+                    
                 </div>
             </div>
-        </div>) : (<>{ history("/estudent/main")}</>)}
-    </>
+        </div>):(<Navigate to="/estudent/main"/>)}
+        </>
     );
 };

@@ -5,37 +5,36 @@ import Head from '../head/Head';
 import { DashDocente } from './DashDocente';
 
 export const VerHorariosAsignados= () => {
-   
+    
     const data = [
         {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'lunes'},
         {id:2, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'lunes'},
         {id:3, docente:'Juan', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'lunes'},
-        {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'martes'},
-        {id:2, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'martes'},
-        {id:3, docente:'Juan', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'martes'},
-        {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'miercoles'},
-        {id:2, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'miercoles'},
-        {id:3, docente:'Juan', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'jueves'},
-        {id:1, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'viernes'},
-        {id:2, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'sabado'},
-        {id:3, docente:'Paola', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'sabado'},
-     
+        {id:4, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'martes'},
+        {id:5, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'martes'},
+        {id:6, docente:'Juan', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'martes'},
+        {id:7, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'miercoles'},
+        {id:8, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'miercoles'},
+        {id:9, docente:'Juan', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'jueves'},
+        {id:10, docente:'Juan', materia:'PROGRAMACIÓN 1', ambiente:'Amb2Piso1',periodo:'07:45-08:30',dia:'viernes'},
+        {id:11, docente:'Juan', materia:'PROGRAMACION 2', ambiente:'Amb2Piso2',periodo:'07:45-08:30', dia:'sabado'},
+        {id:12, docente:'Paola', materia:'ESTRUCTURA DE DATOS',ambiente:'Amb7Piso3',periodo:'07:45-08:30',dia:'sabado'},
+    
     ]
     return (
         <>
-           
             <Head/>
             <DashDocente/>
             <div className="container">
             <div className="asig">
-              <div className="row">
-                <ul className="col-sm-3">
-                    <li className="list-group-item active" aria-current="true">LUNES</li>
-                    {data.map((item)=>(<>
-                    {item.dia==='lunes' && item.docente==='Juan'?(<>
-                    <li className="list-group-item">{item.ambiente} {item.materia} {item.periodo}</li>
-                    </>):(<></>)} 
-                    </> ))} 
+                <div className="row">
+                    <ul className="col-sm-3">
+                        <li className="list-group-item active" aria-current="true">LUNES</li>
+                        {data.map((item)=>(<>
+                        {item.dia==='lunes' && item.docente==='Juan'?(<>
+                        <li className="list-group-item">{item.ambiente} {item.materia} {item.periodo}</li>
+                        </>):(<></>)} 
+                        </> ))} 
                 </ul>
                 
                 <ul className="col-sm-3">
@@ -83,7 +82,8 @@ export const VerHorariosAsignados= () => {
             <Button type="submit" color="success"   >   <MdLocalPrintshop/>  IMPRIMIR</Button>
             
             </div>
-           </div>         
+        </div>         
         </>
     );
 };
+

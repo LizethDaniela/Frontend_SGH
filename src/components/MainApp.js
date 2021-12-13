@@ -1,7 +1,8 @@
-import React from 'react'
-import {Provider} from "react-redux"
-import store from '../store/store'
-import  RouterApp  from './RouterApp/RouterApp'
+import React from 'react';
+import {Provider} from "react-redux";
+import store from '../store/store';
+
+import  RouterApp  from './RouterApp/RouterApp';
 
 
 export const MainApp = () => {
@@ -9,6 +10,7 @@ export const MainApp = () => {
         <Provider store = {store}>
             
                 <RouterApp />
+            
         </Provider>
         
     );

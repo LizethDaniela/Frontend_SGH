@@ -41,7 +41,7 @@ export const listSemestres = () => {
             .catch((error) => {
                 console.log("ERROR");
             });
-        }, []);
+        });
     };
 };
 
