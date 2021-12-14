@@ -7,23 +7,7 @@ import { DashDocente } from './DashDocente';
 import './stylos.css';
 
 export const Solicitar=()=>{
-  /*const [form, handlerChangeForm] =useForm({
-    nombre: "",
-    materia: "",
-    hora: "",
-    dia: "",
-    motivo: ""
-  });
-  const { nombre, materia, hora, dia, motivo} = form;
-  //const { student } = useSelector((state) => state);
-  //const { register_student } = student;
-  //console.log(register_student);
-  
-  const handlerSubmit = (e) => {
-    e.preventDefault();
-    //dispatch(registerEstudent({ nombre, materia, hora, dia, motivo}));
-    console.log(e)
-  }*/
+
   const [form, setForm]=useState({
     nombre: "",
     materia: "",
@@ -98,7 +82,6 @@ export const Solicitar=()=>{
                   </div>
                   <div className="createAccount">
                       <button type="submit">Enviar</button>
-                      <button type="submit">Cancelar</button>
                       
                   </div>
                 </form>
