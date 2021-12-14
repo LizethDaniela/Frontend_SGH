@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteMateria, editMateria } from '../../../actions/registerMateria';
+import { FaPencilAlt,FaTrashAlt } from "react-icons/fa";
 
 export const MateriaItem = ({ _id, subject, sigla, semestre, horas_semana, otro }) => {
     const dispatch = useDispatch();
@@ -54,9 +55,9 @@ export const MateriaItem = ({ _id, subject, sigla, semestre, horas_semana, otro 
                 <td>{ semestre }</td>
                 <td>{ horas_semana }</td>
                 <td>
-                    <button className="btn btn-primary" onClick={() => select( otro, 'Editar' )}>EDITAR</button>{'  '}
+                    <button className="btn btn-primary" onClick={() => select( otro, 'Editar' )}><FaPencilAlt/> EDITAR</button>{'  '}
                     {'  '}
-                    <button className="btn btn-danger" onClick={() => select( otro, 'Eliminar' )}>ELIMINAR</button>
+                    <button className="btn btn-danger" onClick={() => select( otro, 'Eliminar' )}><FaTrashAlt/> ELIMINAR</button>
                 </td>
             </tr>
 

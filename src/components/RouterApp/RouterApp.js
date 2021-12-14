@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes, BrowserRouter} from "react-router-dom";
 
 import { Principal } from '../principal/Principal';
 import { LoginComponent } from '../SubsistemaAdmin/auth/LoginComponent';
@@ -41,15 +41,17 @@ import { ProgramarMaterias } from '../SubsistemaEstudiantes/ProgramarMaterias';
 
 import "../../styles/styles.css"
 
+
 function RouterApp() {
   
   return (
     <Fragment>
+    
       <Routes>
-          <Route  path="/" element={<Principal/>} />
+      
+          <Route  path="/*" element={<Principal/>} />
           <Route  path="/admin/login" element={<LoginComponent/>} />
           <Route  path="/admin/main" element={<MainDashBoard/>} />
-
           <Route  path="/admin/registeradmin" element={<RegisterAdministradorComponent/>} />
           <Route  path="/admin/registeradmin/listadmins" element={< ContainerAdministradorListComponent/>} />
 
@@ -69,8 +71,6 @@ function RouterApp() {
           
           <Route  path="/admin/horarios" element={<HorariosComponent/>} />
           <Route  path="/admin/horarios/modificar" element={<ModificarHorarioComponent/>} />
-      
-
 
           <Route  path="/docent/login" element={<LoginDocente/>} />
           <Route  path="/docent/main" element={<PrincipalDocente/>} />
@@ -81,9 +81,10 @@ function RouterApp() {
           <Route  path="/estudent/main" element={<Estudiante/>} />
           <Route  path="/estudent/verhorarios" element={<VerHorariosEst/>} />
           <Route  path="/estudent/programaciones" element={<ProgramarMaterias/>} />
-
+          
         
       </Routes>
+ 
     </Fragment>
   );
 }

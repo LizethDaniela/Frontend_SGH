@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router';
 import Head from '../../head/Head';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent';
 import { AdministradorListComponent } from './AdministradorListComponent';
@@ -10,6 +11,7 @@ export const ContainerAdministradorListComponent = () => {
         <>
             <Head />
             <DashBoardComponent />
+            <Outlet/>
             <div className="container">
                 <HeaderAdministradorComponent />
                 <ObtenerAdministradorList />

@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import ".././horario.css";
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
+import {
+  Link
+} from "react-router-dom";
+
 import {BsXCircleFill, BsSave2Fill} from "react-icons/bs";
 //import { useForm } from '../../../hooks/useForm';
 
@@ -29,7 +33,6 @@ const[insert, setInsert] = useState(false);
 const idHandler=(event)=>{
     console.log(event.target.value);
     setNewId(event.target.value);
-   
 }
 const materiaHandler=(event)=>{
     setMateria(event.target.value);  
@@ -56,11 +59,6 @@ const submitHandler=(event)=>{
     setFinal(" ");
 }
   const openModal=()=>{
-    //setNewId(null);
-   // setMateria(null);
-  //  setAmbiente(null);
-    //setInicio(null);
-    //setFinal(null);
     setInsert(true);
 }
 
@@ -73,11 +71,14 @@ const submitHandler=(event)=>{
     }
     let list=[];
     list=[...list,{newId, materia,ambiente,inicio,final}]
-   
+  
     console.log(list);
 
     return (
         <div>
+          <hr/>
+                    <Link to="/admin/horarios/modificar" ><Button  className="btn-op"color="primary">MODIFICAR</Button></Link>
+                    <hr/>
             <div className="formatohorario">
                 
                 <button className="btn-a"  >HORARIO</button>
@@ -389,7 +390,7 @@ const submitHandler=(event)=>{
                 {item.dia==='sabado' && item.idperiodo===12?(<> {item.siglaMateria} {item.ambiente}
                 </>):(<></>)} 
                 </> ))}</button> 
-               <button className="btn-a">17:45-18:30</button>
+                <button className="btn-a">17:45-18:30</button>
                 <button className="btn-a"  >{data.map((item)=>(<>
                 {item.dia==='lunes' && item.idperiodo===13?(<> {item.siglaMateria} {item.ambiente}
                 </>):(<></>)} 
@@ -414,7 +415,7 @@ const submitHandler=(event)=>{
                 {item.dia==='sabado' && item.idperiodo===13?(<> {item.siglaMateria} {item.ambiente}
                 </>):(<></>)} 
                 </> ))}</button> 
-               </div> 
+              </div> 
                 <Modal isOpen={insert} >
         <ModalHeader>
           Horario
@@ -423,31 +424,31 @@ const submitHandler=(event)=>{
         <FormGroup >
             <Label for="id">ID</Label>
             <Input type="number" id="id"
-             value={newId}
+            value={newId}
             onChange={idHandler} /> 
           </FormGroup>
           <FormGroup>
             <Label for="materia">Materia</Label>
             <Input type="text" id="materia"
-             value={materia}
+            value={materia}
             onChange={materiaHandler} /> 
           </FormGroup>
           <FormGroup >
             <Label for="ambiente">Ambiente</Label>
             <Input type="text" id="ambiente"
-             value={ambiente}
+            value={ambiente}
             onChange={ambienteHandler}/> 
           </FormGroup>
           <FormGroup >
             <Label for="hora_i">Hora Inicio</Label>
             <Input type="time" id="entrada"
-             value={inicio}
+            value={inicio}
             onChange={incioHandler} /> 
           </FormGroup>
           <FormGroup >
             <Label for="hora_f">Hora finalización</Label>
             <Input type="time" id="salida"
-             value={final}
+            value={final}
             onChange={finalHandler} /> 
           </FormGroup>
         </ModalBody>

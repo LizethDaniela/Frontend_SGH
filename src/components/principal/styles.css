@@ -4,7 +4,7 @@
     background-image:linear-gradient(rgba(0,0,0,0.5),#009688), url("https://getwallpapers.com/wallpaper/full/0/b/b/15101.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 1000px;   
+    height: 1070px;   
     
 }
 .present {
@@ -33,4 +33,13 @@
     color: #0f2b36;
     background-color: rgb(181, 220, 221);
     border: 2px solid #1a303d;
+}
+
+
+.redirecciones{
+    
+    margin-top: -25px;
+}
+.vision{
+    margin-top: -30px;
 }

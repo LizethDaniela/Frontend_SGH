@@ -11,10 +11,12 @@ export const Principal = () => {
         <div className="present ">
           <h1><MdOutlineEditCalendar/> Sistema de Gestión de Horarios </h1><br/>
           <h1> Ingeniería de Sistemas </h1><hr/>
+          <div className="redirecciones">
           <Link to="/admin/login" ><button type="button" className="log"><FaUserTie/> Admin </button></Link>
           <Link to="/docent/login" ><button type="button" className="log"><FaBriefcase/> Docentes </button></Link> 
           <Link to="/estudent/login" ><button type="button" className="log"><FaGraduationCap/> Estudiantes </button></Link> 
-
+          </div>
+          <div className="vision"> 
           <div className="row">
             <div className="col-sm-4">
               <div className="card">
@@ -42,7 +44,20 @@ export const Principal = () => {
                 </div>
               </div>
             </div>
+            <div className="col-sm-4">
+              <div className="card">
+                <div className="card-body">
+                  <h4 className="card-title"><MdComputer/>  Objetivos</h4>
+                  <p className="card-text">Formar profesionales competitivos y emprendedores con conocimientos 
+                  científicos en el desarrollo y gestión de sistemas siendo capaces de implementar soluciones 
+                  tecnológicas pertinentes a las necesidades emergentes de su contexto con una visión sistémica
+                  que puedan incidir en la transformación de la sociedad boliviana orientándola hacia el desarrollo
+                  y al bienestar.</p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </>

@@ -1,10 +1,10 @@
 import React from 'react'
 import {
     Link
-  } from "react-router-dom";
-  
-  import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
-  import ".././horario.css";
+} from "react-router-dom";
+
+import {Button} from 'reactstrap';
+import ".././horario.css";
 
 
 
@@ -12,8 +12,7 @@ export const SearchComponent = () => {
     return (
         <div>
             <div className="cab">
-                   <hr/>
-                   
+                <hr/>
                     <select className="form-select form-select-sm" aria-label=".form-select-sm example">
                                     <option selected>Semestre</option>
                                     <option value="1">1° Semestre</option>
@@ -37,7 +36,7 @@ export const SearchComponent = () => {
                                 </select>
                                 
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">    
-                                     <Link to="/modificar" ><Button  className="btn-op"color="primary">MODIFICAR</Button></Link>
+                                    <Link to="/modificar" ><Button  className="btn-op"color="primary">BUSCAR</Button></Link>
                                 </div> 
                                 <hr/>           
                 </div>

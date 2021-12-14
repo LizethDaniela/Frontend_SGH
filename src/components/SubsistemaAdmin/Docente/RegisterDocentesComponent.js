@@ -74,10 +74,11 @@ export const RegisterDocentesComponent = () => {
       <div className="container">
         <Link to="/admin/registerdocentes/listadocent"><button tipo="button" className="link"><FaUsers/> Lista de Docentes </button></Link>
 
-        <div className="form-wrapper">
-          <h2>REGISTRO DE DOCENTES <MdAccountCircle /></h2>
-          
+        <div className="form-wrapper-docente">
+          <h2><br/>REGISTRO DE DOCENTES <MdAccountCircle /><br/>  .</h2>
+        
           <form onSubmit={handlerSubmit}>
+          <div className="datosdoc">
             <div className="simple">
               <label htmlFor="ci">C.I.:</label>
               <input
@@ -169,6 +170,12 @@ export const RegisterDocentesComponent = () => {
                 onChange={handlerChangeForm}
               />
             </div>
+            <div className="createAccount">
+              <button type="submit">Registrar</button>
+ 
+            </div>
+            </div>
+            <div className="disponibilidad" >
             <FormGroup>
               <Label>DISPONIBILIDAD DE TIEMPO:</Label>
                 <table className=" table-bordered thead-dark">
@@ -377,10 +384,8 @@ export const RegisterDocentesComponent = () => {
                   </tbody>
                 </table>
             </FormGroup>
-            <div className="createAccount">
-              <button type="submit">Registrar</button>
-              <small>Asegurese de que todos los datos sean correctos</small>
             </div>
+            
           </form>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { deleteAdministrador, editAdministrador } from '../../../actions/auth';
+import { FaUserEdit ,FaTrashAlt} from "react-icons/fa";
 
 export const AdministradorItem = ({ _id, ci, nombre, ap_paterno, ap_materno, cargo, email, username, fecha_nac, telefono, otro }) => {
     const dispatch = useDispatch();
@@ -65,9 +66,9 @@ export const AdministradorItem = ({ _id, ci, nombre, ap_paterno, ap_materno, car
                 <td>{ fecha_nac }</td>
                 <td>{ telefono }</td>
                 <td>
-                    <button className="btn btn-primary" onClick={() => select(otro, 'Editar')}>EDITAR</button>{'  '}
+                    <button className="btn btn-primary" onClick={() => select(otro, 'Editar')}><FaUserEdit /> EDITAR</button>{'  '}
                     {'  '}
-                    <button className="btn btn-danger" onClick={() => select(otro, 'Eliminar')}>ELIMINAR</button>
+                    <button className="btn btn-danger" onClick={() => select(otro, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
                 </td>
             </tr>
 

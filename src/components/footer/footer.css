@@ -1,0 +1,35 @@
+.footer{
+	background: #2c3e41;
+	width: 100%;
+	height: auto;
+}
+.pie-footer{
+	background: #000;
+	width: 100%;
+	height: auto;
+	color: rgb(154, 206, 186);
+	position: relative;
+	
+	text-align: center;
+}
+.contacto{
+	color: #fff;
+	font-size: 20px;
+	margin-top: 100px;
+	font-weight: 700;
+	
+}
+.direccion{
+	color: seashell;
+	margin-left: 25px;
+}
+.cont-icons{
+	color: rgb(223, 226, 65);
+	font-size: 25px;
+}
+.escudo {
+    width: 170px;
+    height: 100px;
+    margin-top: -270px;
+    margin-left: 680px;
+}

@@ -37,6 +37,6 @@ export const types = {
   registerSemestre: "register/semestre",
   listSemestres: "list/semestres",
   editSemestre: "edit/semestre",
-  deleteSemestre: "delete/semestre"
+  deleteSemestre: "delete/semestre",
 
 };

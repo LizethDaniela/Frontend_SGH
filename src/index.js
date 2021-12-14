@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 import { MainApp } from './components/MainApp';
 
-ReactDOM.render(<MainApp />,document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <MainApp />
+    </BrowserRouter>
+    ,document.getElementById('root'));

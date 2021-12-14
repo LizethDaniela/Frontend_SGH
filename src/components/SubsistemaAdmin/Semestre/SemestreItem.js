@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteSemestre, editSemestre } from '../../../actions/registerSemestre';
+import { FaPencilAlt,FaTrashAlt } from "react-icons/fa";
 
 export const SemestreItem = ( props ) => {
     const dispatch = useDispatch();
@@ -129,9 +130,9 @@ export const SemestreItem = ( props ) => {
                     { props.disponibilidad_tiempo[19] } <br/>
                 </td>
                 <td>
-                    <button className="btn btn-primary" onClick={() => select( props.otro, 'Editar' )}>EDITAR</button>{'  '}
+                    <button className="btn btn-primary" onClick={() => select( props.otro, 'Editar' )}><FaPencilAlt/> EDITAR</button>{'  '}
                     {'  '}
-                    <button className="btn btn-danger" onClick={() => select( props.otro, 'Eliminar' )}>ELIMINAR</button>
+                    <button className="btn btn-danger" onClick={() => select( props.otro, 'Eliminar' )}><FaTrashAlt/> ELIMINAR</button>
                 </td>
             </tr>
 

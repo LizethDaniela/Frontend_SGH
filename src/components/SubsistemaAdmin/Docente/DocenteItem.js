@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaUserEdit,FaTrashAlt } from "react-icons/fa";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { deleteDocente, editDocente } from '../../../actions/registerDocente';
 
@@ -139,9 +140,9 @@ export const DocenteItem = ( props ) => {
                     { props.disponibilidad_tiempo[19] } <br/>
                 </td>
                 <td>
-                    <button className="btn btn-primary" onClick={() => select(props.otro, 'Editar')}>EDITAR</button>{'  '}
-                    {'  '}
-                    <button className="btn btn-danger" onClick={() => select(props.otro, 'Eliminar')}>ELIMINAR</button>
+                    <button className="btn btn-primary" onClick={() => select(props.otro, 'Editar')}><FaUserEdit/> EDITAR</button>
+                    
+                    <button className="btn btn-danger" onClick={() => select(props.otro, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
                 </td>
             </tr>
 

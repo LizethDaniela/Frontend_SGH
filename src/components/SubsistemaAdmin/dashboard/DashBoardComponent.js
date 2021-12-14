@@ -1,38 +1,40 @@
 import React from 'react'
-import { MdCancel, MdLockOpen } from "react-icons/md";
+import { MdLockOpen } from "react-icons/md";
+import { FaUserShield} from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {  useNavigate  } from "react-router-dom";
 import { authLogoutAsync } from '../../../actions/auth';
 import "./DashSty.css"
 
 export const DashBoardComponent = ({ children, ...rest }) => {
-    const history = useNavigate();
+    const navigate = useNavigate();
     const {auth} = useSelector(state => state);
     const { token } = auth;
     const dispatch = useDispatch();
     const handlerLogout = () => {
         dispatch(authLogoutAsync());
+        navigate("/");
+        
     };
     return (
-        token == null? (<>{ history("/")}</>): (<>
+        token == null? (<>{navigate("/")}</>): (<>
             
             <div className="sidebar">
-                <header> Administrador </header>
+                <header><FaUserShield/> Administrador</header>
                 <ul>
 
-                    <li><Link to="/admin/registeradmin">Administrador</Link></li>
-                    <li><Link to="/admin/registerdocentes">Docentes</Link></li>
-                    <li><Link to="/admin/registerestudents">Estudiantes</Link></li>
-                    <li><Link to="/admin/materias">Materias</Link></li>
-                    <li><Link to="/admin/semestres">Semestres</Link></li>
-                    <li><Link to="/admin/ambientes">Ambientes</Link></li>
-                    <li><Link to="/admin/asignarmaterias">Asignar Materias</Link></li>
-                    <li><Link to="/admin/horarios">Horarios</Link></li>
-                    <li onClick={handlerLogout}><a href="#"> <MdLockOpen /> Logout</a></li>
+                <li><NavLink to="/admin/registeradmin">Administrador</NavLink></li>
+                    <li><NavLink to="/admin/registerdocentes">Docentes</NavLink></li>
+                    <li><NavLink to="/admin/registerestudents">Estudiantes</NavLink></li>
+                    <li><NavLink to="/admin/materias">Materias</NavLink></li>
+                    <li><NavLink to="/admin/semestres">Semestres</NavLink></li>
+                    <li><NavLink to="/admin/ambientes">Ambientes</NavLink></li>
+                    <li><NavLink to="/admin/asignarmaterias">Asignar Materias</NavLink></li>
+                    <li><NavLink to="/admin/horarios">Horarios</NavLink></li>
+                    <li onClick={handlerLogout}><NavLink to="/"><MdLockOpen />Logout</NavLink></li>
                 </ul>
             </div>
-            
         </>)
     );
 };
