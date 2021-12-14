@@ -62,13 +62,6 @@ const submitHandler=(event)=>{
     setInsert(true);
 }
 
-
-    const modalStyles={
-      position: "absolute",
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    }
     let list=[];
     list=[...list,{newId, materia,ambiente,inicio,final}]
   

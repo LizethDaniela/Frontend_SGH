@@ -1,10 +1,8 @@
 import React from 'react';
 import Head from '../head/Head';
 import { DashEstudiante } from './DashEstudiante';
-import {FaUserCheck,FaPhoneSquareAlt,FaFacebookSquare} from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
 import { Footer } from '../footer/Footer';
-
 
 export const Estudiante= () => {
 
@@ -15,9 +13,9 @@ export const Estudiante= () => {
             <DashEstudiante/>
             <div className="container">
             <div className="informacion">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Informacion General <FaUserCheck/></a>
+                <ul className="nav nav-tabs">
+                    <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="#">Informacion General <FaUserCheck/></a>
                     </li>
                 </ul>
                 <p> -Planificar, desarrollar, gestionar, adaptar, aplicar, mantener y evaluar sistemas de información, 

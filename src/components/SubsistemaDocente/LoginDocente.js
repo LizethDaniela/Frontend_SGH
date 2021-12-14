@@ -19,7 +19,7 @@ export const LoginDocente = () => {
     const { displayName }=logDocent;
     const {msnerror}= logDocent;
 
-    const [form, handlerChangeForm, handlerResetForm] = useForm({
+    const [form, handlerChangeForm] = useForm({
         username: "Jose",
         password: "1234",
     });

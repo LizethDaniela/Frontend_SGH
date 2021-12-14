@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { Outlet } from 'react-router';
-import {FaUserGraduate,FaBriefcase,FaRegBuilding ,FaBook,FaUserCheck,FaPhoneSquareAlt,FaFacebookSquare} from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
 import Head from '../../head/Head';
 import { DashBoardComponent } from './DashBoardComponent';
-import "./stylesMain.css"
 import { Footer } from '../../footer/Footer';
+import "./stylesMain.css";
 import "./DashSty.css";
 
 export const MainDashBoard = () => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRol, editRol } from '../../../actions/registerRol';
+import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
 export const RolItem = ({ _id, name, method, url, otro }) => {
     const dispatch = useDispatch();
@@ -52,9 +53,9 @@ export const RolItem = ({ _id, name, method, url, otro }) => {
                 <td>{ method } </td>
                 <td>{ url }</td>
                 <td>
-                    <button className="btn btn-primary" onClick={() => select( otro, 'Editar' )}>EDITAR</button>{'  '}
+                    <button className="btn btn-primary" onClick={() => select( otro, 'Editar' )}><FaPencilAlt/>EDITAR</button>{'  '}
                     {'  '}
-                    <button className="btn btn-danger" onClick={() => select( otro, 'Eliminar' )}>ELIMINAR</button>
+                    <button className="btn btn-danger" onClick={() => select( otro, 'Eliminar' )}><FaTrashAlt/>ELIMINAR</button>
                 </td>
             </tr>
 

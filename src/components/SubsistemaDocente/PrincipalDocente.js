@@ -1,8 +1,7 @@
 import React from 'react'
 import Head from '../head/Head';
 import { DashDocente } from './DashDocente';
-import {FaUserCheck,FaPhoneSquareAlt,FaFacebookSquare} from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
 import { Footer } from '../footer/Footer';
 
 export const PrincipalDocente= () => {

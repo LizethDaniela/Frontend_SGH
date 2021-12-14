@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { MdLockOpen } from "react-icons/md";
-import { Route, Switch, Redirect, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 import { LogoutDocent } from '../../actions/logDocent';
 import { Navigate } from "react-router-dom";
-
 import "./dashstyles.css";
 
 export const DashDocente = () => {

@@ -1,8 +1,5 @@
 import React, {useState} from 'react'
 import Head from '../head/Head';
-import { MdAccountCircle } from "react-icons/md";
-import { FaUsers } from 'react-icons/fa';
-import { useForm } from '../../hooks/useForm';
 import { DashDocente } from './DashDocente';
 import './stylos.css';
 
