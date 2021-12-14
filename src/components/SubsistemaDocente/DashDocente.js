@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdLockOpen } from "react-icons/md";
 import { Route, Switch, Redirect, Link} from "react-router-dom";
 import { LogoutDocent } from '../../actions/logDocent';
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import "./dashstyles.css";
 
 export const DashDocente = ({children, ...rest}) => {
-    const history = useNavigate();
+    
     const {logDocent}=useSelector(state=> state);
    // const {user} = auth;
     const { displayName }=logDocent;
@@ -17,7 +17,7 @@ export const DashDocente = ({children, ...rest}) => {
         dispatch(LogoutDocent());
     };
     return (
-        displayName==null?(<>{ history("/")}</>):(<>
+        displayName==null?(<Navigate to="/"/>):(<>
             <div className="sidebar">
             <header>Docente</header>
             <ul>

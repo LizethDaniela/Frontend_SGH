@@ -3,12 +3,12 @@ import { MdPersonPin, MdVpnKey } from 'react-icons/md';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { authStudent } from '../../actions/logEstudent';
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 
 export const LoginEst = () => {
-    const history = useNavigate();
+
     const dispatch = useDispatch();
     const { logStudent } = useSelector((state )=> state);
     const { displayName }=logStudent;
@@ -79,7 +79,7 @@ export const LoginEst = () => {
                     
                 </div>
             </div>
-        </div>):(<>{ history("/estudent/main")}</>)}
+        </div>):(<Navigate to="/estudent/main"/>)}
         </>
     );
 };
