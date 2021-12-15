@@ -52,3 +52,12 @@ select option {
 .docenteambsem {
     color:rgb(119, 121, 12)
 }
+.horariolist {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+.mensaje {
+    color:rgb(119, 121, 12)
+}

@@ -32,6 +32,7 @@ import { ContainerAmbientesListComponent } from '../SubsistemaAdmin/Ambientes/Co
 import { ContainerSemestresListComponent } from '../SubsistemaAdmin/Semestre/ContainerSemestresListComponent';
 //HORARIOS
 import { ContainerHorariosListComponent } from "../SubsistemaAdmin/Horarios/ContainerHorariosListComponent";
+import { ContainerHorarioListComponent } from "../SubsistemaAdmin/Horarios/ContainerHorarioListComponent";
 
 //SUB SISTEMA DOCENTE
 import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
@@ -80,6 +81,7 @@ function RouterApp() {
           <Route  path="/admin/semestres" element={<ContainerSemestresListComponent />} />
           
           <Route  path="/admin/horarios" element={<ContainerHorariosListComponent/>} />
+          <Route  path="/admin/horarios/listhorarios" element={<ContainerHorarioListComponent/>} />
 
           <Route  path="/docent/login" element={<LoginDocente/>} />
           <Route  path="/docent/main" element={<PrincipalDocente/>} />

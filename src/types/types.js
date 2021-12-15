@@ -55,6 +55,9 @@ export const types = {
 
   //horario
   registerHorario: "register/horario",
+  listHorarios: "list/horarios",
+  editHorario: "edit/horario",
+  deleteHorario: "delete/horario",
 
   //Subsistemas Docente
   docentLogin:"docent/login",

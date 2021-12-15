@@ -31,6 +31,7 @@ export const enpoints = {
   getlistSemestres: { url: "http://localhost:8000/api/1.0/semestre", method: "GET" },
 
   //horario
-  registerHorario: { url: "http://localhost:8000/api/1.0/horario", method: "POST" }
+  registerHorario: { url: "http://localhost:8000/api/1.0/horario", method: "POST" },
+  getlistHorarios: { url: "http://localhost:8000/api/1.0/horario", method: "GET" }
 
 };

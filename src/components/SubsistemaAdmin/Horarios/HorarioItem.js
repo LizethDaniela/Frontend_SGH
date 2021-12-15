@@ -1,105 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { BsFillExclamationTriangleFill } from 'react-icons/bs';
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
-import { Navigate } from 'react-router';
+import React, { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerHorario } from '../../../actions/registerHorario';
-import "./horario.css";
+import { deleteHorario, editHorario } from '../../../actions/registerHorario';
 
-export const RegistrarHorarioComponent = () => {
+export const HorarioItem = (props) => {
     const dispatch = useDispatch();
+    const { horario } = useSelector(state => state);
+    const { edit_horario, delete_horario } = horario;
+    console.log(edit_horario);
+    console.log(delete_horario);
 
-    const { docente: doc, ambientefisico, sem, horario } = useSelector((state) => state);
-    
-    const { obtener_docente } = doc;
-
-    let teacher = {};
-    obtener_docente != null ? ( teacher = obtener_docente ): (
-        <Navigate to="/admin/horarios" />
-    )
-
-    const { obtener_ambiente } = ambientefisico;
-
-    let amb = {};
-    obtener_ambiente != null ? ( amb = obtener_ambiente ): (
-        <Navigate to="/admin/horarios" />
-    )
-
-    const { obtener_semestre } = sem;
-
-    let semes = {};
-    obtener_semestre != null ? ( semes = obtener_semestre ): (
-        <Navigate to="/admin/horarios" />
-    )
-
-    const { register_horario } = horario;
-    console.log(register_horario);
-
-    const { nombre, ap_paterno, ap_materno, disponibilidad_tiempo: disponibilidad_tiempoDoc } = teacher;
-    const { ambiente: a, piso: p, disponibilidad_tiempo: disponibilidad_tiempoAmb } = amb;
-    const { semestre: s, grupo: g, disponibilidad_tiempo: disponibilidad_tiempoSem } = semes;
-
-    console.log(disponibilidad_tiempoDoc);
-    console.log(disponibilidad_tiempoAmb);
-    console.log(disponibilidad_tiempoSem);
-
-    const [dispo_tiempodoc, setdispo_tiempoDoc] = useState(false);
-    const [dispo_tiempoamb, setdispo_tiempoAmb] = useState(false);
-    const [dispo_tiemposem, setdispo_tiempoSem] = useState(false);
-
-    const openModal = (dh)=>{
-        console.log(dh);
-        if (disponibilidad_tiempoDoc) {
-            disponibilidad_tiempoDoc.forEach(item => {
-                if (item === dh) {
-                    console.log(item);
-                    console.log(dh);
-                    setdispo_tiempoDoc( true );
-                }
-            });
-        }
-        else {
-            <Navigate to="/admin/horarios" />
-        }
-        if (disponibilidad_tiempoAmb) {
-            disponibilidad_tiempoAmb.forEach(item => {
-                if (item === dh) {
-                    setdispo_tiempoAmb( true );
-                }
-            });
-        }
-        else {
-            <Navigate to="/admin/horarios" />
-        }
-        if (disponibilidad_tiempoSem) {
-            disponibilidad_tiempoSem.forEach(item => {
-                if (item === dh) {
-                    setdispo_tiempoSem( true );
-                }
-            });
-        }
-        else {
-            <Navigate to="/admin/horarios" />
-        }
-        console.log(dispo_tiempodoc + ' ' + dispo_tiempoamb + ' ' + dispo_tiemposem);
-        if (dispo_tiempodoc === true && dispo_tiempoamb === true && dispo_tiemposem === true) {
-            setInsert(true);
-        }
-        else {
-            console.log(`no es posible programar el horario porque el docente esta ocupado o el ambiente o el semestre en el dia y hora: ${dh}`);
-            setInsert(false);
-        }
-    };
-
-    const [ insert, setInsert ] = useState( false );
+    const [ update, setUpdate ] = useState( false );
+    const [ delet, setDelet ] = useState( false );
     const [ datoselect, setDatoselect ] = useState({
-        semestre:'',
-        grupo:'',
-        dia:'',
-        materia: '',
-        docente: '',
-        ambiente: '',
-        piso: '',
+        semestre: "",
+        grupo: "",
+        dia: "",
+        materia: "",
+        docente: "",
+        ambiente: "",
+        piso: "",
         disponibilidad_tiempo1: "",
         disponibilidad_tiempo2: "",
         disponibilidad_tiempo3: "",
@@ -126,263 +47,155 @@ export const RegistrarHorarioComponent = () => {
         disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
         disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
         disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
-        disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20 } = datoselect;
+        disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
+    } = datoselect;
 
-    const handlerChange = ( e ) => {
-        const {name, value} = e.target;
-        setDatoselect((prevState)=>({
-            ...prevState,
-            [ name ] : value
-        }));
-    };
-    console.log(datoselect);
-
-    const handlerInsertar = (datos) => {
-        const { semestre, grupo, dia, materia, docente, ambiente, piso, 
-            disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+    const select = ( item, caso )=>{
+        const { _id, semestre, grupo, dia, materia, docente, ambiente, piso, disponibilidad_tiempo } = item;
+        const [ disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
             disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
             disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
             disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
-        } = datos;
-
-        const array = [];
-        const disponibilidad_tiempo = [ ...array, 
-            disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+        ] = disponibilidad_tiempo;
+        setDatoselect({ _id, semestre, grupo, dia, materia, docente, ambiente, piso, disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
             disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
             disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
-            disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20 ];
+            disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
+        });
+        
+        ( caso === 'Editar' )? setUpdate( true ) : setDelet( true )
+    };
+    console.log(datoselect);
 
-        dispatch(registerHorario({ semestre, grupo, disponibilidad_tiempo, dia, materia, docente, ambiente, piso }));
-
-        if ( register_horario != null || register_horario == null ) {
-            setInsert(false);
-            setdispo_tiempoDoc( false );
-            setdispo_tiempoAmb( false );
-            setdispo_tiempoSem( false );
-        }
+    const handlerChange = ( e ) => {
+        const { name, value } = e.target;
+        setDatoselect(( prevState ) => ({
+            ...prevState,
+            [ name ]: value
+        }));
     };
 
-    useEffect(() => {
-        if (insert === false) {
-            setdispo_tiempoDoc( false );
-            setdispo_tiempoAmb( false );
-            setdispo_tiempoSem( false );
-        }
-    }, [insert]);
+    const array = [];
+    const disponibilidad_tiempo = [ ...array, 
+        disponibilidad_tiempo1, disponibilidad_tiempo2, disponibilidad_tiempo3, disponibilidad_tiempo4, disponibilidad_tiempo5, 
+        disponibilidad_tiempo6, disponibilidad_tiempo7, disponibilidad_tiempo8, disponibilidad_tiempo9, disponibilidad_tiempo10, 
+        disponibilidad_tiempo11, disponibilidad_tiempo12, disponibilidad_tiempo13, disponibilidad_tiempo14, disponibilidad_tiempo15, 
+        disponibilidad_tiempo16, disponibilidad_tiempo17, disponibilidad_tiempo18, disponibilidad_tiempo19, disponibilidad_tiempo20
+    ];
 
-    const diahora = {
-        lunes: "Lunes",
-        martes: "Martes",
-        miercoles: "Miercoles",
-        jueves: "Jueves",
-        viernes: "Viernes",
-        primera_hora: "7:45-10:00",
-        segunda_hora: "10:00-12:15",
-        tercera_hora: "14:00-16:45",
-        cuarta_hora: "16:45-18:30"
+    const handlerEdit = (id ) => {
+        dispatch(editHorario(id, { semestre, grupo, disponibilidad_tiempo, dia, materia, docente, ambiente, piso }));
+        if ( edit_horario != null || edit_horario == null)
+            setUpdate(false);
     };
 
-    const { lunes, martes, miercoles, jueves, viernes, primera_hora, segunda_hora, tercera_hora, cuarta_hora } = diahora;
-
-    const lunesph = lunes + ': ' + primera_hora;
-    const lunessh = lunes + ': ' + segunda_hora;
-    const lunesth = lunes + ': ' + tercera_hora;
-    const lunesch = lunes + ': ' + cuarta_hora;
-
-    const martesph = martes + ': ' + primera_hora;
-    const martessh = martes + ': ' + segunda_hora;
-    const martesth = martes + ': ' + tercera_hora;
-    const martesch = martes + ': ' + cuarta_hora;
-
-    const miercolesph = miercoles + ': ' + primera_hora;
-    const miercolessh = miercoles + ': ' + segunda_hora;
-    const miercolesth = miercoles + ': ' + tercera_hora;
-    const miercolesch = miercoles + ': ' + cuarta_hora;
-
-    const juevesph = jueves + ': ' + primera_hora;
-    const juevessh = jueves + ': ' + segunda_hora;
-    const juevesth = jueves + ': ' + tercera_hora;
-    const juevesch = jueves + ': ' + cuarta_hora;
-    
-    const viernesph = viernes + ': ' + primera_hora;
-    const viernessh = viernes + ': ' + segunda_hora;
-    const viernesth = viernes + ': ' + tercera_hora;
-    const viernesch = viernes + ': ' + cuarta_hora;
-
+    const handlerDelete = (id) => {
+        console.log(id);
+        dispatch(deleteHorario(id));
+        if ( delete_horario != null || delete_horario == null )
+            setDelet(false);
+    };
     return (
         <>
-            <div className="formatohorario">
-                
-                <button className="btn-a" >HORARIO</button>
-                <button className="btn-a" >{lunes}</button>
-                <button className="btn-a"  >{martes}</button>
-                <button className="btn-a" >{miercoles}</button>
-                <button className="btn-a" >{jueves}</button>
-                <button className="btn-a" >{viernes}</button>
-                
-                <button className="btn-a" >{primera_hora}</button>
-                <button className="btn-a"  onClick={() => {
-                    openModal(lunesph);
-                }} >
+            <tr> 
+                <td>{ props.semestre }</td>
+                <td>{ props.grupo }</td>
+                <td>{ props.dia } </td>
+                <td>{ props.materia }</td>
+                <td>{ props.docente }</td>
+                <td>{ props.ambiente }</td>
+                <td>{ props.piso }</td>
+                <td>
+                    { props.disponibilidad_tiempo[0] } <br/>
+                    { props.disponibilidad_tiempo[1] } <br/>
+                    { props.disponibilidad_tiempo[2] } <br/>
+                    { props.disponibilidad_tiempo[3] } <br/>
+                </td>
+                <td>
+                    { props.disponibilidad_tiempo[4] } <br/>
+                    { props.disponibilidad_tiempo[5] } <br/>
+                    { props.disponibilidad_tiempo[6] } <br/>
+                    { props.disponibilidad_tiempo[7] } <br/>
+                </td>
+                <td>
+                    { props.disponibilidad_tiempo[8] } <br/>
+                    { props.disponibilidad_tiempo[9] } <br/>
+                    { props.disponibilidad_tiempo[10] } <br/>
+                    { props.disponibilidad_tiempo[11] } <br/>
+                </td>
+                <td>
+                    { props.disponibilidad_tiempo[12] } <br/>
+                    { props.disponibilidad_tiempo[13] } <br/>
+                    { props.disponibilidad_tiempo[14] } <br/>
+                    { props.disponibilidad_tiempo[15] } <br/>
+                </td>
+                <td>
+                    { props.disponibilidad_tiempo[16] } <br/>
+                    { props.disponibilidad_tiempo[17] } <br/>
+                    { props.disponibilidad_tiempo[18] } <br/>
+                    { props.disponibilidad_tiempo[19] } <br/>
+                </td>
+                <td>
+                    <button className="btn btn-primary" onClick={() => select(props.otro, 'Editar')}><FaPencilAlt/> EDITAR</button>
                     
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(martesph);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(miercolesph);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(juevesph);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(viernesph);
-                }} >
-                    
-                </button> 
-                
-                <button className="btn-a" >{segunda_hora}</button>
-                <button className="btn-a"  onClick={() => {
-                    openModal(lunessh);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(martessh);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(miercolessh);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(juevessh);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(viernessh);
-                }} >
-                    
-                </button> 
-                
-                <button className="btn-a" >{tercera_hora}</button>
-                <button className="btn-a"  onClick={() => {
-                    openModal(lunesth);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(martesth);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(miercolesth);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(juevesth);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(viernesth);
-                }} >
-                    
-                </button> 
-                
-                <button className="btn-a" >{cuarta_hora}</button>
-                <button className="btn-a"  onClick={() => {
-                    openModal(lunesch);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(martesch);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(miercolesch);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(juevesch);
-                }} >
-                    
-                </button> 
-                <button className="btn-a"  onClick={() => {
-                    openModal(viernesch);
-                }} >
-                    
-                </button> 
-            </div>
+                    <button className="btn btn-danger" onClick={() => select(props.otro, 'Eliminar')}><FaTrashAlt/> ELIMINAR</button>
+                </td>
+            </tr>
 
-            <Modal isOpen = {insert}>
+            <Modal isOpen={update}>
                 <ModalHeader>
-                    INSERTAR
+                    EDITAR
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>
                         <Label>SEMESTRE:</Label>
-                        <Input className="form-control" type="text" name="semestre"
-                            value = {semestre} 
-                            onChange = {handlerChange}
+                        <Input className="form-control" type="text" name="semestre"  
+                            value={semestre}
+                            onChange={handlerChange}
                         />
                     </FormGroup>
-                    <div className="docenteambsem"><BsFillExclamationTriangleFill/>{' '}{'El semestre es:'}{' '}{s}</div>
                     <FormGroup>
                         <Label>GRUPO:</Label>
-                        <Input className="form-control" type="text" name="grupo"
-                            value = {grupo} 
-                            onChange = {handlerChange}
+                        <Input className="form-control" type="text" name="grupo" 
+                            value={grupo} 
+                            onChange={handlerChange}
                         />
                     </FormGroup>
-                    <div className="docenteambsem"><BsFillExclamationTriangleFill/>{' '}{'El grupo es:'}{' '}{g}</div>
                     <FormGroup>
                         <Label>DIA:</Label>
-                        <Input className="form-control" type="text" name="dia"
-                            value = {dia} 
-                            onChange = {handlerChange}/>
+                        <Input className="form-control" type="text" name="dia"  
+                            value={dia}
+                            onChange={handlerChange}
+                        />
                     </FormGroup>
                     <FormGroup>
                         <Label>MATERIA:</Label>
-                        <Input className="form-control" type="text" name="materia"
-                            value = {materia} 
-                            onChange = {handlerChange}/>
+                        <Input className="form-control" type="text" name="materia"  
+                            value={materia}
+                            onChange={handlerChange}
+                        />
                     </FormGroup>
                     <FormGroup>
                         <Label>DOCENTE:</Label>
-                        <Input className="form-control" type="text" name="docente"
-                            value = {docente} 
-                            onChange = {handlerChange}/>
+                        <Input className="form-control" type="text" name="docente"  
+                            value={docente}
+                            onChange={handlerChange}
+                        />
                     </FormGroup>
-                    <div className="docenteambsem"><BsFillExclamationTriangleFill/>{' '}{'El o la docente es:'}{' '}{nombre}{' '}{ap_paterno}{' '}{ap_materno}</div>
                     <FormGroup>
                         <Label>AMBIENTE:</Label>
-                        <Input className="form-control" type="text" name="ambiente"
-                            value = {ambiente} 
-                            onChange = {handlerChange}/>
+                        <Input className="form-control" type="text" name="ambiente"  
+                            value={ambiente}
+                            onChange={handlerChange}
+                        />
                     </FormGroup>
-                    <div className="docenteambsem"><BsFillExclamationTriangleFill/>{' '}{'El ambiente es:'}{' '}{a}</div>
                     <FormGroup>
                         <Label>PISO:</Label>
-                        <Input className="form-control" type="text" name="piso"
-                            value = {piso} 
-                            onChange = {handlerChange}/>
+                        <Input className="form-control" type="text" name="piso"  
+                            value={piso}
+                            onChange={handlerChange}
+                        />
                     </FormGroup>
-                    <div className="docenteambsem"><BsFillExclamationTriangleFill/>{' '}{'El piso es:'}{' '}{p}</div>
                     <FormGroup>
                         <Label>DISPONIBILIDAD DE TIEMPO OCUPADA:</Label>
                         <table className=" table-bordered thead-dark">
@@ -593,13 +406,30 @@ export const RegistrarHorarioComponent = () => {
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={() => {
-                            handlerInsertar(datoselect);
+                    <Button color="primary" onClick={ () => {
+                            handlerEdit(props._id);
                         }}
                     >
-                        INSERTAR
+                        EDITAR
                     </Button>
-                    <Button color="secondary" onClick={() => setInsert(false)}>CANCELAR</Button>
+                    <Button color="secondary" onClick={() => setUpdate(false)}>CANCELAR</Button>
+                </ModalFooter>
+            </Modal>
+
+            <Modal isOpen={delet}>
+                <ModalBody>
+                    ¿Estas segur@ que quieres eliminar a 
+                    {' '}{semestre}{' grupo: '}{grupo}{' dia: '}{dia}{' materia: '}{materia}{' docente: '}{docente}{' ambiente: '}
+                    {ambiente}{' piso: '}{piso}?
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="danger" onClick={ () => {
+                            handlerDelete(props._id);
+                        }}
+                    >
+                        SI
+                    </Button>
+                    <Button color="secondary" onClick={() => setDelet(false)}>NO</Button>
                 </ModalFooter>
             </Modal>
         </>

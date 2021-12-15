@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsFillExclamationTriangleFill } from 'react-icons/bs';
 import Head from '../../head/Head';
 import { DashBoardComponent } from '../dashboard/DashBoardComponent';
 import { RegistrarHorarioComponent } from './RegistrarHorarioComponent';
@@ -9,9 +10,11 @@ import { HeaderSemestreComponent } from './HeaderSemestreComponent';
 import { SearchDocenteComponent } from './SearchDocenteComponent';
 import { SearchAmbienteComponent } from './SearchAmbienteComponent';
 import { SearchSemestreComponent } from './SearchSemestreComponent';
+import { ObtenerHorariosListComponent } from './ObtenerHorariosListComponent';
 import "./horario.css";
 
 export const ContainerHorariosListComponent = () => {
+    const mensaje = "Debe buscar primero un docente, ambiente y semestre para poder registrar horario con esos datos ";
     return (
         <>
             <Head />
@@ -26,6 +29,10 @@ export const ContainerHorariosListComponent = () => {
                     <SearchDocenteComponent />
                     <SearchAmbienteComponent />
                     <SearchSemestreComponent />
+                </div>
+                <div className="mensaje"><BsFillExclamationTriangleFill/>{' '}{mensaje}</div>
+                <div className="horariolist">
+                    <ObtenerHorariosListComponent />
                 </div>
                 <div className="horario">
                     <TitleComponent/>
