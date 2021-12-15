@@ -45,6 +45,21 @@ export const listSemestres = () => {
     };
 };
 
+export const obtenerSemestre = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/api/1.0/semestre/${id}`)
+        .then((response) => response.json())
+        .then(({ semestreResponse }) => {
+            console.log( semestreResponse );
+            console.log("semestre encontrado");
+            dispatch(getsemestre( semestreResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR");
+        });
+    };
+};
+
 export const deleteSemestre = ( id ) => {
     return (dispatch) => {
         Promise.all([
@@ -107,6 +122,13 @@ export const semestreslist = (responselist) => {
     return {
         type: types.listSemestres,
         payload: responselist,
+    };
+};
+
+export const getsemestre = (responsesemestre) => {
+    return {
+        type: types.getSemestre,
+        payload: responsesemestre,
     };
 };
 

@@ -8,6 +8,9 @@ export const semestreReducer = (state = {}, action) => {
         case types.listSemestres: {
             return { ...state, data: action.payload };
         }
+        case types.getSemestre: {
+            return { ...state, obtener_semestre: action.payload };
+        }
         case types.deleteSemestre: {
             return { ...state, delete_semestre: action.payload };
         }

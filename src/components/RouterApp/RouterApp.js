@@ -31,8 +31,7 @@ import { ContainerAmbientesListComponent } from '../SubsistemaAdmin/Ambientes/Co
 //SEMESTRES
 import { ContainerSemestresListComponent } from '../SubsistemaAdmin/Semestre/ContainerSemestresListComponent';
 //HORARIOS
-import { HorariosComponent } from '../SubsistemaAdmin/Horarios/HorariosComponent';
-import { ModificarHorarioComponent } from '../SubsistemaAdmin/Horarios/ModificarHorarioComponent';
+import { ContainerHorariosListComponent } from "../SubsistemaAdmin/Horarios/ContainerHorariosListComponent";
 
 //SUB SISTEMA DOCENTE
 import { LoginDocente } from '../SubsistemaDocente/LoginDocente';
@@ -48,11 +47,10 @@ import { ProgramarMaterias } from '../SubsistemaEstudiantes/ProgramarMaterias';
 import "../../styles/styles.css"
 
 
+
 function RouterApp() {
-  
   return (
     <Fragment>
-    
       <Routes>
       
           <Route  path="/*" element={<Principal/>} />
@@ -81,8 +79,7 @@ function RouterApp() {
 
           <Route  path="/admin/semestres" element={<ContainerSemestresListComponent />} />
           
-          <Route  path="/admin/horarios" element={<HorariosComponent/>} />
-          <Route  path="/admin/horarios/modificar" element={<ModificarHorarioComponent/>} />
+          <Route  path="/admin/horarios" element={<ContainerHorariosListComponent/>} />
 
           <Route  path="/docent/login" element={<LoginDocente/>} />
           <Route  path="/docent/main" element={<PrincipalDocente/>} />
@@ -93,12 +90,10 @@ function RouterApp() {
           <Route  path="/estudent/main" element={<Estudiante/>} />
           <Route  path="/estudent/verhorarios" element={<VerHorariosEst/>} />
           <Route  path="/estudent/programaciones" element={<ProgramarMaterias/>} />
-          
-        
+      
       </Routes>
- 
     </Fragment>
   );
-}
+};
 
 export default RouterApp;

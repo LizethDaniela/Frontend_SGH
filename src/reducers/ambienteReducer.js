@@ -8,6 +8,9 @@ export const ambienteReducer = (state = {}, action) => {
         case types.listAmbientes: {
             return { ...state, data: action.payload };
         }
+        case types.getAmbiente: {
+            return { ...state, obtener_ambiente: action.payload };
+        }
         case types.deleteAmbiente: {
             return { ...state, delete_ambiente: action.payload };
         }

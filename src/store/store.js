@@ -9,6 +9,7 @@ import { semestreReducer } from "../reducers/semestreReducer";
 import { studentReducer } from "../reducers/studentReducer";
 import { loginDocente } from "../reducers/loginDocente";
 import { loginEstudent } from "../reducers/loginEstudent";
+import { horarioReducer } from "../reducers/horarioReducer";
 
 const reducers = combineReducers ({
     auth: authReducer,
@@ -18,6 +19,7 @@ const reducers = combineReducers ({
     materia: materiaReducer,
     ambientefisico: ambienteReducer,
     sem: semestreReducer,
+    horario: horarioReducer,
     logDocent: loginDocente,
     logStudent: loginEstudent,
 });

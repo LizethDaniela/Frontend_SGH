@@ -44,12 +44,17 @@ export const types = {
   listAmbientes: "list/ambientes",
   editAmbiente: "edit/ambiente",
   deleteAmbiente: "delete/ambiente",
+  getAmbiente: "obtener/ambiente",
 
   //semestre
   registerSemestre: "register/semestre",
   listSemestres: "list/semestres",
   editSemestre: "edit/semestre",
   deleteSemestre: "delete/semestre",
+  getSemestre: "obtener/semestre",
+
+  //horario
+  registerHorario: "register/horario",
 
   //Subsistemas Docente
   docentLogin:"docent/login",

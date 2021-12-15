@@ -1,4 +1,3 @@
-
 h3 {
     text-align: center;
     font-size: 2em;
@@ -28,10 +27,9 @@ select option {
 }
 .formatohorario{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
 }
-
 
 .btn-a:hover{
     color: rgb(135, 201, 201);
@@ -50,4 +48,7 @@ select option {
 }
 .cab{
     background: rgb(48, 114, 126);
+}
+.docenteambsem {
+    color:rgb(119, 121, 12)
 }

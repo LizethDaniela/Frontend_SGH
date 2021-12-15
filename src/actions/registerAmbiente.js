@@ -45,6 +45,21 @@ export const listAmbientes = () => {
     };
 };
 
+export const obtenerAmbiente = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/api/1.0/ambiente/${id}`)
+        .then((response) => response.json())
+        .then(({ ambienteResponse }) => {
+            console.log( ambienteResponse );
+            console.log("ambiente encontrado");
+            dispatch(getambiente( ambienteResponse ));
+        })
+        .catch((error) => {
+            console.log("ERROR");
+        });
+    };
+};
+
 export const deleteAmbiente = ( id ) => {
     return (dispatch) => {
         Promise.all([
@@ -107,6 +122,13 @@ export const ambienteslist = (responselist) => {
     return {
         type: types.listAmbientes,
         payload: responselist,
+    };
+};
+
+export const getambiente = (responseambiente) => {
+    return {
+        type: types.getAmbiente,
+        payload: responseambiente,
     };
 };
 
