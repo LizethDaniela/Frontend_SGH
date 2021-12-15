@@ -9,13 +9,12 @@ import "./DashSty.css"
 
 export const DashBoardComponent = () => {
     const {auth} = useSelector(state => state);
-    const { token } = auth;
+    const token = localStorage.getItem("token");
     const dispatch = useDispatch();
 
     const handlerLogout = () => {
         dispatch(authLogoutAsync());
-    
-        
+
     };
     return (
         token == null? (<Navigate to="/"/>) : (<>
