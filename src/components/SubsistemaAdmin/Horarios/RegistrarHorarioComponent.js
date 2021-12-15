@@ -224,108 +224,108 @@ export const RegistrarHorarioComponent = () => {
                 <button className="btn-a"  onClick={() => {
                     openModal(lunesph);
                 }} >
-                    
+                    {lunesph}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(martesph);
                 }} >
-                    
+                    {martesph}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(miercolesph);
                 }} >
-                    
+                    {miercolesph}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(juevesph);
                 }} >
-                    
+                    {juevesph}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(viernesph);
                 }} >
-                    
+                    {viernesph}
                 </button> 
                 
                 <button className="btn-a" >{segunda_hora}</button>
                 <button className="btn-a"  onClick={() => {
                     openModal(lunessh);
                 }} >
-                    
+                    {lunessh}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(martessh);
                 }} >
-                    
+                    {martessh}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(miercolessh);
                 }} >
-                    
+                    {miercolessh}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(juevessh);
                 }} >
-                    
+                    {juevessh}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(viernessh);
                 }} >
-                    
+                    {viernessh}
                 </button> 
                 
                 <button className="btn-a" >{tercera_hora}</button>
                 <button className="btn-a"  onClick={() => {
                     openModal(lunesth);
                 }} >
-                    
+                    {lunesth}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(martesth);
                 }} >
-                    
+                    {martesth}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(miercolesth);
                 }} >
-                    
+                    {miercolesth}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(juevesth);
                 }} >
-                    
+                    {juevesth}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(viernesth);
                 }} >
-                    
+                    {viernesth}
                 </button> 
                 
                 <button className="btn-a" >{cuarta_hora}</button>
                 <button className="btn-a"  onClick={() => {
                     openModal(lunesch);
                 }} >
-                    
+                    {lunesch}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(martesch);
                 }} >
-                    
+                    {martesch}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(miercolesch);
                 }} >
-                    
+                    {miercolesch}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(juevesch);
                 }} >
-                    
+                    {juevesch}
                 </button> 
                 <button className="btn-a"  onClick={() => {
                     openModal(viernesch);
                 }} >
-                    
+                    {viernesch}
                 </button> 
             </div>
 
