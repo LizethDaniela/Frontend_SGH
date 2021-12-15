@@ -13,11 +13,13 @@ export const Solicitar=()=>{
     motivo: ""
   })
   const handlerChangeForm=(e)=>{
-    setForm({...form, [e.target.name]: e.target.value})
-  }
+    setForm({...form, [e.target.name]:e.target.value});
+    console.log(form);
+  };
   const enviarSolicitud=(e)=>{
     e.preventDefault();
     console.log(form.nombre+ ' '+form.materia+ ' '+form.dia+ ' '+form.hora);
+    setForm("");
   };
     return (
         <>
@@ -31,7 +33,7 @@ export const Solicitar=()=>{
                         placeholder="Escriba aqui"
                         type="text"
                         name="nombre"
-                        //value="nombre"
+                        value={form.nombre}
                         onChange={handlerChangeForm}
                       /> <br/>
                   </div>
@@ -41,7 +43,7 @@ export const Solicitar=()=>{
                         placeholder="Escriba aqui"
                         type="text"
                         name="materia"
-                        //value="nombre"
+                        value={form.materia}
                         onChange={handlerChangeForm}
                       /> <br/>
                   </div>
@@ -51,7 +53,7 @@ export const Solicitar=()=>{
                         placeholder="Escriba aqui"
                         type="text"
                         name="dia"
-                        //value="nombre"
+                        value={form.dia}
                         onChange={handlerChangeForm}
                       /> <br/>
                   </div>
@@ -61,7 +63,7 @@ export const Solicitar=()=>{
                         placeholder="00:00 - 00:00"
                         type="text"
                         name="hora"
-                        //value="nombre"
+                        value={form.hora}
                         onChange={handlerChangeForm}
                       /> <br/>
                   </div>
@@ -72,7 +74,7 @@ export const Solicitar=()=>{
                     cols="25"
                     type="text"
                     name="motivo"
-                    //value={motivo}
+                    value={form.motivo}
                     onChange={handlerChangeForm}
                     
                   /> <br/>
